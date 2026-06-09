@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Yendada Marathon 2026 – Run with the Ocean Breeze | Visakhapatnam</title>
-  <meta name="description" content="The premier coastal marathon of Visakhapatnam. Race along the majestic Bay of Bengal. 1K Kids Fun Run, 3K Family Run, 5K Fun Run, 10K Run for Glory. Register now!" />
+  <meta name="description" content="The premier marathon of Visakhapatnam starting at Yendada Junction. Race categories: 2K Fun Run, 5K Fit India Run, 10K Endurance Run. Managed and Supported by Apex Group. Register now!" />
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -58,15 +58,16 @@
        NAVBAR
     ═══════════════════════════════════════════════ */
     #navbar {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 900;
+      position: fixed; top: 36px; left: 0; right: 0; z-index: 900;
       padding: 20px 0;
-      transition: background 0.4s ease, padding 0.4s ease, box-shadow 0.4s ease;
+      transition: background 0.4s ease, padding 0.4s ease, box-shadow 0.4s ease, top 0.4s ease;
     }
     #navbar.scrolled {
       background: rgba(255,255,255,0.97);
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
       padding: 13px 0;
+      top: 0;
       box-shadow: 0 1px 0 rgba(0,0,0,0.08), 0 4px 24px rgba(0,0,0,0.06);
     }
 
@@ -295,8 +296,18 @@
 
 <body>
 <!-- ═══════════════════════════════════════════════
-     NAVBAR
+     APEX GROUP ANNOUNCEMENT BAR
 ═══════════════════════════════════════════════ -->
+<div id="apex-bar" style="background:#0F2044;border-bottom:1px solid rgba(224,92,26,0.3);padding:8px 20px;text-align:center;position:relative;z-index:901;">
+  <p style="font-family:'Barlow Condensed',sans-serif;font-size:0.78rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.6);">
+    <span style="color:#E05C1A;margin-right:8px;">★</span>
+    Managed and Supported by
+    <strong style="color:#fff;margin-left:4px;letter-spacing:0.12em;">Apex Group</strong>
+    <span style="color:#E05C1A;margin-left:8px;">★</span>
+  </p>
+</div>
+
+
 <nav id="navbar">
   <div class="max-w-7xl mx-auto px-5 sm:px-6 flex items-center justify-between">
 
@@ -355,7 +366,7 @@
     <div class="max-w-2xl pt-20 pb-8">
 
       <!-- Pill badge -->
-      <div class="badge-orange mb-5 reveal">📍 Visakhapatnam &nbsp;·&nbsp; RK Beach 2026</div>
+      <div class="badge-orange mb-5 reveal">📍 Yendada Junction, Visakhapatnam &nbsp;·&nbsp; 2026</div>
 
       <!-- Headline -->
       <h1 class="font-barlow font-900 text-white uppercase leading-none mb-6 reveal d1" style="font-size:clamp(2.8rem,6vw,5rem);letter-spacing:0.03em;">
@@ -406,7 +417,7 @@
         </div>
         <div class="h-10 w-px bg-white/15 self-center"></div>
         <div>
-          <p class="font-barlow text-white" style="font-size:1.9rem;font-weight:800;line-height:1;">4 Races</p>
+          <p class="font-barlow text-white" style="font-size:1.9rem;font-weight:800;line-height:1;">3 Races</p>
           <p class="text-white/50 text-xs uppercase tracking-widest mt-1">Categories</p>
         </div>
         <div class="h-10 w-px bg-white/15 self-center"></div>
@@ -441,17 +452,16 @@
       <p class="text-gray-500 max-w-xl mx-auto" style="font-size:0.95rem;">Whether you're a seasoned runner or taking your first steps, there's a category built for you. Pick your distance and sign up today.</p>
     </div>
 
-    <!-- Cards grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    <!-- Cards grid — 3 categories -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
 
-      <!-- 1KM -->
+      <!-- 2K Fun Run -->
       <div class="cat-card reveal d1">
-        <!-- Emoji icon -->
         <div style="width:46px;height:46px;display:flex;align-items:center;justify-content:center;background:rgba(224,92,26,0.1);border-radius:4px;">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E05C1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3"/><path d="M6 20v-2a4 4 0 014-4h.5"/><path d="M14 15l3 5"/><path d="M17 15l-3 5"/></svg>
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E05C1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
         </div>
-        <p class="cat-dist">1KM</p>
-        <p class="cat-sub">Kids Fun Run</p>
+        <p class="cat-dist">2K</p>
+        <p class="cat-sub">Fun Run</p>
         <div class="border-t border-gray-100 pt-4 space-y-2">
           <div class="cat-meta-row">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
@@ -463,39 +473,19 @@
           </div>
           <div class="cat-note">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-            <span>For kids age below 12</span>
+            <span>Open to all ages — great for beginners</span>
           </div>
         </div>
-        <button onclick="openModal('1KM – Kids Fun Run')" class="mt-6 w-full py-3 font-barlow font-700 text-sm uppercase tracking-wider" style="background:#0F2044;color:#fff;letter-spacing:0.12em;transition:background 0.3s;" onmouseover="this.style.background='#162d5c'" onmouseout="this.style.background='#0F2044'">Select Category</button>
+        <button onclick="openModal('2K – Fun Run')" class="mt-6 w-full py-3 font-barlow font-700 text-sm uppercase tracking-wider" style="background:#0F2044;color:#fff;letter-spacing:0.12em;transition:background 0.3s;" onmouseover="this.style.background='#162d5c'" onmouseout="this.style.background='#0F2044'">Register Now</button>
       </div>
 
-      <!-- 3K -->
+      <!-- 5K Fit India Run -->
       <div class="cat-card reveal d2">
         <div style="width:46px;height:46px;display:flex;align-items:center;justify-content:center;background:rgba(224,92,26,0.1);border-radius:4px;">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E05C1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
-        </div>
-        <p class="cat-dist">3K</p>
-        <p class="cat-sub">Family Run</p>
-        <div class="border-t border-gray-100 pt-4 space-y-2">
-          <div class="cat-meta-row">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            <span>Flag-off: 07:15 AM</span>
-          </div>
-          <div class="cat-meta-row">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
-            <span>Fee: ₹300</span>
-          </div>
-        </div>
-        <button onclick="openModal('3K – Family Run')" class="mt-6 w-full py-3 font-barlow font-700 text-sm uppercase tracking-wider" style="background:#0F2044;color:#fff;letter-spacing:0.12em;transition:background 0.3s;" onmouseover="this.style.background='#162d5c'" onmouseout="this.style.background='#0F2044'">Select Category</button>
-      </div>
-
-      <!-- 5K -->
-      <div class="cat-card reveal d3">
-        <div style="width:46px;height:46px;display:flex;align-items:center;justify-content:center;background:rgba(224,92,26,0.1);border-radius:4px;">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E05C1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E05C1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><path d="M8 14l-2 6"/><path d="M16 14l2 6"/><path d="M12 7v5l-3 3"/><path d="M12 12l3 3"/><path d="M9 17h6"/></svg>
         </div>
         <p class="cat-dist">5K</p>
-        <p class="cat-sub">Fun Run</p>
+        <p class="cat-sub">Fit India Run</p>
         <div class="border-t border-gray-100 pt-4 space-y-2">
           <div class="cat-meta-row">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
@@ -505,17 +495,21 @@
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
             <span>Fee: ₹500</span>
           </div>
+          <div class="cat-note">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            <span>Min age: 14 years</span>
+          </div>
         </div>
-        <button onclick="openModal('5K – Fun Run')" class="mt-6 w-full py-3 font-barlow font-700 text-sm uppercase tracking-wider" style="background:#0F2044;color:#fff;letter-spacing:0.12em;transition:background 0.3s;" onmouseover="this.style.background='#162d5c'" onmouseout="this.style.background='#0F2044'">Select Category</button>
+        <button onclick="openModal('5K – Fit India Run')" class="mt-6 w-full py-3 font-barlow font-700 text-sm uppercase tracking-wider" style="background:#0F2044;color:#fff;letter-spacing:0.12em;transition:background 0.3s;" onmouseover="this.style.background='#162d5c'" onmouseout="this.style.background='#0F2044'">Register Now</button>
       </div>
 
-      <!-- 10K -->
-      <div class="cat-card reveal d4" style="border-top:3px solid #E05C1A;">
+      <!-- 10K Endurance Run -->
+      <div class="cat-card reveal d3" style="border-top:3px solid #E05C1A;">
         <div style="width:46px;height:46px;display:flex;align-items:center;justify-content:center;background:rgba(224,92,26,0.12);border-radius:4px;">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E05C1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M9 18l3-2 3 2"/><path d="M12 16v5"/><path d="M7 22l5-6 5 6"/></svg>
         </div>
         <p class="cat-dist">10K</p>
-        <p class="cat-sub">Run for Glory</p>
+        <p class="cat-sub">Endurance Run</p>
         <div class="border-t border-gray-100 pt-4 space-y-2">
           <div class="cat-meta-row">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
@@ -525,8 +519,12 @@
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
             <span>Fee: ₹800</span>
           </div>
+          <div class="cat-note">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            <span>Min age: 18 years</span>
+          </div>
         </div>
-        <button onclick="openModal('10K – Run for Glory')" class="mt-6 w-full py-3 font-barlow font-700 text-sm uppercase tracking-wider" style="background:#E05C1A;color:#fff;letter-spacing:0.12em;transition:background 0.3s;" onmouseover="this.style.background='#C04810'" onmouseout="this.style.background='#E05C1A'">Select Category</button>
+        <button onclick="openModal('10K – Endurance Run')" class="mt-6 w-full py-3 font-barlow font-700 text-sm uppercase tracking-wider" style="background:#E05C1A;color:#fff;letter-spacing:0.12em;transition:background 0.3s;" onmouseover="this.style.background='#C04810'" onmouseout="this.style.background='#E05C1A'">Register Now</button>
       </div>
 
     </div><!-- /grid -->
@@ -535,7 +533,7 @@
 
 
 <!-- ═══════════════════════════════════════════════
-     OCEAN TRACK + WHAT'S IN THE BOX
+     RACE COURSE + WHAT'S IN THE BOX
 ═══════════════════════════════════════════════ -->
 <section id="route" class="route-bg py-20">
   <div class="max-w-7xl mx-auto px-5 sm:px-6">
@@ -544,72 +542,19 @@
 
       <!-- LEFT: Map -->
       <div class="reveal">
-        <h2 class="sec-title-white mb-1">The Ocean Track</h2>
+        <h2 class="sec-title-white mb-1">Race Course</h2>
         <div class="sec-rule sec-rule-left" style="margin-bottom:24px;"></div>
 
         <!-- Tabs -->
         <div class="flex items-center gap-0 border-b border-white/10 mb-4 overflow-x-auto">
-          <button class="map-tab active" onclick="switchMap(this,'map-21k')">21K Map</button>
-          <button class="map-tab" onclick="switchMap(this,'map-10k')">10K Map</button>
+          <button class="map-tab active" onclick="switchMap(this,'map-10k')">10K Map</button>
           <button class="map-tab" onclick="switchMap(this,'map-5k')">5K Map</button>
-          <button class="map-tab" onclick="switchMap(this,'map-3k')">3K Map</button>
+          <button class="map-tab" onclick="switchMap(this,'map-2k')">2K Map</button>
         </div>
 
         <!-- Map panels -->
-        <!-- 21K -->
-        <div id="map-21k" class="map-panel active">
-          <div class="rounded overflow-hidden" style="background:#0a1628;border:1px solid rgba(255,255,255,0.08);">
-            <svg viewBox="0 0 580 360" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">
-              <!-- Ocean -->
-              <rect width="580" height="360" fill="#0a1628"/>
-              <rect x="0" y="0" width="140" height="360" fill="#0c1f3a"/>
-              <!-- Ocean shimmer -->
-              <rect x="0" y="0" width="140" height="360" fill="url(#oceanGrad)"/>
-              <defs>
-                <linearGradient id="oceanGrad" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0%" stop-color="#102a4c"/>
-                  <stop offset="100%" stop-color="#0a1628" stop-opacity="0"/>
-                </linearGradient>
-                <filter id="glow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-              </defs>
-              <!-- City grid -->
-              <g stroke="rgba(255,255,255,0.06)" stroke-width="1">
-                <line x1="180" y1="0" x2="180" y2="360"/><line x1="240" y1="0" x2="240" y2="360"/>
-                <line x1="300" y1="0" x2="300" y2="360"/><line x1="360" y1="0" x2="360" y2="360"/>
-                <line x1="420" y1="0" x2="420" y2="360"/><line x1="480" y1="0" x2="480" y2="360"/>
-                <line x1="140" y1="60" x2="580" y2="60"/><line x1="140" y1="120" x2="580" y2="120"/>
-                <line x1="140" y1="180" x2="580" y2="180"/><line x1="140" y1="240" x2="580" y2="240"/>
-                <line x1="140" y1="300" x2="580" y2="300"/>
-              </g>
-              <!-- Coastline -->
-              <path d="M138 20 Q140 80 136 140 Q132 200 138 260 Q142 320 138 360" stroke="rgba(255,255,255,0.18)" stroke-width="1.5" fill="none"/>
-              <!-- 21K Route (full loop) -->
-              <path d="M138 320 Q170 310 200 290 Q240 260 260 220 Q280 180 300 160 Q320 140 350 120 Q380 100 400 80 Q420 60 450 55 Q480 50 510 60 Q540 70 555 90 Q570 110 560 140 Q548 165 530 175 Q505 188 480 185 Q455 182 440 200 Q420 218 410 240 Q395 265 410 285 Q425 305 440 315 Q460 328 440 340 Q410 355 380 348 Q350 340 320 330 Q290 320 260 315 Q220 308 190 318 Q165 326 138 320Z" stroke="#E05C1A" stroke-width="2.5" fill="rgba(224,92,26,0.06)" filter="url(#glow)" stroke-dasharray="4 0"/>
-              <!-- Start/End markers -->
-              <circle cx="138" cy="320" r="6" fill="#E05C1A"/>
-              <text x="148" y="325" fill="#E05C1A" font-size="9" font-family="sans-serif" font-weight="bold">START/FINISH</text>
-              <!-- Water stations -->
-              <circle cx="300" cy="160" r="4" fill="#3B82F6"/><text x="308" y="157" fill="#60A5FA" font-size="7" font-family="sans-serif">W1</text>
-              <circle cx="480" cy="185" r="4" fill="#3B82F6"/><text x="488" y="182" fill="#60A5FA" font-size="7" font-family="sans-serif">W2</text>
-              <circle cx="410" cy="285" r="4" fill="#3B82F6"/><text x="418" y="282" fill="#60A5FA" font-size="7" font-family="sans-serif">W3</text>
-              <!-- Label -->
-              <rect x="10" y="15" width="110" height="22" rx="2" fill="rgba(224,92,26,0.85)"/>
-              <text x="65" y="30" fill="white" font-size="9" font-family="sans-serif" font-weight="bold" text-anchor="middle">21K — FULL ROUTE</text>
-              <!-- Info -->
-              <rect x="10" y="325" width="115" height="28" rx="2" fill="rgba(0,0,0,0.55)"/>
-              <text x="18" y="337" fill="rgba(255,255,255,0.6)" font-size="7.5" font-family="sans-serif">⚡ Zoom & pan — water</text>
-              <text x="18" y="348" fill="rgba(255,255,255,0.6)" font-size="7.5" font-family="sans-serif">stations &amp; first-aid marked</text>
-            </svg>
-          </div>
-          <p class="text-white/35 text-xs mt-3 flex items-center gap-2">
-            <span style="display:inline-block;width:8px;height:8px;background:#E05C1A;border-radius:50%;"></span> Route
-            <span style="display:inline-block;width:8px;height:8px;background:#3B82F6;border-radius:50%;margin-left:8px;"></span> Water Station
-            <span style="display:inline-block;width:8px;height:8px;background:#EF4444;border-radius:50%;margin-left:8px;"></span> First Aid
-          </p>
-        </div>
-
-        <!-- 10K -->
-        <div id="map-10k" class="map-panel">
+        <!-- 10K — now default active -->
+        <div id="map-10k" class="map-panel active">
           <div class="rounded overflow-hidden" style="background:#0a1628;border:1px solid rgba(255,255,255,0.08);">
             <svg viewBox="0 0 580 360" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">
               <rect width="580" height="360" fill="#0a1628"/>
@@ -625,10 +570,15 @@
               <text x="148" y="295" fill="#E05C1A" font-size="9" font-family="sans-serif" font-weight="bold">START/FINISH</text>
               <circle cx="310" cy="165" r="4" fill="#3B82F6"/><text x="318" y="162" fill="#60A5FA" font-size="7" font-family="sans-serif">W1</text>
               <circle cx="438" cy="215" r="4" fill="#3B82F6"/><text x="446" y="212" fill="#60A5FA" font-size="7" font-family="sans-serif">W2</text>
-              <rect x="10" y="15" width="110" height="22" rx="2" fill="rgba(224,92,26,0.85)"/>
-              <text x="65" y="30" fill="white" font-size="9" font-family="sans-serif" font-weight="bold" text-anchor="middle">10K — GLORY ROUTE</text>
+              <rect x="10" y="15" width="130" height="22" rx="2" fill="rgba(224,92,26,0.85)"/>
+              <text x="75" y="30" fill="white" font-size="9" font-family="sans-serif" font-weight="bold" text-anchor="middle">10K — ENDURANCE ROUTE</text>
             </svg>
           </div>
+          <p class="text-white/35 text-xs mt-3 flex items-center gap-2">
+            <span style="display:inline-block;width:8px;height:8px;background:#E05C1A;border-radius:50%;"></span> Route
+            <span style="display:inline-block;width:8px;height:8px;background:#3B82F6;border-radius:50%;margin-left:8px;"></span> Water Station
+            <span style="display:inline-block;width:8px;height:8px;background:#EF4444;border-radius:50%;margin-left:8px;"></span> First Aid
+          </p>
         </div>
 
         <!-- 5K -->
@@ -647,14 +597,14 @@
               <circle cx="138" cy="280" r="6" fill="#E05C1A"/>
               <text x="148" y="285" fill="#E05C1A" font-size="9" font-family="sans-serif" font-weight="bold">START/FINISH</text>
               <circle cx="315" cy="175" r="4" fill="#3B82F6"/><text x="323" y="172" fill="#60A5FA" font-size="7" font-family="sans-serif">W1</text>
-              <rect x="10" y="15" width="110" height="22" rx="2" fill="rgba(224,92,26,0.85)"/>
-              <text x="65" y="30" fill="white" font-size="9" font-family="sans-serif" font-weight="bold" text-anchor="middle">5K — FUN RUN</text>
+              <rect x="10" y="15" width="120" height="22" rx="2" fill="rgba(224,92,26,0.85)"/>
+              <text x="70" y="30" fill="white" font-size="9" font-family="sans-serif" font-weight="bold" text-anchor="middle">5K — FIT INDIA RUN</text>
             </svg>
           </div>
         </div>
 
-        <!-- 3K -->
-        <div id="map-3k" class="map-panel">
+        <!-- 2K Fun Run -->
+        <div id="map-2k" class="map-panel">
           <div class="rounded overflow-hidden" style="background:#0a1628;border:1px solid rgba(255,255,255,0.08);">
             <svg viewBox="0 0 580 360" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">
               <rect width="580" height="360" fill="#0a1628"/>
@@ -668,9 +618,36 @@
               <path d="M138 280 Q162 268 190 258 Q220 246 248 240 Q278 235 305 245 Q328 254 335 275 Q342 298 322 310 Q298 322 272 316 Q245 308 218 304 Q190 299 165 306 Q152 310 138 306Z" stroke="#E05C1A" stroke-width="2.5" fill="rgba(224,92,26,0.06)" stroke-dasharray="4 0"/>
               <circle cx="138" cy="280" r="6" fill="#E05C1A"/>
               <text x="148" y="285" fill="#E05C1A" font-size="9" font-family="sans-serif" font-weight="bold">START/FINISH</text>
-              <rect x="10" y="15" width="110" height="22" rx="2" fill="rgba(224,92,26,0.85)"/>
-              <text x="65" y="30" fill="white" font-size="9" font-family="sans-serif" font-weight="bold" text-anchor="middle">3K — FAMILY LOOP</text>
+              <rect x="10" y="15" width="120" height="22" rx="2" fill="rgba(224,92,26,0.85)"/>
+              <text x="70" y="30" fill="white" font-size="9" font-family="sans-serif" font-weight="bold" text-anchor="middle">2K — FUN RUN LOOP</text>
             </svg>
+          </div>
+        </div>
+
+        <!-- Location Info Block -->
+        <div class="mt-5 rounded" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);overflow:hidden;">
+          <!-- Google Maps Embed — Yendada Junction, Visakhapatnam -->
+          <div style="position:relative;width:100%;height:200px;background:#0a1628;overflow:hidden;">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3800.438!2d83.30528!3d17.73925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a395bfcb4c9f9c5%3A0x0!2sYendada%2C+Visakhapatnam%2C+Andhra+Pradesh!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+              width="100%" height="200" style="border:0;display:block;filter:invert(0.9) hue-rotate(190deg) saturate(0.7);"
+              allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+              title="Race course location — Yendada Junction, Visakhapatnam">
+            </iframe>
+          </div>
+          <div class="flex items-start gap-3 p-4">
+            <div style="width:34px;height:34px;background:rgba(224,92,26,0.15);border-radius:4px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E05C1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <p class="text-white font-semibold text-sm leading-tight">Yendada Junction, Visakhapatnam</p>
+              <p class="text-white/45 text-xs mt-1">Near Chennapatnam Filter Coffee &nbsp;·&nbsp; Andhra Pradesh 530 045</p>
+              <a href="https://maps.google.com/?q=Yendada+Junction+Visakhapatnam" target="_blank" rel="noopener"
+                 style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#E05C1A;">
+                Open in Google Maps
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+              </a>
+            </div>
           </div>
         </div>
 
@@ -762,7 +739,7 @@
           <div class="tl-dot"></div>
           <p class="tl-time">04:00 AM</p>
           <h3 class="tl-title">Assembly &amp; Baggage Drop</h3>
-          <p class="tl-desc">Arrival at RK Beach start point. Warm-up sessions begin. Collect your BIB if not picked up before.</p>
+          <p class="tl-desc">Arrival at Yendada Junction start point. Warm-up sessions begin. Collect your BIB if not picked up before.</p>
         </div>
 
         <div class="tl-item reveal d1">
@@ -775,22 +752,15 @@
         <div class="tl-item reveal d2">
           <div class="tl-dot"></div>
           <p class="tl-time">06:30 AM</p>
-          <h3 class="tl-title">5K Fun Run Flag-Off</h3>
-          <p class="tl-desc">Join the energetic morning crowd for the 5K scenic coastal run.</p>
+          <h3 class="tl-title">5K Fit India Run Flag-Off</h3>
+          <p class="tl-desc">Join the energetic morning crowd for the 5K Fit India Run — a scenic route from Yendada Junction.</p>
         </div>
 
         <div class="tl-item reveal d3">
           <div class="tl-dot"></div>
           <p class="tl-time">07:15 AM</p>
-          <h3 class="tl-title">3K Family Run Flag-Off</h3>
-          <p class="tl-desc">Families take the track together. Create memories along the Bay of Bengal.</p>
-        </div>
-
-        <div class="tl-item reveal d4">
-          <div class="tl-dot"></div>
-          <p class="tl-time">07:30 AM</p>
-          <h3 class="tl-title">1KM Kids Fun Run Flag-off</h3>
-          <p class="tl-desc">The little champions take the track. Loudest cheers guaranteed!</p>
+          <h3 class="tl-title">2K Fun Run Flag-Off</h3>
+          <p class="tl-desc">Everyone's welcome — the 2K loop is the perfect community run for all ages and fitness levels.</p>
         </div>
 
         <div class="tl-item reveal">
@@ -890,10 +860,9 @@
         <div class="faq-content">
           <div class="faq-inner">
             <ul class="space-y-2 list-none">
-              <li><span class="font-semibold text-rust" style="color:#E05C1A;">1KM Kids Fun Run</span> — Open to children aged <strong>4 to 12 years</strong>. A parent/guardian must be present at the start line. They may run alongside their child.</li>
-              <li class="mt-2"><span class="font-semibold text-rust" style="color:#E05C1A;">3KM Family Run</span> — Open to all ages. Children under 12 must be accompanied by an adult.</li>
-              <li class="mt-2"><span class="font-semibold text-rust" style="color:#E05C1A;">5KM Fun Run</span> — Minimum age: <strong>14 years</strong>.</li>
-              <li class="mt-2"><span class="font-semibold text-rust" style="color:#E05C1A;">10KM Run for Glory</span> — Minimum age: <strong>18 years</strong>. Runners aged 18–21 require a signed parental consent form.</li>
+              <li><span class="font-semibold text-rust" style="color:#E05C1A;">2KM Fun Run</span> — Open to all ages. A great entry point for anyone new to running.</li>
+              <li class="mt-2"><span class="font-semibold text-rust" style="color:#E05C1A;">5KM Fit India Run</span> — Minimum age: <strong>14 years</strong>.</li>
+              <li class="mt-2"><span class="font-semibold text-rust" style="color:#E05C1A;">10KM Endurance Run</span> — Minimum age: <strong>18 years</strong>. Runners aged 18–21 require a signed parental consent form.</li>
             </ul>
           </div>
         </div>
@@ -966,7 +935,17 @@
         </button>
       </div>
 
-      <hr style="border-color:rgba(255,255,255,0.07);margin-bottom:16px;"/>
+      <hr style="border-color:rgba(255,255,255,0.07);margin-bottom:18px;"/>
+
+      <!-- Apex Group Credit -->
+      <div style="display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:4px;padding:10px 20px;margin-bottom:16px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E05C1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <p style="color:rgba(255,255,255,0.55);font-size:0.8rem;font-family:'Inter',sans-serif;letter-spacing:0.04em;">
+          Managed and Supported by
+          <strong style="color:#E05C1A;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-left:4px;">Apex Group</strong>
+        </p>
+      </div>
+
       <p class="text-white/25 text-xs uppercase tracking-widest">© 2026 Yendada Marathon. Official Sanctioned Event. Visakhapatnam, Andhra Pradesh.</p>
     </div>
 
@@ -1071,31 +1050,24 @@
       <div class="f-group">
         <label class="f-label">Race Category</label>
         <div class="space-y-2">
-          <div class="cat-choice" id="cc-1k" onclick="selectCat(this,'1KM – Kids Fun Run', '₹200')">
+          <div class="cat-choice" id="cc-2k" onclick="selectCat(this,'2K – Fun Run', '₹200')">
             <div class="cat-choice-radio"></div>
             <div>
-              <p class="font-semibold text-sm text-navy" style="color:#0F2044;">1KM — Kids Fun Run</p>
+              <p class="font-semibold text-sm text-navy" style="color:#0F2044;">2K — Fun Run</p>
               <p class="text-xs text-gray-400">Flag-off 07:30 AM &nbsp;·&nbsp; ₹200</p>
             </div>
           </div>
-          <div class="cat-choice" id="cc-3k" onclick="selectCat(this,'3K – Family Run', '₹300')">
+          <div class="cat-choice" id="cc-5k" onclick="selectCat(this,'5K – Fit India Run', '₹500')">
             <div class="cat-choice-radio"></div>
             <div>
-              <p class="font-semibold text-sm text-navy" style="color:#0F2044;">3K — Family Run</p>
-              <p class="text-xs text-gray-400">Flag-off 07:15 AM &nbsp;·&nbsp; ₹300</p>
-            </div>
-          </div>
-          <div class="cat-choice" id="cc-5k" onclick="selectCat(this,'5K – Fun Run', '₹500')">
-            <div class="cat-choice-radio"></div>
-            <div>
-              <p class="font-semibold text-sm text-navy" style="color:#0F2044;">5K — Fun Run</p>
+              <p class="font-semibold text-sm text-navy" style="color:#0F2044;">5K — Fit India Run</p>
               <p class="text-xs text-gray-400">Flag-off 06:30 AM &nbsp;·&nbsp; ₹500</p>
             </div>
           </div>
-          <div class="cat-choice" id="cc-10k" onclick="selectCat(this,'10K – Run for Glory', '₹800')">
+          <div class="cat-choice" id="cc-10k" onclick="selectCat(this,'10K – Endurance Run', '₹800')">
             <div class="cat-choice-radio"></div>
             <div>
-              <p class="font-semibold text-sm text-navy" style="color:#0F2044;">10K — Run for Glory</p>
+              <p class="font-semibold text-sm text-navy" style="color:#0F2044;">10K — Endurance Run</p>
               <p class="text-xs text-gray-400">Flag-off 05:45 AM &nbsp;·&nbsp; ₹800</p>
             </div>
           </div>
@@ -1147,8 +1119,8 @@
       <!-- Summary card -->
       <div class="rounded-md overflow-hidden border border-gray-100 mb-6" id="summary-card">
         <div style="background:#0F2044;padding:14px 18px;">
-          <p class="font-barlow text-white text-lg font-700 uppercase" style="letter-spacing:0.06em;">Yendada Marathon 2024</p>
-          <p class="text-white/45 text-xs">RK Beach, Visakhapatnam</p>
+          <p class="font-barlow text-white text-lg font-700 uppercase" style="letter-spacing:0.06em;">Yendada Marathon 2026</p>
+          <p class="text-white/45 text-xs">Yendada Junction, Visakhapatnam</p>
         </div>
         <div class="px-4 py-2">
           <div class="summary-row"><span>Runner Name</span><span id="sum-name">—</span></div>
@@ -1197,7 +1169,7 @@
         <div class="summary-row"><span>Confirmation #</span><span id="succ-conf" style="color:#E05C1A;font-weight:700;"></span></div>
         <div class="summary-row"><span>Runner</span><span id="succ-name"></span></div>
         <div class="summary-row"><span>Category</span><span id="succ-cat"></span></div>
-        <div class="summary-row"><span>Date</span><span>July 13, 2026 · RK Beach</span></div>
+        <div class="summary-row"><span>Date</span><span>July 26, 2026 · Yendada Junction, Vizag</span></div>
       </div>
 
       <p class="text-xs text-gray-400 mb-6 leading-relaxed">Your BIB and race kit will be available at the pre-race expo. We'll send detailed instructions closer to race day. <strong>See you on the track!</strong></p>
@@ -1223,7 +1195,7 @@ let selectedCategory   = null;
 let selectedCategoryFee = null;
 let selectedSize       = null;
 let currentStep        = 1;
-const RACE_DATE = new Date('2026-07-13T04:00:00');
+const RACE_DATE = new Date('2026-07-26T04:00:00');
 
 /* ══════════════════════════════════
    NAVBAR SCROLL EFFECT
@@ -1361,10 +1333,9 @@ function openModal(preselected) {
   if (preselected) {
     // Map preselected string to option
     const map = {
-      '1KM – Kids Fun Run':   { id:'cc-1k',  fee:'₹200' },
-      '3K – Family Run':      { id:'cc-3k',  fee:'₹300' },
-      '5K – Fun Run':         { id:'cc-5k',  fee:'₹500' },
-      '10K – Run for Glory':  { id:'cc-10k', fee:'₹800' },
+      '2K – Fun Run':         { id:'cc-2k',  fee:'₹200' },
+      '5K – Fit India Run':   { id:'cc-5k',  fee:'₹500' },
+      '10K – Endurance Run':  { id:'cc-10k', fee:'₹800' },
     };
     if (map[preselected]) {
       const { id, fee } = map[preselected];
