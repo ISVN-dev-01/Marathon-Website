@@ -1,0 +1,9 @@
+{
+  "name": "yendada-marathon",
+  "version": "1.0.0",
+  "description": "Yendada Marathon 2026 — Razorpay + Google Sheets backend",
+  "dependencies": {
+    "razorpay": "^2.9.2",
+    "googleapis": "^128.0.0"
+  }
+}
