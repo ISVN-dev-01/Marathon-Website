@@ -6,15 +6,12 @@
   <title>Yendada Marathon 2026 – Run with the Ocean Breeze | Visakhapatnam</title>
   <meta name="description" content="The premier marathon of Visakhapatnam starting at Yendada Junction. Race categories: 2K Fun Run, 5K Fit India Run, 10K Endurance Run. Managed and Supported by Apex Group. Register now!" />
 
-  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Google Fonts: Barlow Condensed + Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700;1,800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
-  <!-- Tailwind Config Extension -->
   <script>
     tailwind.config = {
       theme: {
@@ -48,9 +45,6 @@
     button { cursor: pointer; border: none; background: transparent; }
     a      { text-decoration: none; color: inherit; }
 
-    /* ═══════════════════════════════════════════════
-       TYPOGRAPHY UTILITIES
-    ═══════════════════════════════════════════════ */
     .font-barlow  { font-family: 'Barlow Condensed', sans-serif; }
     .tracking-marathon { letter-spacing: 0.14em; }
 
@@ -105,8 +99,25 @@
       background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.06));
       pointer-events: none;
     }
-    /* Animated bottom wave */
     .wave-bottom { position: absolute; bottom: -2px; left: 0; right: 0; line-height: 0; }
+
+    /* ── CHANGE 1: Race date badge ── */
+    .race-date-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(224,92,26,0.18);
+      border: 1px solid rgba(224,92,26,0.45);
+      padding: 7px 16px;
+      border-radius: 100px;
+      color: #fff;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
 
     /* Countdown */
     .cd-wrap { display: inline-flex; background: rgba(10,23,52,0.88); border: 1px solid rgba(255,255,255,0.12); backdrop-filter: blur(8px); overflow: hidden; }
@@ -208,15 +219,45 @@
     /* ═══════════════════════════════════════════════
        REGISTRATION MODAL
     ═══════════════════════════════════════════════ */
-    #modal-overlay { position: fixed; inset: 0; z-index: 9999; background: rgba(5,15,34,0.88); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; padding: 20px; opacity: 0; visibility: hidden; transition: opacity 0.35s, visibility 0.35s; }
+    #modal-overlay {
+      position: fixed; inset: 0; z-index: 9999;
+      background: rgba(5,15,34,0.88);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0; visibility: hidden;
+      transition: opacity 0.35s, visibility 0.35s;
+    }
     #modal-overlay.open { opacity: 1; visibility: visible; }
-    #modal-box { background: #fff; border-radius: 8px; width: 100%; max-width: 530px; max-height: 92vh; overflow-y: auto; transform: translateY(44px) scale(0.96); transition: transform 0.42s cubic-bezier(0.34,1.56,0.64,1); }
+
+    #modal-box {
+      background: #fff;
+      border-radius: 8px;
+      width: 100%;
+      max-width: 530px;
+      max-height: 92vh;
+      overflow-y: auto;
+      transform: translateY(44px) scale(0.96);
+      transition: transform 0.42s cubic-bezier(0.34,1.56,0.64,1);
+    }
     #modal-overlay.open #modal-box { transform: translateY(0) scale(1); }
     #modal-box::-webkit-scrollbar { width: 4px; }
     #modal-box::-webkit-scrollbar-thumb { background: #E05C1A; }
 
+    /* Mobile drag handle indicator */
+    .modal-drag-handle {
+      display: none;
+      width: 40px; height: 4px;
+      background: rgba(255,255,255,0.25);
+      border-radius: 99px;
+      margin: 10px auto 0;
+    }
+
     .modal-hdr { background: #0F2044; padding: 22px 26px 20px; display: flex; align-items: flex-start; justify-content: space-between; }
-    .modal-close { color: rgba(255,255,255,0.5); transition: color 0.3s; padding: 2px; }
+    .modal-close { color: rgba(255,255,255,0.5); transition: color 0.3s; padding: 2px; flex-shrink: 0; }
     .modal-close:hover { color: #fff; }
 
     .step-bubble { width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 700; transition: all 0.35s; }
@@ -225,7 +266,7 @@
     .step-bubble.done     { background: #E05C1A; color: #fff; }
     .step-line { flex: 1; height: 1px; background: rgba(255,255,255,0.12); transition: background 0.4s; }
     .step-line.done { background: #E05C1A; }
-    .step-lbl { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.1em; margin-top: 5px; text-align: center; }
+    .step-lbl { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.1em; margin-top: 5px; text-align: center; color: rgba(255,255,255,0.4); }
 
     /* Form */
     .f-group { margin-bottom: 16px; }
@@ -244,7 +285,7 @@
     .cat-choice.sel .cat-choice-radio { border-color: #E05C1A; }
     .cat-choice.sel .cat-choice-radio::after { content: ''; position: absolute; inset: 3px; background: #E05C1A; border-radius: 50%; }
 
-    .btn-modal-primary { display: flex; align-items: center; justify-content: center; gap: 8px; background: #E05C1A; color: #fff; padding: 13px 28px; font-family: 'Barlow Condensed', sans-serif; font-size: 0.88rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; border: none; width: 100%; transition: all 0.3s; cursor: pointer; }
+    .btn-modal-primary { display: flex; align-items: center; justify-content: center; gap: 8px; background: #E05C1A; color: #fff; padding: 13px 28px; font-family: 'Barlow Condensed', sans-serif; font-size: 0.88rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; border: none; width: 100%; transition: all 0.3s; cursor: pointer; border-radius: 4px; }
     .btn-modal-primary:hover { background: #C04810; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(224,92,26,0.4); }
     .btn-modal-ghost { display: flex; align-items: center; justify-content: center; gap: 8px; background: transparent; color: #6B7280; padding: 12px 24px; font-family: 'Inter', sans-serif; font-size: 0.875rem; font-weight: 500; border: 1.5px solid #DDE2EC; width: 100%; transition: all 0.3s; cursor: pointer; border-radius: 4px; }
     .btn-modal-ghost:hover { border-color: #9CA3AF; color: #374151; }
@@ -252,14 +293,10 @@
     /* Success screen */
     @keyframes popCheck { 0%{transform:scale(0) rotate(-45deg);opacity:0} 60%{transform:scale(1.2);opacity:1} 100%{transform:scale(1);opacity:1} }
     .check-anim { animation: popCheck 0.65s cubic-bezier(0.34,1.56,0.64,1) forwards; }
-    @keyframes tickerLine { from { width:0; } to { width:100%; } }
-    .ticker { animation: tickerLine 1.8s ease 0.3s forwards; width: 0; }
     @keyframes confDrop { from { transform: translateY(-20px) rotate(0deg); opacity: 1; } to { transform: translateY(80px) rotate(720deg); opacity: 0; } }
     .conf-piece { position: absolute; width: 7px; height: 7px; animation: confDrop var(--dur, 1.4s) ease var(--del, 0s) forwards; }
 
-    /* ═══════════════════════════════════════════════
-       SCROLL REVEAL
-    ═══════════════════════════════════════════════ */
+    /* Scroll Reveal */
     .reveal { opacity: 0; transform: translateY(36px); transition: opacity 0.72s ease, transform 0.72s ease; }
     .reveal.d1 { transition-delay: 0.10s; }
     .reveal.d2 { transition-delay: 0.20s; }
@@ -267,25 +304,21 @@
     .reveal.d4 { transition-delay: 0.40s; }
     .reveal.vis { opacity: 1; transform: translateY(0); }
 
-    /* ═══════════════════════════════════════════════
-       SCROLLBAR
-    ═══════════════════════════════════════════════ */
+    /* Scrollbar */
     ::-webkit-scrollbar { width: 5px; }
     ::-webkit-scrollbar-track { background: #f1f1f1; }
     ::-webkit-scrollbar-thumb { background: #E05C1A; border-radius: 3px; }
 
-    /* ═══════════════════════════════════════════════
-       MISC UTILITY
-    ═══════════════════════════════════════════════ */
+    /* Misc */
     .badge-orange { display: inline-block; background: rgba(224,92,26,0.12); color: #E05C1A; padding: 4px 12px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 2px; }
     .orange-text { color: #E05C1A; }
     .navy-text { color: #0F2044; }
 
-    /* Summary card in modal */
-    .summary-row { display: flex; justify-content: space-between; padding: 9px 0; border-bottom: 1px solid #F0F2F8; font-size: 0.88rem; }
+    /* Summary card */
+    .summary-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; padding: 9px 0; border-bottom: 1px solid #F0F2F8; font-size: 0.88rem; }
     .summary-row:last-child { border-bottom: none; }
-    .summary-row span:first-child { color: #6B7280; }
-    .summary-row span:last-child  { font-weight: 600; color: #1a2340; }
+    .summary-row span:first-child { color: #6B7280; flex-shrink: 0; }
+    .summary-row span:last-child  { font-weight: 600; color: #1a2340; text-align: right; word-break: break-word; }
 
     /* Form error */
     .f-err { font-size: 0.75rem; color: #EF4444; margin-top: 4px; display: none; }
@@ -293,11 +326,150 @@
     .f-input.err { border-color: #EF4444; }
     @keyframes spin { to { transform: rotate(360deg); } }
     .spin { animation: spin 0.8s linear infinite; display: inline-block; }
+
+    /* ═══════════════════════════════════════════════
+       ★  MOBILE RESPONSIVE FIXES  ★
+       Covers all layout and UX issues on phones
+    ═══════════════════════════════════════════════ */
+    @media (max-width: 639px) {
+
+      /* ── Announcement bar ── */
+      #apex-bar { padding: 7px 14px; }
+      #apex-bar p { font-size: 0.68rem; line-height: 1.4; }
+
+      /* ── Navbar ── */
+      #navbar { top: 32px; padding: 14px 0; }
+      #navbar.scrolled { top: 0; }
+      .nav-logo-text { font-size: 1rem; }
+
+      /* ── Hero section ── */
+      .hero-section { min-height: 100svh; }
+
+      /* ── Countdown timer — tighter on mobile ── */
+      .cd-wrap { display: flex; width: 100%; }
+      .cd-cell { padding: 10px 8px; min-width: 0; flex: 1; text-align: center; }
+      .cd-num { font-size: 1.8rem; }
+      .cd-lbl { font-size: 0.46rem; letter-spacing: 0.14em; margin-top: 4px; }
+      .cd-cell+.cd-cell::before { font-size: 1.2rem; left: -4px; }
+
+      /* ── Hero stats strip ── */
+      .hero-stats-strip { gap: 14px !important; margin-top: 28px !important; }
+      .hero-stats-strip .stat-num { font-size: 1.45rem !important; }
+
+      /* ── Section titles ── */
+      .sec-title, .sec-title-white { font-size: 2rem; }
+      .sec-rule { margin-bottom: 24px; }
+
+      /* ── Category cards ── */
+      .cat-card { padding: 20px 18px 18px; }
+      .cat-dist { font-size: 2.1rem; }
+
+      /* ── Box items (kit section) ── */
+      .box-item { padding: 11px 12px; gap: 10px; }
+      .box-icon { width: 36px; height: 36px; }
+
+      /* ── Timeline ── */
+      .tl-wrap { padding-left: 38px; }
+      .tl-dot { left: -34px; width: 15px; height: 15px; }
+      .tl-line { left: 12px; }
+      .tl-title { font-size: 1.2rem; }
+      .tl-desc { font-size: 0.82rem; }
+      .tl-item { padding-bottom: 28px; }
+
+      /* ── Gallery — narrower cells on mobile ── */
+      .gal-item { height: 100px !important; }
+
+      /* ── FAQ ── */
+      .faq-btn { padding: 16px 18px; font-size: 0.92rem; }
+      .faq-inner { padding: 4px 18px 18px; font-size: 0.85rem; }
+
+      /* ═══════════════════════════════════════
+         MODAL — bottom sheet on mobile
+      ═══════════════════════════════════════ */
+      #modal-overlay {
+        padding: 0;
+        align-items: flex-end;
+        justify-content: center;
+      }
+      #modal-box {
+        border-radius: 22px 22px 0 0;
+        max-height: 92dvh;
+        max-width: 100%;
+        width: 100%;
+        transform: translateY(100%) !important;
+        transition: transform 0.44s cubic-bezier(0.32, 0.72, 0, 1) !important;
+      }
+      #modal-overlay.open #modal-box {
+        transform: translateY(0) !important;
+      }
+
+      /* Show drag handle on mobile */
+      .modal-drag-handle { display: block; }
+
+      /* Modal header tighter */
+      .modal-hdr { padding: 14px 16px 14px; }
+
+      /* Step bubbles smaller */
+      .step-bubble { width: 28px; height: 28px; font-size: 0.8rem; }
+      .step-lbl { font-size: 0.48rem; letter-spacing: 0.05em; }
+
+      /* Step panels padding */
+      #step1, #step2, #step3, #step4 { padding: 20px 16px 32px; }
+
+      /* Inputs: 16px prevents iOS auto-zoom on focus */
+      .f-input { font-size: 16px; padding: 10px 12px; }
+      .f-label { font-size: 0.69rem; }
+      .f-group { margin-bottom: 14px; }
+      .f-err { font-size: 0.72rem; }
+
+      /* Size pills — tighter on mobile */
+      .size-pill { padding: 8px 12px; font-size: 0.79rem; }
+
+      /* Category choice in modal */
+      .cat-choice { padding: 10px 12px; gap: 10px; }
+      .cat-choice-radio { width: 16px; height: 16px; }
+
+      /* Modal primary & ghost buttons */
+      .btn-modal-primary { font-size: 0.84rem; padding: 13px 16px; letter-spacing: 0.08em; border-radius: 6px; }
+      .btn-modal-ghost { font-size: 0.84rem; padding: 12px 14px; border-radius: 6px; }
+
+      /* Summary card */
+      .summary-row { font-size: 0.79rem; }
+      #sum-email { font-size: 0.73rem; }
+
+      /* Success screen */
+      #step4 { padding: 28px 16px 36px; }
+      #step4 .check-anim-wrap { width: 68px !important; height: 68px !important; }
+
+      /* Modal button rows — stack vertically on mobile, primary first */
+      .modal-btn-row {
+        flex-direction: column-reverse !important;
+        gap: 10px !important;
+      }
+      .modal-btn-row .btn-modal-ghost {
+        width: 100% !important;
+        padding: 12px 14px !important;
+      }
+      .modal-btn-row .btn-modal-primary {
+        flex: none !important;
+        width: 100% !important;
+      }
+    }
+
+    @media (max-width: 390px) {
+      /* Extra-small phones */
+      .cd-num { font-size: 1.55rem; }
+      .cd-cell { padding: 8px 5px; }
+      .cd-cell+.cd-cell::before { font-size: 1rem; left: -3px; }
+      .race-date-badge { font-size: 0.88rem; padding: 6px 12px; }
+      #step1, #step2, #step3, #step4 { padding: 18px 14px 30px; }
+    }
   </style>
   <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 </head>
 
 <body>
+
 <!-- ═══════════════════════════════════════════════
      APEX GROUP ANNOUNCEMENT BAR
 ═══════════════════════════════════════════════ -->
@@ -316,7 +488,6 @@
 
     <!-- Logo -->
     <a href="#home" class="flex items-center gap-3" aria-label="Yendada Marathon Home">
-      <!-- Bird / Wave Icon -->
       <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="18" cy="18" r="18" fill="rgba(224,92,26,0.18)"/>
         <path d="M7 22 Q10 16 14 18 Q18 20 22 14 Q26 8 30 12" stroke="#E05C1A" stroke-width="2.2" stroke-linecap="round" fill="none"/>
@@ -374,12 +545,21 @@
       <!-- Headline -->
       <h1 class="font-barlow font-900 text-white uppercase leading-none mb-6 reveal d1" style="font-size:clamp(2.8rem,6vw,5rem);letter-spacing:0.03em;">
         Yendada Marathon –<br>
-        <span class="text-rust" style="color:#E05C1A;">Run with the Ocean Breeze</span>
+        <span style="color:#E05C1A;">Run with the Ocean Breeze</span>
       </h1>
 
-      <!-- Countdown -->
+      <!-- ── CHANGE 1: Countdown with date added above it ── -->
       <div class="mb-8 reveal d2">
         <p class="text-white/50 text-sm mb-3 font-barlow uppercase tracking-widest" style="letter-spacing:0.16em;">Race starts in</p>
+
+        <!-- Date badge — NEW -->
+        <div class="race-date-badge mb-3">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#E05C1A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+          </svg>
+          26th July 2026
+        </div>
+
         <div class="cd-wrap">
           <div class="cd-cell">
             <span class="cd-num" id="cd-days">34</span>
@@ -413,19 +593,19 @@
       </div>
 
       <!-- Stats strip -->
-      <div class="flex flex-wrap gap-8 mt-12 reveal d4">
+      <div class="flex flex-wrap gap-8 mt-12 hero-stats-strip reveal d4">
         <div>
-          <p class="font-barlow text-3xl font-800 text-white" style="font-size:1.9rem;font-weight:800;line-height:1;">3,200+</p>
+          <p class="font-barlow text-white stat-num" style="font-size:1.9rem;font-weight:800;line-height:1;">3,200+</p>
           <p class="text-white/50 text-xs uppercase tracking-widest mt-1">Registered Runners</p>
         </div>
         <div class="h-10 w-px bg-white/15 self-center"></div>
         <div>
-          <p class="font-barlow text-white" style="font-size:1.9rem;font-weight:800;line-height:1;">3 Races</p>
+          <p class="font-barlow text-white stat-num" style="font-size:1.9rem;font-weight:800;line-height:1;">3 Races</p>
           <p class="text-white/50 text-xs uppercase tracking-widest mt-1">Categories</p>
         </div>
         <div class="h-10 w-px bg-white/15 self-center"></div>
         <div>
-          <p class="font-barlow text-white" style="font-size:1.9rem;font-weight:800;line-height:1;">4th Edition</p>
+          <p class="font-barlow text-white stat-num" style="font-size:1.9rem;font-weight:800;line-height:1;">4th Edition</p>
           <p class="text-white/50 text-xs uppercase tracking-widest mt-1">Annual Event</p>
         </div>
       </div>
@@ -448,15 +628,13 @@
 <section id="races" class="py-24" style="background:#F5F7FB;">
   <div class="max-w-7xl mx-auto px-5 sm:px-6">
 
-    <!-- Heading -->
     <div class="text-center mb-14 reveal">
       <h2 class="sec-title">Choose Your Challenge</h2>
       <div class="sec-rule mx-auto"></div>
       <p class="text-gray-500 max-w-xl mx-auto" style="font-size:0.95rem;">Whether you're a seasoned runner or taking your first steps, there's a category built for you. Pick your distance and sign up today.</p>
     </div>
 
-    <!-- Cards grid — 3 categories -->
-    <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-5xl mx-auto">
 
       <!-- 2K Fun Run -->
       <div class="cat-card reveal d1">
@@ -500,7 +678,7 @@
           </div>
           <div class="cat-note">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-            <span> Open to All ages</span>
+            <span>Open to all ages</span>
           </div>
         </div>
         <button onclick="openModal('5K – Fit India Run')" class="mt-6 w-full py-3 font-barlow font-700 text-sm uppercase tracking-wider" style="background:#0F2044;color:#fff;letter-spacing:0.12em;transition:background 0.3s;" onmouseover="this.style.background='#162d5c'" onmouseout="this.style.background='#0F2044'">Register Now</button>
@@ -530,7 +708,7 @@
         <button onclick="openModal('10K – Endurance Run')" class="mt-6 w-full py-3 font-barlow font-700 text-sm uppercase tracking-wider" style="background:#E05C1A;color:#fff;letter-spacing:0.12em;transition:background 0.3s;" onmouseover="this.style.background='#C04810'" onmouseout="this.style.background='#E05C1A'">Register Now</button>
       </div>
 
-    </div><!-- /grid -->
+    </div>
   </div>
 </section>
 
@@ -548,15 +726,13 @@
         <h2 class="sec-title-white mb-1">Race Course</h2>
         <div class="sec-rule sec-rule-left" style="margin-bottom:24px;"></div>
 
-        <!-- Tabs -->
         <div class="flex items-center gap-0 border-b border-white/10 mb-4 overflow-x-auto">
           <button class="map-tab active" onclick="switchMap(this,'map-10k')">10K Map</button>
           <button class="map-tab" onclick="switchMap(this,'map-5k')">5K Map</button>
           <button class="map-tab" onclick="switchMap(this,'map-2k')">2K Map</button>
         </div>
 
-        <!-- Map panels -->
-        <!-- 10K — now default active -->
+        <!-- 10K -->
         <div id="map-10k" class="map-panel active">
           <div class="rounded overflow-hidden" style="background:#0a1628;border:1px solid rgba(255,255,255,0.08);">
             <svg viewBox="0 0 580 360" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">
@@ -606,7 +782,7 @@
           </div>
         </div>
 
-        <!-- 2K Fun Run -->
+        <!-- 2K -->
         <div id="map-2k" class="map-panel">
           <div class="rounded overflow-hidden" style="background:#0a1628;border:1px solid rgba(255,255,255,0.08);">
             <svg viewBox="0 0 580 360" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">
@@ -627,9 +803,8 @@
           </div>
         </div>
 
-        <!-- Location Info Block -->
+        <!-- Location Info -->
         <div class="mt-5 rounded" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);overflow:hidden;">
-          <!-- Google Maps Embed — Yendada Junction, Visakhapatnam -->
           <div style="position:relative;width:100%;height:200px;background:#0a1628;overflow:hidden;">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3800.438!2d83.30528!3d17.73925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a395bfcb4c9f9c5%3A0x0!2sYendada%2C+Visakhapatnam%2C+Andhra+Pradesh!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
@@ -653,7 +828,6 @@
             </div>
           </div>
         </div>
-
       </div><!-- /left -->
 
       <!-- RIGHT: What's in the Box -->
@@ -680,6 +854,7 @@
             </div>
             <div>
               <p class="text-white font-semibold text-sm leading-tight">Personalized BIB</p>
+              <p class="text-white/45 text-xs mt-0.5">Your race number & identity</p>
             </div>
           </div>
 
@@ -693,13 +868,14 @@
             </div>
           </div>
 
+          <!-- ── CHANGE 3: Certificate — tagline updated ── -->
           <div class="box-item">
             <div class="box-icon">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E05C1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="13" y2="17"/></svg>
             </div>
             <div>
               <p class="text-white font-semibold text-sm leading-tight">Certificate</p>
-              <p class="text-white/45 text-xs mt-0.5">Downloadable post-race</p>
+              <p class="text-white/45 text-xs mt-0.5">Awarded to every finisher</p>
             </div>
           </div>
 
@@ -723,6 +899,7 @@
 
 <!-- ═══════════════════════════════════════════════
      RACE DAY SCHEDULE
+     CHANGE 2: Award Ceremony entry removed
 ═══════════════════════════════════════════════ -->
 <section id="timeline" class="sched-bg py-24">
   <div class="max-w-7xl mx-auto px-5 sm:px-6">
@@ -730,7 +907,7 @@
     <div class="text-center mb-14 reveal">
       <h2 class="sec-title">Race Day Schedule</h2>
       <div class="sec-rule mx-auto"></div>
-      <p class="text-gray-500 max-w-xl mx-auto" style="font-size:0.95rem;">Plan your race morning perfectly. Here's everything happening on the big day, from assembly to award ceremony.</p>
+      <p class="text-gray-500 max-w-xl mx-auto" style="font-size:0.95rem;">Plan your race morning perfectly. Here's everything happening on the big day, from assembly to the finish line celebrations.</p>
     </div>
 
     <div class="max-w-2xl mx-auto">
@@ -769,15 +946,10 @@
           <div class="tl-dot"></div>
           <p class="tl-time">08:00 AM</p>
           <h3 class="tl-title">Refreshment Zone Opens</h3>
-          <p class="tl-desc">Recovery drinks and snacks available for all finishers. Celebrate your achievement.</p>
+          <p class="tl-desc">Recovery drinks and snacks available for all finishers. Celebrate your achievement with the community.</p>
         </div>
 
-        <div class="tl-item reveal d1">
-          <div class="tl-dot"></div>
-          <p class="tl-time">08:30 AM</p>
-          <h3 class="tl-title">Award Ceremony</h3>
-          <p class="tl-desc">Trophy presentation and closing address. Top finishers across all categories recognised.</p>
-        </div>
+        <!-- Award Ceremony REMOVED as per request -->
 
       </div>
     </div>
@@ -788,6 +960,25 @@
 
 <!-- ═══════════════════════════════════════════════
      PREVIOUS EVENTS GALLERY
+     ─────────────────────────────────────────────
+     CHANGE 4: HOW TO ADD YOUR OWN PHOTOS
+     ─────────────────────────────────────────────
+     STEP 1 — Save your images (JPG / PNG / WEBP) to:
+       • Same folder as this HTML file → src="my-photo.jpg"
+       • OR an "images" subfolder     → src="images/my-photo.jpg"
+       • OR paste any public image URL → src="https://..."
+
+     STEP 2 — Replace each src="https://..." value below
+       with your own filename or URL.
+
+     STEP 3 — Update the alt="..." text with a short description.
+
+     TIPS:
+       • This grid has 9 cells (3×3). Add or remove <div class="gal-item">
+         blocks to change the count.
+       • Landscape (wider-than-tall) photos work best.
+       • Minimum recommended size: 440 × 220 px.
+       • On mobile the cells are ~100px tall; on desktop ~200px.
 ═══════════════════════════════════════════════ -->
 <section id="gallery" class="gallery-bg py-20">
   <div class="max-w-7xl mx-auto px-5 sm:px-6">
@@ -798,17 +989,53 @@
       <p class="text-white/55 max-w-xl mx-auto" style="font-size:0.92rem;">Relive the high-energy moments from our past races. From the sunrise start line to the triumphant finish, our community brings the spirit of Visakhapatnam to life.</p>
     </div>
 
-    <!-- 3x3 grid -->
-    <div class="grid grid-cols-3 gap-2 sm:gap-3 rounded-lg overflow-hidden reveal d1">
-      <div class="gal-item" style="height:200px;"><img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=440&h=220&fit=crop&auto=format" alt="Finish line celebration" loading="lazy"/></div>
-      <div class="gal-item" style="height:200px;"><img src="https://images.unsplash.com/photo-1532444458054-01a0f8972b17?w=440&h=220&fit=crop&auto=format" alt="Community runners" loading="lazy"/></div>
-      <div class="gal-item" style="height:200px;"><img src="https://images.unsplash.com/photo-1489824904134-891ab64532f1?w=440&h=220&fit=crop&auto=format" alt="Kids fun run" loading="lazy"/></div>
-      <div class="gal-item" style="height:200px;"><img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=440&h=220&fit=crop&auto=format" alt="Coastal view" loading="lazy"/></div>
-      <div class="gal-item" style="height:200px;"><img src="https://images.unsplash.com/photo-1502224562085-639556652f33?w=440&h=220&fit=crop&auto=format" alt="Female runner with medal" loading="lazy"/></div>
-      <div class="gal-item" style="height:200px;"><img src="https://images.unsplash.com/photo-1528697203043-733dbb77b6f7?w=440&h=220&fit=crop&auto=format" alt="Crowd support" loading="lazy"/></div>
-      <div class="gal-item" style="height:200px;"><img src="https://images.unsplash.com/photo-1486218119243-13301abb2ba7?w=440&h=220&fit=crop&auto=format" alt="Marathon crowd aerial" loading="lazy"/></div>
-      <div class="gal-item" style="height:200px;"><img src="https://images.unsplash.com/photo-1569952880949-f9501f0a8a52?w=440&h=220&fit=crop&auto=format" alt="Medal ceremony" loading="lazy"/></div>
-      <div class="gal-item" style="height:200px;"><img src="https://images.unsplash.com/photo-1549060279-7e168fcee0c2?w=440&h=220&fit=crop&auto=format" alt="Runners on road" loading="lazy"/></div>
+    <div class="grid grid-cols-3 gap-1 sm:gap-2 rounded-lg overflow-hidden reveal d1">
+
+      <!-- Photo 1 — Replace src with your own image path -->
+      <div class="gal-item" style="height:200px;">
+        <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=440&h=220&fit=crop&auto=format" alt="Finish line celebration" loading="lazy"/>
+      </div>
+
+      <!-- Photo 2 — Replace src with your own image path -->
+      <div class="gal-item" style="height:200px;">
+        <img src="https://images.unsplash.com/photo-1532444458054-01a0f8972b17?w=440&h=220&fit=crop&auto=format" alt="Community runners" loading="lazy"/>
+      </div>
+
+      <!-- Photo 3 — Replace src with your own image path -->
+      <div class="gal-item" style="height:200px;">
+        <img src="https://images.unsplash.com/photo-1489824904134-891ab64532f1?w=440&h=220&fit=crop&auto=format" alt="Kids fun run" loading="lazy"/>
+      </div>
+
+      <!-- Photo 4 — Replace src with your own image path -->
+      <div class="gal-item" style="height:200px;">
+        <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=440&h=220&fit=crop&auto=format" alt="Coastal view" loading="lazy"/>
+      </div>
+
+      <!-- Photo 5 — Replace src with your own image path -->
+      <div class="gal-item" style="height:200px;">
+        <img src="https://images.unsplash.com/photo-1502224562085-639556652f33?w=440&h=220&fit=crop&auto=format" alt="Female runner with medal" loading="lazy"/>
+      </div>
+
+      <!-- Photo 6 — Replace src with your own image path -->
+      <div class="gal-item" style="height:200px;">
+        <img src="https://images.unsplash.com/photo-1528697203043-733dbb77b6f7?w=440&h=220&fit=crop&auto=format" alt="Crowd support" loading="lazy"/>
+      </div>
+
+      <!-- Photo 7 — Replace src with your own image path -->
+      <div class="gal-item" style="height:200px;">
+        <img src="https://images.unsplash.com/photo-1486218119243-13301abb2ba7?w=440&h=220&fit=crop&auto=format" alt="Marathon crowd aerial" loading="lazy"/>
+      </div>
+
+      <!-- Photo 8 — Replace src with your own image path -->
+      <div class="gal-item" style="height:200px;">
+        <img src="https://images.unsplash.com/photo-1569952880949-f9501f0a8a52?w=440&h=220&fit=crop&auto=format" alt="Medal ceremony" loading="lazy"/>
+      </div>
+
+      <!-- Photo 9 — Replace src with your own image path -->
+      <div class="gal-item" style="height:200px;">
+        <img src="https://images.unsplash.com/photo-1549060279-7e168fcee0c2?w=440&h=220&fit=crop&auto=format" alt="Runners on road" loading="lazy"/>
+      </div>
+
     </div>
 
   </div>
@@ -816,7 +1043,7 @@
 
 
 <!-- ═══════════════════════════════════════════════
-     FAQ + FOOTER COMBO SECTION
+     FAQ
 ═══════════════════════════════════════════════ -->
 <section id="faq" class="py-24 bg-white">
   <div class="max-w-7xl mx-auto px-5 sm:px-6">
@@ -862,9 +1089,9 @@
         <div class="faq-content">
           <div class="faq-inner">
             <ul class="space-y-2 list-none">
-              <li><span class="font-semibold text-rust" style="color:#E05C1A;">2KM Fun Run</span> — Open to all ages. A great entry point for anyone new to running.</li>
-              <li class="mt-2"><span class="font-semibold text-rust" style="color:#E05C1A;">5KM Fit India Run</span> — Minimum age: <strong>14 years</strong>.</li>
-              <li class="mt-2"><span class="font-semibold text-rust" style="color:#E05C1A;">10KM Endurance Run</span> — Minimum age: <strong>18 years</strong>. Runners aged 18–21 require a signed parental consent form.</li>
+              <li><span class="font-semibold" style="color:#E05C1A;">2KM Fun Run</span> — Open to all ages. A great entry point for anyone new to running.</li>
+              <li class="mt-2"><span class="font-semibold" style="color:#E05C1A;">5KM Fit India Run</span> — Minimum age: <strong>14 years</strong>.</li>
+              <li class="mt-2"><span class="font-semibold" style="color:#E05C1A;">10KM Endurance Run</span> — Minimum age: <strong>18 years</strong>. Runners aged 18–21 require a signed parental consent form.</li>
             </ul>
           </div>
         </div>
@@ -884,8 +1111,7 @@
         </div>
       </div>
 
-    </div><!-- /faq items -->
-
+    </div>
   </div>
 </section>
 
@@ -896,21 +1122,16 @@
 <footer class="footer-bg">
   <div class="footer-top-bar"></div>
   <div class="max-w-7xl mx-auto px-5 sm:px-6 py-14">
-
     <div class="text-center">
-      <!-- Brand -->
       <div class="flex items-center justify-center gap-3 mb-4">
-        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
           <circle cx="18" cy="18" r="18" fill="rgba(224,92,26,0.18)"/>
           <path d="M7 22 Q10 16 14 18 Q18 20 22 14 Q26 8 30 12" stroke="#E05C1A" stroke-width="2.2" stroke-linecap="round" fill="none"/>
           <circle cx="22" cy="14" r="2" fill="#E05C1A"/>
         </svg>
         <h3 class="font-barlow font-800 text-2xl uppercase tracking-marathon" style="color:#E05C1A;letter-spacing:0.14em;">Yendada Marathon</h3>
       </div>
-
       <p class="text-white/45 text-sm max-w-sm mx-auto leading-relaxed mb-8">The premier coastal marathon of Visakhapatnam, celebrating health, community, and the majestic Bay of Bengal.</p>
-
-      <!-- Nav links -->
       <div class="flex flex-wrap items-center justify-center gap-6 mb-8">
         <a href="#" class="footer-link">Privacy Policy</a>
         <span class="text-white/20">·</span>
@@ -920,78 +1141,81 @@
         <span class="text-white/20">·</span>
         <a href="#" class="footer-link">Sponsorship</a>
       </div>
-
-      <!-- Social icons -->
       <div class="flex items-center justify-center gap-3 mb-10">
-        <button class="soc-btn" aria-label="Share" title="Share">
+        <button class="soc-btn" aria-label="Share">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
         </button>
-        <button class="soc-btn" aria-label="Email" title="Email">
+        <button class="soc-btn" aria-label="Email">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
         </button>
-        <button class="soc-btn" aria-label="Phone" title="Phone">
+        <button class="soc-btn" aria-label="Phone">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.14 1.17 2 2 0 012.12 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.09a16 16 0 006 6l.6-.6a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.9z"/></svg>
         </button>
-        <button class="soc-btn" aria-label="Instagram" title="Instagram">
+        <button class="soc-btn" aria-label="Instagram">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
         </button>
       </div>
-
       <hr style="border-color:rgba(255,255,255,0.07);margin-bottom:18px;"/>
-
-      <!-- Apex Group Credit -->
       <div style="display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:4px;padding:10px 20px;margin-bottom:16px;">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E05C1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        <p style="color:rgba(255,255,255,0.55);font-size:0.8rem;font-family:'Inter',sans-serif;letter-spacing:0.04em;">
+        <p style="color:rgba(255,255,255,0.55);font-size:0.8rem;letter-spacing:0.04em;">
           Managed and Supported by
           <strong style="color:#E05C1A;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-left:4px;">Apex Group</strong>
         </p>
       </div>
-
       <p class="text-white/25 text-xs uppercase tracking-widest">© 2026 Yendada Marathon. Official Sanctioned Event. Visakhapatnam, Andhra Pradesh.</p>
     </div>
-
   </div>
 </footer>
 
 
 <!-- ═══════════════════════════════════════════════
-     REGISTRATION MODAL (MULTI-STEP)
+     REGISTRATION MODAL — MOBILE-FIRST MULTI-STEP
+     CHANGE 5: Complete mobile responsiveness overhaul
+     • Bottom-sheet on mobile (slides up from bottom)
+     • Single-column form grids on mobile
+     • iOS input zoom prevention (font-size:16px)
+     • Stacked button rows on mobile (primary on top)
+     • Summary card word-break fix
+     • Drag handle indicator
 ═══════════════════════════════════════════════ -->
 <div id="modal-overlay" role="dialog" aria-modal="true" aria-label="Registration Form" onclick="closeModalOnOverlay(event)">
   <div id="modal-box">
 
+    <!-- Drag handle (visible on mobile only) -->
+    <div class="modal-drag-handle"></div>
+
     <!-- Modal Header -->
     <div class="modal-hdr">
-      <div class="flex-1">
-        <p class="font-barlow text-white/45 text-xs uppercase tracking-wider mb-3" style="letter-spacing:0.14em;">Yendada Marathon 2026 — Registration</p>
+      <div class="flex-1 min-w-0">
+        <p class="font-barlow text-white/45 text-xs uppercase tracking-wider mb-3" style="letter-spacing:0.12em;">Yendada Marathon 2026 — Registration</p>
         <!-- Step indicators -->
         <div class="flex items-center gap-1">
           <div class="flex flex-col items-center">
             <div class="step-bubble active" id="sb1">1</div>
-            <span class="step-lbl text-white/40" id="sl1">Info</span>
+            <span class="step-lbl" id="sl1">Info</span>
           </div>
           <div class="step-line" id="line12"></div>
           <div class="flex flex-col items-center">
             <div class="step-bubble inactive" id="sb2">2</div>
-            <span class="step-lbl text-white/30" id="sl2">Category</span>
+            <span class="step-lbl" id="sl2">Category</span>
           </div>
           <div class="step-line" id="line23"></div>
           <div class="flex flex-col items-center">
             <div class="step-bubble inactive" id="sb3">3</div>
-            <span class="step-lbl text-white/30" id="sl3">Payment</span>
+            <span class="step-lbl" id="sl3">Payment</span>
           </div>
         </div>
       </div>
-      <button class="modal-close ml-4" onclick="closeModal()" aria-label="Close modal">
+      <button class="modal-close ml-3 mt-1" onclick="closeModal()" aria-label="Close modal">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
     </div>
 
     <!-- ── STEP 1: Runner Info ── -->
     <div id="step1" class="p-7">
-      <h3 class="font-barlow text-navy text-2xl font-800 uppercase mb-1" style="color:#0F2044;font-size:1.5rem;font-weight:800;letter-spacing:0.04em;">Runner Information</h3>
-      <p class="text-gray-400 text-sm mb-6">Tell us about yourself. All fields are required.</p>
+      <h3 class="font-barlow text-2xl font-800 uppercase mb-1" style="color:#0F2044;font-size:1.5rem;font-weight:800;letter-spacing:0.04em;">Runner Information</h3>
+      <p class="text-gray-400 text-sm mb-5">Tell us about yourself. All fields are required.</p>
 
       <div class="f-group">
         <label class="f-label">Full Name</label>
@@ -999,7 +1223,8 @@
         <p class="f-err" id="err-name">Please enter your full name.</p>
       </div>
 
-      <div class="grid grid-cols-2 gap-4">
+      <!-- ── Mobile fix: single column by default, 2-col on sm+ ── -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div class="f-group">
           <label class="f-label">Email Address</label>
           <input type="email" id="f-email" class="f-input" placeholder="you@email.com" autocomplete="email"/>
@@ -1012,7 +1237,8 @@
         </div>
       </div>
 
-      <div class="grid grid-cols-2 gap-4">
+      <!-- ── Mobile fix: single column by default, 2-col on sm+ ── -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div class="f-group">
           <label class="f-label">Age</label>
           <input type="number" id="f-age" class="f-input" placeholder="e.g. 28" min="4" max="80"/>
@@ -1037,7 +1263,7 @@
         <p class="f-err" id="err-city">Please enter your city.</p>
       </div>
 
-      <button onclick="goToStep2()" class="btn-modal-primary mt-4">
+      <button onclick="goToStep2()" class="btn-modal-primary mt-2">
         Continue to Category Selection
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </button>
@@ -1046,30 +1272,29 @@
     <!-- ── STEP 2: Category & T-Shirt ── -->
     <div id="step2" class="p-7 hidden">
       <h3 class="font-barlow text-2xl font-800 uppercase mb-1" style="color:#0F2044;font-size:1.5rem;font-weight:800;letter-spacing:0.04em;">Category &amp; Kit Details</h3>
-      <p class="text-gray-400 text-sm mb-6">Select your race category and preferred T-shirt size.</p>
+      <p class="text-gray-400 text-sm mb-5">Select your race category and preferred T-shirt size.</p>
 
-      <!-- Category selection -->
       <div class="f-group">
         <label class="f-label">Race Category</label>
         <div class="space-y-2">
           <div class="cat-choice" id="cc-2k" onclick="selectCat(this,'2K – Fun Run', '₹200')">
             <div class="cat-choice-radio"></div>
             <div>
-              <p class="font-semibold text-sm text-navy" style="color:#0F2044;">2K — Fun Run</p>
+              <p class="font-semibold text-sm" style="color:#0F2044;">2K — Fun Run</p>
               <p class="text-xs text-gray-400">Flag-off 07:30 AM &nbsp;·&nbsp; ₹200</p>
             </div>
           </div>
           <div class="cat-choice" id="cc-5k" onclick="selectCat(this,'5K – Fit India Run', '₹500')">
             <div class="cat-choice-radio"></div>
             <div>
-              <p class="font-semibold text-sm text-navy" style="color:#0F2044;">5K — Fit India Run</p>
+              <p class="font-semibold text-sm" style="color:#0F2044;">5K — Fit India Run</p>
               <p class="text-xs text-gray-400">Flag-off 06:30 AM &nbsp;·&nbsp; ₹500</p>
             </div>
           </div>
           <div class="cat-choice" id="cc-10k" onclick="selectCat(this,'10K – Endurance Run', '₹800')">
             <div class="cat-choice-radio"></div>
             <div>
-              <p class="font-semibold text-sm text-navy" style="color:#0F2044;">10K — Endurance Run</p>
+              <p class="font-semibold text-sm" style="color:#0F2044;">10K — Endurance Run</p>
               <p class="text-xs text-gray-400">Flag-off 05:45 AM &nbsp;·&nbsp; ₹800</p>
             </div>
           </div>
@@ -1077,8 +1302,7 @@
         <p class="f-err" id="err-cat">Please select a category.</p>
       </div>
 
-      <!-- T-Shirt Size -->
-      <div class="f-group mt-5">
+      <div class="f-group mt-4">
         <label class="f-label">T-Shirt Size</label>
         <div class="flex flex-wrap gap-2 mt-1">
           <button class="size-pill" onclick="selectSize(this,'XS')">XS</button>
@@ -1091,21 +1315,20 @@
         <p class="f-err" id="err-size">Please select a T-shirt size.</p>
       </div>
 
-      <!-- Emergency contact -->
       <div class="f-group mt-2">
         <label class="f-label">Emergency Contact Name &amp; Number</label>
         <input type="text" id="f-emg" class="f-input" placeholder="e.g. Priya Reddy — +91 90000 12345"/>
         <p class="f-err" id="err-emg">Please provide an emergency contact.</p>
       </div>
 
-      <!-- Medical note -->
       <div class="f-group">
         <label class="f-label">Medical Conditions (optional)</label>
         <textarea id="f-med" class="f-input" rows="2" placeholder="Any conditions race organisers should be aware of…" style="resize:none;"></textarea>
       </div>
 
-      <div class="flex gap-3 mt-4">
-        <button onclick="backToStep1()" class="btn-modal-ghost" style="width:auto;padding:12px 20px;">← Back</button>
+      <!-- ── Mobile fix: buttons stack vertically, primary on top ── -->
+      <div class="modal-btn-row flex gap-3 mt-4">
+        <button onclick="backToStep1()" class="btn-modal-ghost" style="width:auto;padding:12px 20px;white-space:nowrap;">← Back</button>
         <button onclick="goToStep3()" class="btn-modal-primary flex-1">
           Review &amp; Pay
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
@@ -1116,35 +1339,36 @@
     <!-- ── STEP 3: Payment / Order Review ── -->
     <div id="step3" class="p-7 hidden">
       <h3 class="font-barlow text-2xl font-800 uppercase mb-1" style="color:#0F2044;font-size:1.5rem;font-weight:800;letter-spacing:0.04em;">Order Summary</h3>
-      <p class="text-gray-400 text-sm mb-6">Review your registration details before payment.</p>
+      <p class="text-gray-400 text-sm mb-5">Review your registration details before payment.</p>
 
       <!-- Summary card -->
-      <div class="rounded-md overflow-hidden border border-gray-100 mb-6" id="summary-card">
+      <div class="rounded-md overflow-hidden border border-gray-100 mb-5" id="summary-card">
         <div style="background:#0F2044;padding:14px 18px;">
           <p class="font-barlow text-white text-lg font-700 uppercase" style="letter-spacing:0.06em;">Yendada Marathon 2026</p>
-          <p class="text-white/45 text-xs">Yendada Junction, Visakhapatnam</p>
+          <p class="text-white/45 text-xs">Yendada Junction, Visakhapatnam · 26 July 2026</p>
         </div>
         <div class="px-4 py-2">
-          <div class="summary-row"><span>Runner Name</span><span id="sum-name">—</span></div>
+          <div class="summary-row"><span>Runner</span><span id="sum-name">—</span></div>
           <div class="summary-row"><span>Category</span><span id="sum-cat">—</span></div>
-          <div class="summary-row"><span>T-Shirt Size</span><span id="sum-size">—</span></div>
-          <div class="summary-row"><span>Email</span><span id="sum-email">—</span></div>
+          <div class="summary-row"><span>T-Shirt</span><span id="sum-size">—</span></div>
+          <div class="summary-row"><span>Email</span><span id="sum-email" style="font-size:0.8rem;">—</span></div>
           <div class="summary-row" style="background:#FFF9F5;margin:0 -16px;padding:10px 16px;border-top:1px solid rgba(224,92,26,0.15);">
-            <span class="font-600" style="font-weight:600;">Registration Fee</span>
+            <span style="font-weight:600;">Registration Fee</span>
             <span id="sum-fee" style="color:#E05C1A;font-size:1.1rem;font-weight:700;">—</span>
           </div>
         </div>
       </div>
 
-      <!-- T&C checkbox -->
-      <label class="flex items-start gap-3 mb-5 cursor-pointer">
+      <!-- T&C -->
+      <label class="flex items-start gap-3 mb-4 cursor-pointer">
         <input type="checkbox" id="f-tc" style="margin-top:3px;accent-color:#E05C1A;width:16px;height:16px;flex-shrink:0;"/>
         <span class="text-xs text-gray-500 leading-relaxed">I agree to the <a href="#" style="color:#E05C1A;">Terms &amp; Conditions</a> and confirm that the information provided is accurate. I understand that registration fees are non-refundable.</span>
       </label>
       <p class="f-err" id="err-tc">Please accept the Terms &amp; Conditions to proceed.</p>
 
-      <div class="flex gap-3 mt-2">
-        <button onclick="backToStep2()" class="btn-modal-ghost" style="width:auto;padding:12px 20px;">← Back</button>
+      <!-- ── Mobile fix: buttons stack vertically, primary on top ── -->
+      <div class="modal-btn-row flex gap-3 mt-3">
+        <button onclick="backToStep2()" class="btn-modal-ghost" style="width:auto;padding:12px 20px;white-space:nowrap;">← Back</button>
         <button onclick="submitPayment()" class="btn-modal-primary flex-1">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
           Pay Now — <span id="btn-pay-amount">₹0</span>
@@ -1154,27 +1378,24 @@
 
     <!-- ── STEP 4: SUCCESS ── -->
     <div id="step4" class="p-7 hidden text-center">
-      <div class="relative inline-block mb-6">
-        <!-- Confetti container -->
+      <div class="relative inline-block mb-5">
         <div id="confetti-wrap" class="absolute inset-0 pointer-events-none overflow-visible" style="width:100%;height:100%;"></div>
-        <!-- Check circle -->
-        <div class="check-anim" style="width:80px;height:80px;border-radius:50%;background:#E05C1A;display:flex;align-items:center;justify-content:center;margin:0 auto;">
+        <div class="check-anim check-anim-wrap" style="width:80px;height:80px;border-radius:50%;background:#E05C1A;display:flex;align-items:center;justify-content:center;margin:0 auto;">
           <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
         </div>
       </div>
 
-      <h3 class="font-barlow text-3xl font-900 uppercase mb-2" style="color:#0F2044;font-size:1.9rem;font-weight:900;letter-spacing:0.05em;">You're Registered! 🎉</h3>
-      <p class="text-gray-400 text-sm mb-6">Confirmation has been sent to <strong id="succ-email" style="color:#0F2044;"></strong>. Get ready to Run with the Ocean Breeze!</p>
+      <h3 class="font-barlow font-900 uppercase mb-2" style="color:#0F2044;font-size:1.8rem;font-weight:900;letter-spacing:0.05em;">You're Registered! 🎉</h3>
+      <p class="text-gray-400 text-sm mb-5">Confirmation sent to <strong id="succ-email" style="color:#0F2044;word-break:break-all;"></strong>. Get ready to Run with the Ocean Breeze!</p>
 
-      <!-- Confirmation mini card -->
-      <div style="background:#F4F6FB;border-radius:6px;padding:16px 20px;text-align:left;margin-bottom:24px;">
+      <div style="background:#F4F6FB;border-radius:6px;padding:16px;text-align:left;margin-bottom:20px;">
         <div class="summary-row"><span>Confirmation #</span><span id="succ-conf" style="color:#E05C1A;font-weight:700;"></span></div>
         <div class="summary-row"><span>Runner</span><span id="succ-name"></span></div>
         <div class="summary-row"><span>Category</span><span id="succ-cat"></span></div>
-        <div class="summary-row"><span>Date</span><span>July 26, 2026 · Yendada Junction, Vizag</span></div>
+        <div class="summary-row"><span>Date</span><span>26 July 2026 · Yendada Junction</span></div>
       </div>
 
-      <p class="text-xs text-gray-400 mb-6 leading-relaxed">Your BIB and race kit will be available at the pre-race expo. We'll send detailed instructions closer to race day. <strong>See you on the track!</strong></p>
+      <p class="text-xs text-gray-400 mb-5 leading-relaxed">Your BIB and race kit will be available at the pre-race expo. We'll send detailed instructions closer to race day. <strong>See you on the track!</strong></p>
 
       <button onclick="closeModal()" class="btn-modal-primary">
         Done — Close
@@ -1193,10 +1414,10 @@
 /* ══════════════════════════════════
    STATE
 ══════════════════════════════════ */
-let selectedCategory   = null;
+let selectedCategory    = null;
 let selectedCategoryFee = null;
-let selectedSize       = null;
-let currentStep        = 1;
+let selectedSize        = null;
+let currentStep         = 1;
 const RACE_DATE = new Date('2026-07-26T04:00:00');
 
 /* ══════════════════════════════════
@@ -1204,8 +1425,7 @@ const RACE_DATE = new Date('2026-07-26T04:00:00');
 ══════════════════════════════════ */
 const navbar = document.getElementById('navbar');
 function handleScroll() {
-  if (window.scrollY > 60) navbar.classList.add('scrolled');
-  else navbar.classList.remove('scrolled');
+  navbar.classList.toggle('scrolled', window.scrollY > 60);
 }
 window.addEventListener('scroll', handleScroll, { passive: true });
 handleScroll();
@@ -1239,40 +1459,26 @@ const navLinks = document.querySelectorAll('.nav-link');
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (e.isIntersecting) {
-      const id = e.target.id;
-      navLinks.forEach(l => {
-        l.classList.toggle('active', l.getAttribute('href') === '#'+id);
-      });
+      navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#'+e.target.id));
     }
   });
 }, { threshold: 0.4 });
-sections.forEach(id => {
-  const el = document.getElementById(id);
-  if (el) observer.observe(el);
-});
+sections.forEach(id => { const el = document.getElementById(id); if (el) observer.observe(el); });
 
 /* ══════════════════════════════════
    COUNTDOWN TIMER
 ══════════════════════════════════ */
 function pad(n) { return String(n).padStart(2,'0'); }
 function updateCountdown() {
-  const now  = new Date();
-  const diff = RACE_DATE - now;
+  const diff = RACE_DATE - new Date();
   if (diff <= 0) {
-    document.getElementById('cd-days').textContent = '00';
-    document.getElementById('cd-hrs').textContent  = '00';
-    document.getElementById('cd-min').textContent  = '00';
-    document.getElementById('cd-sec').textContent  = '00';
+    ['days','hrs','min','sec'].forEach(id => document.getElementById('cd-'+id).textContent = '00');
     return;
   }
-  const d = Math.floor(diff / 86400000);
-  const h = Math.floor((diff % 86400000) / 3600000);
-  const m = Math.floor((diff % 3600000)  / 60000);
-  const s = Math.floor((diff % 60000)    / 1000);
-  document.getElementById('cd-days').textContent = pad(d);
-  document.getElementById('cd-hrs').textContent  = pad(h);
-  document.getElementById('cd-min').textContent  = pad(m);
-  document.getElementById('cd-sec').textContent  = pad(s);
+  document.getElementById('cd-days').textContent = pad(Math.floor(diff / 86400000));
+  document.getElementById('cd-hrs').textContent  = pad(Math.floor((diff % 86400000) / 3600000));
+  document.getElementById('cd-min').textContent  = pad(Math.floor((diff % 3600000) / 60000));
+  document.getElementById('cd-sec').textContent  = pad(Math.floor((diff % 60000) / 1000));
 }
 updateCountdown();
 setInterval(updateCountdown, 1000);
@@ -1296,7 +1502,6 @@ function toggleFAQ(btn) {
   const arrow   = btn.querySelector('.faq-arrow');
   const isOpen  = item.classList.contains('open');
 
-  // close all
   document.querySelectorAll('.faq-item.open').forEach(openItem => {
     openItem.classList.remove('open');
     openItem.querySelector('.faq-content').classList.remove('open');
@@ -1314,12 +1519,7 @@ function toggleFAQ(btn) {
    SCROLL REVEAL
 ══════════════════════════════════ */
 const revealObs = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('vis');
-      revealObs.unobserve(e.target);
-    }
-  });
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); revealObs.unobserve(e.target); } });
 }, { threshold: 0.12 });
 document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
@@ -1330,20 +1530,17 @@ const modalOverlay = document.getElementById('modal-overlay');
 const modalBox     = document.getElementById('modal-box');
 
 function openModal(preselected) {
-  // Reset to step 1
   resetModal();
   if (preselected) {
-    // Map preselected string to option
     const map = {
-      '2K – Fun Run':         { id:'cc-2k',  fee:'₹200' },
-      '5K – Fit India Run':   { id:'cc-5k',  fee:'₹500' },
-      '10K – Endurance Run':  { id:'cc-10k', fee:'₹800' },
+      '2K – Fun Run':        { id:'cc-2k',  fee:'₹200' },
+      '5K – Fit India Run':  { id:'cc-5k',  fee:'₹500' },
+      '10K – Endurance Run': { id:'cc-10k', fee:'₹800' },
     };
     if (map[preselected]) {
       const { id, fee } = map[preselected];
       selectedCategory    = preselected;
       selectedCategoryFee = fee;
-      document.querySelectorAll('.cat-choice').forEach(c => c.classList.remove('sel'));
       document.getElementById(id).classList.add('sel');
     }
   }
@@ -1369,15 +1566,10 @@ function resetModal() {
     document.getElementById(id).classList.toggle('hidden', i !== 0);
   });
   updateStepIndicators(1);
-  // Clear form
   ['f-name','f-email','f-phone','f-city','f-emg','f-med'].forEach(id => {
-    const el = document.getElementById(id);
-    if (el) el.value = '';
+    const el = document.getElementById(id); if (el) el.value = '';
   });
-  ['f-age','f-gender'].forEach(id => {
-    const el = document.getElementById(id);
-    if (el) el.value = '';
-  });
+  ['f-age','f-gender'].forEach(id => { const el = document.getElementById(id); if (el) el.value = ''; });
   document.getElementById('f-tc').checked = false;
   document.querySelectorAll('.f-input.err').forEach(el => el.classList.remove('err'));
   document.querySelectorAll('.f-err.show').forEach(el => el.classList.remove('show'));
@@ -1391,9 +1583,14 @@ function resetModal() {
 function updateStepIndicators(step) {
   for (let i = 1; i <= 3; i++) {
     const bubble = document.getElementById('sb'+i);
-    if (i < step)       { bubble.className = 'step-bubble done'; bubble.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>'; }
-    else if (i === step) { bubble.className = 'step-bubble active'; bubble.textContent = i; }
-    else                { bubble.className = 'step-bubble inactive'; bubble.textContent = i; }
+    if (i < step) {
+      bubble.className = 'step-bubble done';
+      bubble.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>';
+    } else if (i === step) {
+      bubble.className = 'step-bubble active'; bubble.textContent = i;
+    } else {
+      bubble.className = 'step-bubble inactive'; bubble.textContent = i;
+    }
   }
   document.getElementById('line12').classList.toggle('done', step > 1);
   document.getElementById('line23').classList.toggle('done', step > 2);
@@ -1413,7 +1610,6 @@ function clearError(inputId, errId) {
 }
 
 function goToStep2() {
-  // Validate step 1
   let valid = true;
   const name   = document.getElementById('f-name').value.trim();
   const email  = document.getElementById('f-email').value.trim();
@@ -1422,47 +1618,39 @@ function goToStep2() {
   const gender = document.getElementById('f-gender').value;
   const city   = document.getElementById('f-city').value.trim();
 
-  clearError('f-name','err-name'); clearError('f-email','err-email');
-  clearError('f-phone','err-phone'); clearError('f-age','err-age');
-  clearError('f-gender','err-gender'); clearError('f-city','err-city');
+  ['f-name','f-email','f-phone','f-age','f-gender','f-city'].forEach(id => clearError(id, 'err-'+id.replace('f-','')));
 
-  if (!name) { showError('f-name','err-name'); valid=false; }
+  if (!name)                                            { showError('f-name','err-name');   valid=false; }
   if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showError('f-email','err-email'); valid=false; }
-  if (!phone || phone.length < 7) { showError('f-phone','err-phone'); valid=false; }
-  if (!age || age < 4 || age > 80) { showError('f-age','err-age'); valid=false; }
-  if (!gender) { showError('f-gender','err-gender'); valid=false; }
-  if (!city) { showError('f-city','err-city'); valid=false; }
+  if (!phone || phone.length < 7)                       { showError('f-phone','err-phone'); valid=false; }
+  if (!age || age < 4 || age > 80)                      { showError('f-age','err-age');     valid=false; }
+  if (!gender)                                          { showError('f-gender','err-gender');valid=false; }
+  if (!city)                                            { showError('f-city','err-city');    valid=false; }
 
   if (!valid) return;
   document.getElementById('step1').classList.add('hidden');
   document.getElementById('step2').classList.remove('hidden');
-  currentStep = 2;
-  updateStepIndicators(2);
-  modalBox.scrollTop = 0;
+  currentStep = 2; updateStepIndicators(2); modalBox.scrollTop = 0;
 }
 
 function backToStep1() {
   document.getElementById('step2').classList.add('hidden');
   document.getElementById('step1').classList.remove('hidden');
-  currentStep = 1;
-  updateStepIndicators(1);
-  modalBox.scrollTop = 0;
+  currentStep = 1; updateStepIndicators(1); modalBox.scrollTop = 0;
 }
 
 function goToStep3() {
-  // Validate step 2
   let valid = true;
-  clearError('','err-cat'); clearError('','err-size'); clearError('f-emg','err-emg');
   document.getElementById('err-cat').classList.remove('show');
   document.getElementById('err-size').classList.remove('show');
+  clearError('f-emg','err-emg');
 
-  if (!selectedCategory) { document.getElementById('err-cat').classList.add('show'); valid=false; }
+  if (!selectedCategory) { document.getElementById('err-cat').classList.add('show');  valid=false; }
   if (!selectedSize)      { document.getElementById('err-size').classList.add('show'); valid=false; }
   const emg = document.getElementById('f-emg').value.trim();
   if (!emg) { showError('f-emg','err-emg'); valid=false; }
   if (!valid) return;
 
-  // Populate summary
   document.getElementById('sum-name').textContent  = document.getElementById('f-name').value.trim();
   document.getElementById('sum-cat').textContent   = selectedCategory;
   document.getElementById('sum-size').textContent  = selectedSize;
@@ -1472,34 +1660,26 @@ function goToStep3() {
 
   document.getElementById('step2').classList.add('hidden');
   document.getElementById('step3').classList.remove('hidden');
-  currentStep = 3;
-  updateStepIndicators(3);
-  modalBox.scrollTop = 0;
+  currentStep = 3; updateStepIndicators(3); modalBox.scrollTop = 0;
 }
 
 function backToStep2() {
   document.getElementById('step3').classList.add('hidden');
   document.getElementById('step2').classList.remove('hidden');
-  currentStep = 2;
-  updateStepIndicators(2);
-  modalBox.scrollTop = 0;
+  currentStep = 2; updateStepIndicators(2); modalBox.scrollTop = 0;
 }
 
 async function submitPayment() {
   document.getElementById('err-tc').classList.remove('show');
   if (!document.getElementById('f-tc').checked) {
-    document.getElementById('err-tc').classList.add('show');
-    return;
+    document.getElementById('err-tc').classList.add('show'); return;
   }
 
   const payBtn = document.querySelector('#step3 .btn-modal-primary');
   const origBtnHTML = payBtn.innerHTML;
-
-  // Show loading state
   payBtn.disabled = true;
   payBtn.innerHTML = `<span class="spin"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M21 12a9 9 0 11-6.22-8.56"/></svg></span>&nbsp;Processing…`;
 
-  // Collect user data from the form
   const userData = {
     name:             document.getElementById('f-name').value.trim(),
     email:            document.getElementById('f-email').value.trim(),
@@ -1513,59 +1693,33 @@ async function submitPayment() {
     amount:           parseInt((selectedCategoryFee || '0').replace(/[^0-9]/g, ''), 10),
   };
 
-  function resetBtn() {
-    payBtn.disabled = false;
-    payBtn.innerHTML = origBtnHTML;
-  }
+  function resetBtn() { payBtn.disabled = false; payBtn.innerHTML = origBtnHTML; }
 
   try {
-    // ── Step 1: Ask the server to create a Razorpay order ──
     const orderRes = await fetch('/api/create-order', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        amount:   userData.amount,
-        currency: 'INR',
-        receipt:  'ym_' + Date.now(),
-        notes: {
-          name:     userData.name,
-          email:    userData.email,
-          category: userData.category,
-        },
+        amount: userData.amount, currency: 'INR', receipt: 'ym_' + Date.now(),
+        notes: { name: userData.name, email: userData.email, category: userData.category },
       }),
     });
-
-    if (!orderRes.ok) {
-      const err = await orderRes.json().catch(() => ({}));
-      throw new Error(err.error || 'Could not create order');
-    }
+    if (!orderRes.ok) { const err = await orderRes.json().catch(()=>({})); throw new Error(err.error || 'Could not create order'); }
     const order = await orderRes.json();
 
-    // ── Step 2: Open Razorpay Checkout ──
     const rzpOptions = {
-      key:         order.key_id,          // Public key from server
-      amount:      order.amount,          // In paise
+      key:         order.key_id,
+      amount:      order.amount,
       currency:    order.currency,
       name:        'Yendada Marathon 2026',
       description: userData.category,
-      image:       '',                    // Optional: URL to your logo
       order_id:    order.id,
-      prefill: {
-        name:    userData.name,
-        email:   userData.email,
-        contact: userData.phone,
-      },
-      notes: {
-        category:    userData.category,
-        tshirt_size: userData.tshirtSize,
-        city:        userData.city,
-      },
-      theme: { color: '#E05C1A' },
+      prefill:     { name: userData.name, email: userData.email, contact: userData.phone },
+      notes:       { category: userData.category, tshirt_size: userData.tshirtSize, city: userData.city },
+      theme:       { color: '#E05C1A' },
 
-      // ── Called automatically by Razorpay on successful payment ──
       handler: async function(response) {
         try {
-          // ── Step 3: Verify payment on the server + write to Google Sheets ──
           const verifyRes = await fetch('/api/verify-payment', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -1576,55 +1730,37 @@ async function submitPayment() {
               userData,
             }),
           });
-
           const result = await verifyRes.json();
+          if (!verifyRes.ok || !result.success) throw new Error(result.error || 'Verification failed');
 
-          if (!verifyRes.ok || !result.success) {
-            throw new Error(result.error || 'Verification failed');
-          }
-
-          // ── Step 4: Show success screen ──
           document.getElementById('step3').classList.add('hidden');
           document.getElementById('step4').classList.remove('hidden');
           updateStepIndicators(4);
           modalBox.scrollTop = 0;
 
-          // Populate success card
           const confNum = 'YM2026-' + response.razorpay_payment_id.slice(-6).toUpperCase();
           document.getElementById('succ-conf').textContent  = confNum;
           document.getElementById('succ-name').textContent  = userData.name;
           document.getElementById('succ-cat').textContent   = userData.category;
           document.getElementById('succ-email').textContent = userData.email;
-
           spawnConfetti();
 
         } catch (verifyErr) {
           console.error('Verification error:', verifyErr);
-          alert(
-            'Your payment was received but we could not confirm it automatically.\n\n' +
-            'Payment ID: ' + response.razorpay_payment_id + '\n\n' +
-            'Please screenshot this and email us at support@yendadamarathon.in'
-          );
+          alert('Your payment was received but we could not confirm automatically.\n\nPayment ID: ' + response.razorpay_payment_id + '\n\nPlease email us at support@yendadamarathon.in');
           resetBtn();
         }
       },
 
-      modal: {
-        ondismiss: function() {
-          // User closed the Razorpay popup without paying
-          resetBtn();
-        },
-      },
+      modal: { ondismiss: function() { resetBtn(); } },
     };
 
     const rzp = new Razorpay(rzpOptions);
-
     rzp.on('payment.failed', function(response) {
       console.error('Payment failed:', response.error);
       alert('Payment failed: ' + (response.error.description || 'Please try again.'));
       resetBtn();
     });
-
     rzp.open();
 
   } catch (err) {
@@ -1653,62 +1789,42 @@ function selectSize(el, size) {
 }
 
 /* ══════════════════════════════════
-   CONFETTI ANIMATION
+   CONFETTI
 ══════════════════════════════════ */
 function spawnConfetti() {
   const wrap = document.getElementById('confetti-wrap');
   wrap.innerHTML = '';
   const colors = ['#E05C1A','#F07030','#0F2044','#3B82F6','#FBBF24','#10B981'];
   for (let i = 0; i < 24; i++) {
-    const piece = document.createElement('div');
-    piece.className = 'conf-piece';
-    piece.style.cssText = `
-      left: ${Math.random()*100}%;
-      top:  ${Math.random()*30}%;
-      background: ${colors[Math.floor(Math.random()*colors.length)]};
-      border-radius: ${Math.random()>0.5?'50%':'2px'};
-      --dur: ${0.9 + Math.random()*0.8}s;
-      --del: ${Math.random()*0.5}s;
-    `;
-    wrap.appendChild(piece);
+    const p = document.createElement('div');
+    p.className = 'conf-piece';
+    p.style.cssText = `left:${Math.random()*100}%;top:${Math.random()*30}%;background:${colors[Math.floor(Math.random()*colors.length)]};border-radius:${Math.random()>0.5?'50%':'2px'};--dur:${0.9+Math.random()*0.8}s;--del:${Math.random()*0.5}s;`;
+    wrap.appendChild(p);
   }
 }
 
 /* ══════════════════════════════════
-   KEYBOARD CLOSE MODAL
+   KEYBOARD + SMOOTH SCROLL
 ══════════════════════════════════ */
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') closeModal();
-});
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
-/* ══════════════════════════════════
-   SMOOTH SCROLL FOR NAV LINKS
-══════════════════════════════════ */
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
-    const id = a.getAttribute('href').substring(1);
-    const target = document.getElementById(id);
-    if (target) {
-      e.preventDefault();
-      const offset = 80;
-      const top = target.getBoundingClientRect().top + window.scrollY - offset;
-      window.scrollTo({ top, behavior: 'smooth' });
-    }
+    const target = document.getElementById(a.getAttribute('href').substring(1));
+    if (target) { e.preventDefault(); window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' }); }
   });
 });
 
 /* ══════════════════════════════════
-   REAL-TIME INPUT ERROR CLEAR
+   REAL-TIME ERROR CLEAR
 ══════════════════════════════════ */
 ['f-name','f-email','f-phone','f-age','f-city','f-emg'].forEach(id => {
   const el = document.getElementById(id);
-  if (el) {
-    el.addEventListener('input', () => {
-      el.classList.remove('err');
-      const errEl = document.getElementById('err-' + id.replace('f-',''));
-      if (errEl) errEl.classList.remove('show');
-    });
-  }
+  if (el) el.addEventListener('input', () => {
+    el.classList.remove('err');
+    const errEl = document.getElementById('err-' + id.replace('f-',''));
+    if (errEl) errEl.classList.remove('show');
+  });
 });
 </script>
 
