@@ -43,11 +43,11 @@ module.exports = async function handler(req, res) {
 
     // Create the order. Razorpay expects amount in PAISE (₹1 = 100 paise)
     const order = await razorpay.orders.create({
-      amount:   Math.round(amount) * 100,   // e.g. ₹500 → 50000 paise
-      currency,
-      receipt:  receipt || `ym_${Date.now()}`,
-      notes,
-    });
+        amount:   100,   // ⚠️ TEMPORARY: Hardcoded to 100 paise (₹1) for live testing
+        currency,
+        receipt:  receipt || `ym_${Date.now()}`,
+        notes,
+  });  
 
     // Return the order details + PUBLIC key ID to the browser
     // The Key ID is safe to send — it is not a secret
