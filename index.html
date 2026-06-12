@@ -291,7 +291,10 @@
     .f-err { font-size: 0.75rem; color: #EF4444; margin-top: 4px; display: none; }
     .f-err.show { display: block; }
     .f-input.err { border-color: #EF4444; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .spin { animation: spin 0.8s linear infinite; display: inline-block; }
   </style>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 </head>
 
 <body>
@@ -1482,27 +1485,153 @@ function backToStep2() {
   modalBox.scrollTop = 0;
 }
 
-function submitPayment() {
+async function submitPayment() {
   document.getElementById('err-tc').classList.remove('show');
   if (!document.getElementById('f-tc').checked) {
     document.getElementById('err-tc').classList.add('show');
     return;
   }
-  // Show step 4 success
-  document.getElementById('step3').classList.add('hidden');
-  document.getElementById('step4').classList.remove('hidden');
-  updateStepIndicators(4);
-  modalBox.scrollTop = 0;
 
-  // Populate success screen
-  const conf = 'YM2024-' + Math.floor(100000 + Math.random() * 900000);
-  document.getElementById('succ-conf').textContent  = conf;
-  document.getElementById('succ-name').textContent  = document.getElementById('f-name').value.trim();
-  document.getElementById('succ-cat').textContent   = selectedCategory;
-  document.getElementById('succ-email').textContent = document.getElementById('f-email').value.trim();
+  const payBtn = document.querySelector('#step3 .btn-modal-primary');
+  const origBtnHTML = payBtn.innerHTML;
 
-  // Confetti
-  spawnConfetti();
+  // Show loading state
+  payBtn.disabled = true;
+  payBtn.innerHTML = `<span class="spin"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M21 12a9 9 0 11-6.22-8.56"/></svg></span>&nbsp;Processing…`;
+
+  // Collect user data from the form
+  const userData = {
+    name:             document.getElementById('f-name').value.trim(),
+    email:            document.getElementById('f-email').value.trim(),
+    phone:            document.getElementById('f-phone').value.trim(),
+    age:              document.getElementById('f-age').value,
+    gender:           document.getElementById('f-gender').value,
+    city:             document.getElementById('f-city').value.trim(),
+    category:         selectedCategory,
+    tshirtSize:       selectedSize,
+    emergencyContact: document.getElementById('f-emg').value.trim(),
+    amount:           parseInt((selectedCategoryFee || '0').replace(/[^0-9]/g, ''), 10),
+  };
+
+  function resetBtn() {
+    payBtn.disabled = false;
+    payBtn.innerHTML = origBtnHTML;
+  }
+
+  try {
+    // ── Step 1: Ask the server to create a Razorpay order ──
+    const orderRes = await fetch('/api/create-order', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        amount:   userData.amount,
+        currency: 'INR',
+        receipt:  'ym_' + Date.now(),
+        notes: {
+          name:     userData.name,
+          email:    userData.email,
+          category: userData.category,
+        },
+      }),
+    });
+
+    if (!orderRes.ok) {
+      const err = await orderRes.json().catch(() => ({}));
+      throw new Error(err.error || 'Could not create order');
+    }
+    const order = await orderRes.json();
+
+    // ── Step 2: Open Razorpay Checkout ──
+    const rzpOptions = {
+      key:         order.key_id,          // Public key from server
+      amount:      order.amount,          // In paise
+      currency:    order.currency,
+      name:        'Yendada Marathon 2026',
+      description: userData.category,
+      image:       '',                    // Optional: URL to your logo
+      order_id:    order.id,
+      prefill: {
+        name:    userData.name,
+        email:   userData.email,
+        contact: userData.phone,
+      },
+      notes: {
+        category:    userData.category,
+        tshirt_size: userData.tshirtSize,
+        city:        userData.city,
+      },
+      theme: { color: '#E05C1A' },
+
+      // ── Called automatically by Razorpay on successful payment ──
+      handler: async function(response) {
+        try {
+          // ── Step 3: Verify payment on the server + write to Google Sheets ──
+          const verifyRes = await fetch('/api/verify-payment', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              razorpay_order_id:   response.razorpay_order_id,
+              razorpay_payment_id: response.razorpay_payment_id,
+              razorpay_signature:  response.razorpay_signature,
+              userData,
+            }),
+          });
+
+          const result = await verifyRes.json();
+
+          if (!verifyRes.ok || !result.success) {
+            throw new Error(result.error || 'Verification failed');
+          }
+
+          // ── Step 4: Show success screen ──
+          document.getElementById('step3').classList.add('hidden');
+          document.getElementById('step4').classList.remove('hidden');
+          updateStepIndicators(4);
+          modalBox.scrollTop = 0;
+
+          // Populate success card
+          const confNum = 'YM2026-' + response.razorpay_payment_id.slice(-6).toUpperCase();
+          document.getElementById('succ-conf').textContent  = confNum;
+          document.getElementById('succ-name').textContent  = userData.name;
+          document.getElementById('succ-cat').textContent   = userData.category;
+          document.getElementById('succ-email').textContent = userData.email;
+
+          spawnConfetti();
+
+        } catch (verifyErr) {
+          console.error('Verification error:', verifyErr);
+          alert(
+            'Your payment was received but we could not confirm it automatically.\n\n' +
+            'Payment ID: ' + response.razorpay_payment_id + '\n\n' +
+            'Please screenshot this and email us at support@yendadamarathon.in'
+          );
+          resetBtn();
+        }
+      },
+
+      modal: {
+        ondismiss: function() {
+          // User closed the Razorpay popup without paying
+          resetBtn();
+        },
+      },
+    };
+
+    const rzp = new Razorpay(rzpOptions);
+
+    rzp.on('payment.failed', function(response) {
+      console.error('Payment failed:', response.error);
+      alert('Payment failed: ' + (response.error.description || 'Please try again.'));
+      resetBtn();
+    });
+
+    rzp.open();
+
+  } catch (err) {
+    console.error('submitPayment error:', err);
+    alert('Something went wrong: ' + err.message + '\nPlease try again.');
+    resetBtn();
+  }
 }
 
 /* ══════════════════════════════════
