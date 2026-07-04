@@ -957,91 +957,126 @@
   </div>
 </section>
 
-
 <!-- ═══════════════════════════════════════════════
-     PREVIOUS EVENTS GALLERY
-     ─────────────────────────────────────────────
-     CHANGE 4: HOW TO ADD YOUR OWN PHOTOS
-     ─────────────────────────────────────────────
-     STEP 1 — Save your images (JPG / PNG / WEBP) to:
-       • Same folder as this HTML file → src="my-photo.jpg"
-       • OR an "images" subfolder     → src="images/my-photo.jpg"
-       • OR paste any public image URL → src="https://..."
-
-     STEP 2 — Replace each src="https://..." value below
-       with your own filename or URL.
-
-     STEP 3 — Update the alt="..." text with a short description.
-
-     TIPS:
-       • This grid has 9 cells (3×3). Add or remove <div class="gal-item">
-         blocks to change the count.
-       • Landscape (wider-than-tall) photos work best.
-       • Minimum recommended size: 440 × 220 px.
-       • On mobile the cells are ~100px tall; on desktop ~200px.
+     PREVIOUS EVENTS GALLERY (PERFECT MATCH UI)
 ═══════════════════════════════════════════════ -->
-<section id="gallery" class="gallery-bg py-20">
+<section id="gallery" class="gallery-bg py-24">
   <div class="max-w-7xl mx-auto px-5 sm:px-6">
 
-    <div class="text-center mb-12 reveal">
-      <h2 class="sec-title-white">Previous Events Gallery</h2>
+    <!-- Header Block -->
+    <div class="text-center mb-16 reveal">
+      <h2 class="sec-title-white">Gallery</h2>
       <div class="sec-rule mx-auto"></div>
-      <p class="text-white/55 max-w-xl mx-auto" style="font-size:0.92rem;">Relive the high-energy moments from our past races. From the sunrise start line to the triumphant finish, our community brings the spirit of Visakhapatnam to life.</p>
+      <p class="text-white/60 max-w-xl mx-auto text-sm sm:text-base leading-relaxed">
+        Relive the high-energy moments from our past races. From the sunrise start line to the triumphant finish, our community brings the spirit of Visakhapatnam to life.
+      </p>
     </div>
 
-    <div class="grid grid-cols-3 gap-1 sm:gap-2 rounded-lg overflow-hidden reveal d1">
+    <!-- Premium 3x3 Photo Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 lg:gap-6 reveal d1">
 
-      <!-- Photo 1 — Replace src with your own image path -->
-      <div class="gal-item" style="height:200px;">
-        <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=440&h=220&fit=crop&auto=format" alt="Finish line celebration" loading="lazy"/>
+      <!-- Photo 1 -->
+      <div class="group relative h-64 overflow-hidden rounded-xl bg-navydark shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl border border-white/5">
+        <img src="./images/image1.jpeg" alt="Finish line celebration" class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-navydark/90 via-navydark/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
+          <div class="transform translate-y-3 group-hover:translate-y-0 transition-transform duration-300">
+            <p class="font-barlow text-rust font-bold text-xs uppercase tracking-widest mb-1">Victory Line</p>
+            <h4 class="text-white font-semibold text-base">Triumphant Moments</h4>
+          </div>
+        </div>
       </div>
 
-      <!-- Photo 2 — Replace src with your own image path -->
-      <div class="gal-item" style="height:200px;">
-        <img src="https://images.unsplash.com/photo-1532444458054-01a0f8972b17?w=440&h=220&fit=crop&auto=format" alt="Community runners" loading="lazy"/>
+      <!-- Photo 2 -->
+      <div class="group relative h-64 overflow-hidden rounded-xl bg-navydark shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl border border-white/5">
+        <img src="./images/image2.jpeg" alt="Community runners" class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-navydark/90 via-navydark/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
+          <div class="transform translate-y-3 group-hover:translate-y-0 transition-transform duration-300">
+            <p class="font-barlow text-rust font-bold text-xs uppercase tracking-widest mb-1">Community</p>
+            <h4 class="text-white font-semibold text-base">Stronger Together</h4>
+          </div>
+        </div>
       </div>
 
-      <!-- Photo 3 — Replace src with your own image path -->
-      <div class="gal-item" style="height:200px;">
-        <img src="https://images.unsplash.com/photo-1489824904134-891ab64532f1?w=440&h=220&fit=crop&auto=format" alt="Kids fun run" loading="lazy"/>
+      <!-- Photo 3 -->
+      <div class="group relative h-64 overflow-hidden rounded-xl bg-navydark shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl border border-white/5">
+        <img src="./images/image3.jpeg" alt="Kids fun run" class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-navydark/90 via-navydark/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
+          <div class="transform translate-y-3 group-hover:translate-y-0 transition-transform duration-300">
+            <p class="font-barlow text-rust font-bold text-xs uppercase tracking-widest mb-1">2K Loop</p>
+            <h4 class="text-white font-semibold text-base">Future Champions</h4>
+          </div>
+        </div>
       </div>
 
-      <!-- Photo 4 — Replace src with your own image path -->
-      <div class="gal-item" style="height:200px;">
-        <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=440&h=220&fit=crop&auto=format" alt="Coastal view" loading="lazy"/>
+      <!-- Photo 4 -->
+      <div class="group relative h-64 overflow-hidden rounded-xl bg-navydark shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl border border-white/5">
+        <img src="./images/image4.jpeg" alt="Coastal view" class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-navydark/90 via-navydark/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
+          <div class="transform translate-y-3 group-hover:translate-y-0 transition-transform duration-300">
+            <p class="font-barlow text-rust font-bold text-xs uppercase tracking-widest mb-1">Scenic Track</p>
+            <h4 class="text-white font-semibold text-base">The Ocean Breeze Track</h4>
+          </div>
+        </div>
       </div>
 
-      <!-- Photo 5 — Replace src with your own image path -->
-      <div class="gal-item" style="height:200px;">
-        <img src="https://images.unsplash.com/photo-1502224562085-639556652f33?w=440&h=220&fit=crop&auto=format" alt="Female runner with medal" loading="lazy"/>
+      <!-- Photo 5 -->
+      <div class="group relative h-64 overflow-hidden rounded-xl bg-navydark shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl border border-white/5">
+        <img src="./images/image5.jpeg" alt="Female runner with medal" class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-navydark/90 via-navydark/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
+          <div class="transform translate-y-3 group-hover:translate-y-0 transition-transform duration-300">
+            <p class="font-barlow text-rust font-bold text-xs uppercase tracking-widest mb-1">Endurance</p>
+            <h4 class="text-white font-semibold text-base">Finisher Medals & Pride</h4>
+          </div>
+        </div>
       </div>
 
-      <!-- Photo 6 — Replace src with your own image path -->
-      <div class="gal-item" style="height:200px;">
-        <img src="https://images.unsplash.com/photo-1528697203043-733dbb77b6f7?w=440&h=220&fit=crop&auto=format" alt="Crowd support" loading="lazy"/>
+      <!-- Photo 6 -->
+      <div class="group relative h-64 overflow-hidden rounded-xl bg-navydark shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl border border-white/5">
+        <img src="./images/image6.jpeg" alt="Crowd support" class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-navydark/90 via-navydark/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
+          <div class="transform translate-y-3 group-hover:translate-y-0 transition-transform duration-300">
+            <p class="font-barlow text-rust font-bold text-xs uppercase tracking-widest mb-1">Spectators</p>
+            <h4 class="text-white font-semibold text-base">Unmatched Cheer Squads</h4>
+          </div>
+        </div>
       </div>
 
-      <!-- Photo 7 — Replace src with your own image path -->
-      <div class="gal-item" style="height:200px;">
-        <img src="https://images.unsplash.com/photo-1486218119243-13301abb2ba7?w=440&h=220&fit=crop&auto=format" alt="Marathon crowd aerial" loading="lazy"/>
+      <!-- Photo 7 -->
+      <div class="group relative h-64 overflow-hidden rounded-xl bg-navydark shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl border border-white/5">
+        <img src="./images/image7.jpeg" alt="Marathon crowd aerial" class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-navydark/90 via-navydark/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
+          <div class="transform translate-y-3 group-hover:translate-y-0 transition-transform duration-300">
+            <p class="font-barlow text-rust font-bold text-xs uppercase tracking-widest mb-1">Flag Off</p>
+            <h4 class="text-white font-semibold text-base">The Dawn Takeoff</h4>
+          </div>
+        </div>
       </div>
 
-      <!-- Photo 8 — Replace src with your own image path -->
-      <div class="gal-item" style="height:200px;">
-        <img src="https://images.unsplash.com/photo-1569952880949-f9501f0a8a52?w=440&h=220&fit=crop&auto=format" alt="Medal ceremony" loading="lazy"/>
+      <!-- Photo 8 -->
+      <div class="group relative h-64 overflow-hidden rounded-xl bg-navydark shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl border border-white/5">
+        <img src="./images/image8.jpeg" alt="Medal ceremony" class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-navydark/90 via-navydark/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
+          <div class="transform translate-y-3 group-hover:translate-y-0 transition-transform duration-300">
+            <p class="font-barlow text-rust font-bold text-xs uppercase tracking-widest mb-1">Podium</p>
+            <h4 class="text-white font-semibold text-base">Celebrating Excellence</h4>
+          </div>
+        </div>
       </div>
 
-      <!-- Photo 9 — Replace src with your own image path -->
-      <div class="gal-item" style="height:200px;">
-        <img src="https://images.unsplash.com/photo-1549060279-7e168fcee0c2?w=440&h=220&fit=crop&auto=format" alt="Runners on road" loading="lazy"/>
+      <!-- Photo 9 (Notice the .png format tracking to your file tree!) -->
+      <div class="group relative h-64 overflow-hidden rounded-xl bg-navydark shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl border border-white/5">
+        <img src="./images/image9.png" alt="Runners on road" class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-navydark/90 via-navydark/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
+          <div class="transform translate-y-3 group-hover:translate-y-0 transition-transform duration-300">
+            <p class="font-barlow text-rust font-bold text-xs uppercase tracking-widest mb-1">Athletes</p>
+            <h4 class="text-white font-semibold text-base">Every Single Step Counts</h4>
+          </div>
+        </div>
       </div>
 
     </div>
-
   </div>
 </section>
-
-
 <!-- ═══════════════════════════════════════════════
      FAQ
 ═══════════════════════════════════════════════ -->
