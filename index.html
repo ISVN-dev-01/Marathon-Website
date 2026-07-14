@@ -101,7 +101,6 @@
     }
     .wave-bottom { position: absolute; bottom: -2px; left: 0; right: 0; line-height: 0; }
 
-    /* ── CHANGE 1: Race date badge ── */
     .race-date-badge {
       display: inline-flex;
       align-items: center;
@@ -184,14 +183,64 @@
     .tl-desc { font-size: 0.85rem; color: #6B7280; }
 
     /* ═══════════════════════════════════════════════
-       GALLERY
+       PREMIUM MOSAIC GALLERY & LIGHTBOX
     ═══════════════════════════════════════════════ */
-    .gallery-bg { background: #2A5F6E; }
-    .gal-item { overflow: hidden; position: relative; cursor: pointer; }
-    .gal-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.55s ease; }
-    .gal-item::after { content: ''; position: absolute; inset: 0; background: rgba(15,32,68,0); transition: background 0.35s; }
-    .gal-item:hover img { transform: scale(1.07); }
-    .gal-item:hover::after { background: rgba(15,32,68,0.28); }
+    .gallery-bg { background: #0F2044; } 
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+    @media (min-width: 768px) {
+      .gallery-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-auto-rows: 220px;
+        gap: 20px;
+      }
+    }
+
+    .mosaic-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    .mosaic-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    .mosaic-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      border-color: rgba(224, 92, 26, 0.4);
+    }
+    .mosaic-card:hover img {
+      transform: scale(1.04);
+    }
+    .mosaic-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(8, 22, 41, 0.95) 0%, rgba(8, 22, 41, 0.4) 60%, rgba(8, 22, 41, 0.1) 100%);
+      opacity: 0;
+      transition: opacity 0.35s ease;
+      display: flex;
+      align-items: flex-end;
+      padding: 20px;
+    }
+    .mosaic-card:hover .mosaic-overlay {
+      opacity: 1;
+    }
+    .mosaic-text {
+      transform: translateY(10px);
+      transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    .mosaic-card:hover .mosaic-text {
+      transform: translateY(0);
+    }
 
     /* ═══════════════════════════════════════════════
        FAQ ACCORDION
@@ -376,15 +425,12 @@
       .tl-desc { font-size: 0.82rem; }
       .tl-item { padding-bottom: 28px; }
 
-      /* ── Gallery — narrower cells on mobile ── */
-      .gal-item { height: 100px !important; }
-
       /* ── FAQ ── */
       .faq-btn { padding: 16px 18px; font-size: 0.92rem; }
       .faq-inner { padding: 4px 18px 18px; font-size: 0.85rem; }
 
       /* ═══════════════════════════════════════
-         MODAL — bottom sheet on mobile
+          MODAL — bottom sheet on mobile
       ═══════════════════════════════════════ */
       #modal-overlay {
         padding: 0;
@@ -470,9 +516,6 @@
 
 <body>
 
-<!-- ═══════════════════════════════════════════════
-     APEX GROUP ANNOUNCEMENT BAR
-═══════════════════════════════════════════════ -->
 <div id="apex-bar" style="background:#0F2044;border-bottom:1px solid rgba(224,92,26,0.3);padding:8px 20px;text-align:center;position:relative;z-index:901;">
   <p style="font-family:'Barlow Condensed',sans-serif;font-size:0.78rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.6);">
     <span style="color:#E05C1A;margin-right:8px;">★</span>
@@ -486,7 +529,6 @@
 <nav id="navbar">
   <div class="max-w-7xl mx-auto px-5 sm:px-6 flex items-center justify-between">
 
-    <!-- Logo -->
     <a href="#home" class="flex items-center gap-3" aria-label="Yendada Marathon Home">
       <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="18" cy="18" r="18" fill="rgba(224,92,26,0.18)"/>
@@ -497,7 +539,6 @@
       <span class="nav-logo-text">Yendada Marathon</span>
     </a>
 
-    <!-- Desktop Links -->
     <div class="hidden md:flex items-center gap-8">
       <a href="#home"     class="nav-link active">Home</a>
       <a href="#races"    class="nav-link">Races</a>
@@ -505,7 +546,6 @@
       <a href="#timeline" class="nav-link">Timeline</a>
     </div>
 
-    <!-- Register + Hamburger -->
     <div class="flex items-center gap-4">
       <button onclick="openModal(null)" class="btn-reg-nav hidden md:block">Register Now</button>
       <button id="mob-toggle" class="md:hidden text-white p-2" aria-label="Toggle menu" onclick="toggleMobMenu()">
@@ -519,7 +559,6 @@
     </div>
   </div>
 
-  <!-- Mobile Menu -->
   <div id="mob-menu">
     <div class="max-w-7xl mx-auto px-5 py-4 flex flex-col gap-1">
       <a href="#home"     onclick="closeMobMenu()" class="nav-link py-3 border-b border-white/10">Home</a>
@@ -532,27 +571,20 @@
 </nav>
 
 
-<!-- ═══════════════════════════════════════════════
-     HERO
-═══════════════════════════════════════════════ -->
 <section id="home" class="hero-section">
   <div class="max-w-7xl mx-auto px-5 sm:px-6 w-full">
     <div class="max-w-2xl pt-20 pb-8">
 
-      <!-- Pill badge -->
-      <div class="badge-orange mb-5 reveal">📍 Yendada Junction, Visakhapatnam &nbsp;·&nbsp; 2026</div>
+      <div class="badge-orange mb-5 reveal">📍 Yendada Junction, Visakhapatnam  ·  2026</div>
 
-      <!-- Headline -->
       <h1 class="font-barlow font-900 text-white uppercase leading-none mb-6 reveal d1" style="font-size:clamp(2.8rem,6vw,5rem);letter-spacing:0.03em;">
         Yendada Marathon –<br>
         <span style="color:#E05C1A;">Run with the Ocean Breeze</span>
       </h1>
 
-      <!-- ── CHANGE 1: Countdown with date added above it ── -->
       <div class="mb-8 reveal d2">
         <p class="text-white/50 text-sm mb-3 font-barlow uppercase tracking-widest" style="letter-spacing:0.16em;">Race starts in</p>
 
-        <!-- Date badge — NEW -->
         <div class="race-date-badge mb-3">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#E05C1A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
@@ -580,7 +612,6 @@
         </div>
       </div>
 
-      <!-- CTAs -->
       <div class="flex flex-wrap gap-4 reveal d3">
         <button onclick="openModal(null)" class="btn-primary">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 5l7 7-7 7M5 5l7 7-7 7"/></svg>
@@ -592,7 +623,6 @@
         </a>
       </div>
 
-      <!-- Stats strip -->
       <div class="flex flex-wrap gap-8 mt-12 hero-stats-strip reveal d4">
         <div>
           <p class="font-barlow text-white stat-num" style="font-size:1.9rem;font-weight:800;line-height:1;">3,200+</p>
@@ -613,7 +643,6 @@
     </div>
   </div>
 
-  <!-- Wave bottom divider -->
   <div class="wave-bottom">
     <svg viewBox="0 0 1440 54" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">
       <path d="M0,32 C240,58 480,10 720,32 C960,54 1200,10 1440,32 L1440,54 L0,54 Z" fill="#ffffff"/>
@@ -622,9 +651,6 @@
 </section>
 
 
-<!-- ═══════════════════════════════════════════════
-     CHOOSE YOUR CHALLENGE (CATEGORIES)
-═══════════════════════════════════════════════ -->
 <section id="races" class="py-24" style="background:#F5F7FB;">
   <div class="max-w-7xl mx-auto px-5 sm:px-6">
 
@@ -636,7 +662,6 @@
 
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-5xl mx-auto">
 
-      <!-- 2K Fun Run -->
       <div class="cat-card reveal d1">
         <div style="width:46px;height:46px;display:flex;align-items:center;justify-content:center;background:rgba(224,92,26,0.1);border-radius:4px;">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E05C1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
@@ -660,7 +685,6 @@
         <button onclick="openModal('2K – Fun Run')" class="mt-6 w-full py-3 font-barlow font-700 text-sm uppercase tracking-wider" style="background:#0F2044;color:#fff;letter-spacing:0.12em;transition:background 0.3s;" onmouseover="this.style.background='#162d5c'" onmouseout="this.style.background='#0F2044'">Register Now</button>
       </div>
 
-      <!-- 5K Fit India Run -->
       <div class="cat-card reveal d2">
         <div style="width:46px;height:46px;display:flex;align-items:center;justify-content:center;background:rgba(224,92,26,0.1);border-radius:4px;">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E05C1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><path d="M8 14l-2 6"/><path d="M16 14l2 6"/><path d="M12 7v5l-3 3"/><path d="M12 12l3 3"/><path d="M9 17h6"/></svg>
@@ -684,7 +708,6 @@
         <button onclick="openModal('5K – Fit India Run')" class="mt-6 w-full py-3 font-barlow font-700 text-sm uppercase tracking-wider" style="background:#0F2044;color:#fff;letter-spacing:0.12em;transition:background 0.3s;" onmouseover="this.style.background='#162d5c'" onmouseout="this.style.background='#0F2044'">Register Now</button>
       </div>
 
-      <!-- 10K Endurance Run -->
       <div class="cat-card reveal d3" style="border-top:3px solid #E05C1A;">
         <div style="width:46px;height:46px;display:flex;align-items:center;justify-content:center;background:rgba(224,92,26,0.12);border-radius:4px;">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E05C1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M9 18l3-2 3 2"/><path d="M12 16v5"/><path d="M7 22l5-6 5 6"/></svg>
@@ -713,15 +736,11 @@
 </section>
 
 
-<!-- ═══════════════════════════════════════════════
-     RACE COURSE + WHAT'S IN THE BOX
-═══════════════════════════════════════════════ -->
 <section id="route" class="route-bg py-20">
   <div class="max-w-7xl mx-auto px-5 sm:px-6">
 
     <div class="grid lg:grid-cols-2 gap-12 xl:gap-16 items-start">
 
-      <!-- LEFT: Map -->
       <div class="reveal">
         <h2 class="sec-title-white mb-1">Race Course</h2>
         <div class="sec-rule sec-rule-left" style="margin-bottom:24px;"></div>
@@ -732,7 +751,6 @@
           <button class="map-tab" onclick="switchMap(this,'map-2k')">2K Map</button>
         </div>
 
-        <!-- 10K -->
         <div id="map-10k" class="map-panel active">
           <div class="rounded overflow-hidden" style="background:#0a1628;border:1px solid rgba(255,255,255,0.08);">
             <svg viewBox="0 0 580 360" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">
@@ -760,7 +778,6 @@
           </p>
         </div>
 
-        <!-- 5K -->
         <div id="map-5k" class="map-panel">
           <div class="rounded overflow-hidden" style="background:#0a1628;border:1px solid rgba(255,255,255,0.08);">
             <svg viewBox="0 0 580 360" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">
@@ -782,7 +799,6 @@
           </div>
         </div>
 
-        <!-- 2K -->
         <div id="map-2k" class="map-panel">
           <div class="rounded overflow-hidden" style="background:#0a1628;border:1px solid rgba(255,255,255,0.08);">
             <svg viewBox="0 0 580 360" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">
@@ -803,7 +819,6 @@
           </div>
         </div>
 
-        <!-- Location Info -->
         <div class="mt-5 rounded" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);overflow:hidden;">
           <div style="position:relative;width:100%;height:200px;background:#0a1628;overflow:hidden;">
             <iframe
@@ -811,7 +826,7 @@
               width="100%" height="200" style="border:0;display:block;filter:invert(0.9) hue-rotate(190deg) saturate(0.7);"
               allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
               title="Race course location — Yendada Junction, Visakhapatnam">
-            </iframe>
+             Pop</iframe>
           </div>
           <div class="flex items-start gap-3 p-4">
             <div style="width:34px;height:34px;background:rgba(224,92,26,0.15);border-radius:4px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
@@ -819,7 +834,7 @@
             </div>
             <div>
               <p class="text-white font-semibold text-sm leading-tight">Yendada Junction, Visakhapatnam</p>
-              <p class="text-white/45 text-xs mt-1">Near Chennapatnam Filter Coffee &nbsp;·&nbsp; Andhra Pradesh 530 045</p>
+              <p class="text-white/45 text-xs mt-1">Near Chennapatnam Filter Coffee  ·  Andhra Pradesh 530 045</p>
               <a href="https://maps.google.com/?q=Yendada+Junction+Visakhapatnam" target="_blank" rel="noopener"
                  style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#E05C1A;">
                 Open in Google Maps
@@ -828,10 +843,7 @@
             </div>
           </div>
         </div>
-      </div><!-- /left -->
-
-      <!-- RIGHT: What's in the Box -->
-      <div class="reveal d2">
+      </div><div class="reveal d2">
         <h2 class="sec-title-white mb-1">What's in the Box?</h2>
         <div class="sec-rule sec-rule-left" style="margin-bottom:24px;"></div>
         <p class="text-white/50 text-sm mb-6 leading-relaxed">Every registered runner receives a premium race kit packed with race essentials and celebratory keepsakes.</p>
@@ -868,7 +880,6 @@
             </div>
           </div>
 
-          <!-- ── CHANGE 3: Certificate — tagline updated ── -->
           <div class="box-item">
             <div class="box-icon">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E05C1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="13" y2="17"/></svg>
@@ -890,17 +901,11 @@
           </div>
 
         </div>
-      </div><!-- /right -->
-
-    </div>
+      </div></div>
   </div>
 </section>
 
 
-<!-- ═══════════════════════════════════════════════
-     RACE DAY SCHEDULE
-     CHANGE 2: Award Ceremony entry removed
-═══════════════════════════════════════════════ -->
 <section id="timeline" class="sched-bg py-24">
   <div class="max-w-7xl mx-auto px-5 sm:px-6">
 
@@ -917,7 +922,7 @@
         <div class="tl-item reveal">
           <div class="tl-dot"></div>
           <p class="tl-time">04:00 AM</p>
-          <h3 class="tl-title">Assembly &amp; Baggage Drop</h3>
+          <h3 class="tl-title">Assembly & Baggage Drop</h3>
           <p class="tl-desc">Arrival at Yendada Junction start point. Warm-up sessions begin. Collect your BIB if not picked up before.</p>
         </div>
 
@@ -949,21 +954,15 @@
           <p class="tl-desc">Recovery drinks and snacks available for all finishers. Celebrate your achievement with the community.</p>
         </div>
 
-        <!-- Award Ceremony REMOVED as per request -->
-
-      </div>
+        </div>
     </div>
 
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════
-     PREVIOUS EVENTS GALLERY (PERFECT MATCH UI)
-═══════════════════════════════════════════════ -->
 <section id="gallery" class="gallery-bg py-24">
   <div class="max-w-7xl mx-auto px-5 sm:px-6">
 
-    <!-- Header Block -->
     <div class="text-center mb-16 reveal">
       <h2 class="sec-title-white">Gallery</h2>
       <div class="sec-rule mx-auto"></div>
@@ -972,104 +971,144 @@
       </p>
     </div>
 
-    <!-- Premium 3x3 Photo Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 lg:gap-6 reveal d1">
+    <div class="gallery-grid reveal d1">
 
-      <!-- Photo 1 -->
-      <div class="group relative h-64 overflow-hidden rounded-xl bg-navydark shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl border border-white/5">
-        <img src="./images/image1.jpeg" alt="Finish line celebration" class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-navydark/90 via-navydark/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
-          <div class="transform translate-y-3 group-hover:translate-y-0 transition-transform duration-300">
+      <div class="mosaic-card col-span-2 row-span-2 h-72 md:h-auto" onclick="openLightbox(this)">
+        <img src="./images/image1.jpeg" alt="Triumphant Finish Line Celebration" loading="lazy"/>
+        <div class="mosaic-overlay">
+          <div class="mosaic-text">
             <p class="font-barlow text-rust font-bold text-xs uppercase tracking-widest mb-1">Victory Line</p>
-            <h4 class="text-white font-semibold text-base">Triumphant Moments</h4>
+            <h4 class="text-white font-semibold text-lg">Triumphant Moments</h4>
           </div>
         </div>
       </div>
 
-      <!-- Photo 2 -->
-      <div class="group relative h-64 overflow-hidden rounded-xl bg-navydark shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl border border-white/5">
-        <img src="./images/image2.jpeg" alt="Community runners" class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-navydark/90 via-navydark/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
-          <div class="transform translate-y-3 group-hover:translate-y-0 transition-transform duration-300">
+      <div class="mosaic-card h-48 md:h-auto" onclick="openLightbox(this)">
+        <img src="./images/image2.jpeg" alt="Community Marathon Runners Group" loading="lazy"/>
+        <div class="mosaic-overlay">
+          <div class="mosaic-text">
             <p class="font-barlow text-rust font-bold text-xs uppercase tracking-widest mb-1">Community</p>
             <h4 class="text-white font-semibold text-base">Stronger Together</h4>
           </div>
         </div>
       </div>
 
-      <!-- Photo 3 -->
-      <div class="group relative h-64 overflow-hidden rounded-xl bg-navydark shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl border border-white/5">
-        <img src="./images/image3.jpeg" alt="Kids fun run" class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-navydark/90 via-navydark/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
-          <div class="transform translate-y-3 group-hover:translate-y-0 transition-transform duration-300">
+      <div class="mosaic-card row-span-2 h-72 md:h-auto" onclick="openLightbox(this)">
+        <img src="./images/image3.jpeg" alt="Kids 2K Fun Run Loop Leaders" loading="lazy"/>
+        <div class="mosaic-overlay">
+          <div class="mosaic-text">
             <p class="font-barlow text-rust font-bold text-xs uppercase tracking-widest mb-1">2K Loop</p>
             <h4 class="text-white font-semibold text-base">Future Champions</h4>
           </div>
         </div>
       </div>
 
-      <!-- Photo 4 -->
-      <div class="group relative h-64 overflow-hidden rounded-xl bg-navydark shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl border border-white/5">
-        <img src="./images/image4.jpeg" alt="Coastal view" class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-navydark/90 via-navydark/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
-          <div class="transform translate-y-3 group-hover:translate-y-0 transition-transform duration-300">
+      <div class="mosaic-card h-48 md:h-auto" onclick="openLightbox(this)">
+        <img src="./images/image4.jpeg" alt="The Scenic Coastal Ocean Breeze Track" loading="lazy"/>
+        <div class="mosaic-overlay">
+          <div class="mosaic-text">
             <p class="font-barlow text-rust font-bold text-xs uppercase tracking-widest mb-1">Scenic Track</p>
-            <h4 class="text-white font-semibold text-base">The Ocean Breeze Track</h4>
+            <h4 class="text-white font-semibold text-base">Ocean Breeze Track</h4>
           </div>
         </div>
       </div>
 
-      <!-- Photo 5 -->
-      <div class="group relative h-64 overflow-hidden rounded-xl bg-navydark shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl border border-white/5">
-        <img src="./images/image5.jpeg" alt="Female runner with medal" class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-navydark/90 via-navydark/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
-          <div class="transform translate-y-3 group-hover:translate-y-0 transition-transform duration-300">
+      <div class="mosaic-card col-span-2 h-48 md:h-auto" onclick="openLightbox(this)">
+        <img src="./images/image5.jpeg" alt="Endurance Finishers Proudly Displaying Medals" loading="lazy"/>
+        <div class="mosaic-overlay">
+          <div class="mosaic-text">
             <p class="font-barlow text-rust font-bold text-xs uppercase tracking-widest mb-1">Endurance</p>
             <h4 class="text-white font-semibold text-base">Finisher Medals & Pride</h4>
           </div>
         </div>
       </div>
 
-      <!-- Photo 6 -->
-      <div class="group relative h-64 overflow-hidden rounded-xl bg-navydark shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl border border-white/5">
-        <img src="./images/image6.jpeg" alt="Crowd support" class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-navydark/90 via-navydark/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
-          <div class="transform translate-y-3 group-hover:translate-y-0 transition-transform duration-300">
+      <div class="mosaic-card h-48 md:h-auto" onclick="openLightbox(this)">
+        <img src="./images/image6.jpeg" alt="Spectators and Unmatched Cheer Squads" loading="lazy"/>
+        <div class="mosaic-overlay">
+          <div class="mosaic-text">
             <p class="font-barlow text-rust font-bold text-xs uppercase tracking-widest mb-1">Spectators</p>
             <h4 class="text-white font-semibold text-base">Unmatched Cheer Squads</h4>
           </div>
         </div>
       </div>
 
-      <!-- Photo 7 -->
-      <div class="group relative h-64 overflow-hidden rounded-xl bg-navydark shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl border border-white/5">
-        <img src="./images/image7.jpeg" alt="Marathon crowd aerial" class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-navydark/90 via-navydark/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
-          <div class="transform translate-y-3 group-hover:translate-y-0 transition-transform duration-300">
+      <div class="mosaic-card h-48 md:h-auto" onclick="openLightbox(this)">
+        <img src="./images/image7.jpeg" alt="The Dawn Takeoff Marathon Mass Flag Off" loading="lazy"/>
+        <div class="mosaic-overlay">
+          <div class="mosaic-text">
             <p class="font-barlow text-rust font-bold text-xs uppercase tracking-widest mb-1">Flag Off</p>
             <h4 class="text-white font-semibold text-base">The Dawn Takeoff</h4>
           </div>
         </div>
       </div>
 
-      <!-- Photo 8 -->
-      <div class="group relative h-64 overflow-hidden rounded-xl bg-navydark shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl border border-white/5">
-        <img src="./images/image8.jpeg" alt="Medal ceremony" class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-navydark/90 via-navydark/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
-          <div class="transform translate-y-3 group-hover:translate-y-0 transition-transform duration-300">
+      <div class="mosaic-card row-span-2 h-72 md:h-auto" onclick="openLightbox(this)">
+        <img src="./images/image8.jpeg" alt="Podium Ceremony Celebrating Excellence" loading="lazy"/>
+        <div class="mosaic-overlay">
+          <div class="mosaic-text">
             <p class="font-barlow text-rust font-bold text-xs uppercase tracking-widest mb-1">Podium</p>
             <h4 class="text-white font-semibold text-base">Celebrating Excellence</h4>
           </div>
         </div>
       </div>
 
-      <!-- Photo 9 (Notice the .png format tracking to your file tree!) -->
-      <div class="group relative h-64 overflow-hidden rounded-xl bg-navydark shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl border border-white/5">
-        <img src="./images/image9.png" alt="Runners on road" class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-navydark/90 via-navydark/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
-          <div class="transform translate-y-3 group-hover:translate-y-0 transition-transform duration-300">
+      <div class="mosaic-card col-span-2 h-48 md:h-auto" onclick="openLightbox(this)">
+        <img src="./images/image9.png" alt="Athletes Running Along The Open Coast Highways" loading="lazy"/>
+        <div class="mosaic-overlay">
+          <div class="mosaic-text">
             <p class="font-barlow text-rust font-bold text-xs uppercase tracking-widest mb-1">Athletes</p>
             <h4 class="text-white font-semibold text-base">Every Single Step Counts</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="mosaic-card h-48 md:h-auto" onclick="openLightbox(this)">
+        <img src="./images/image10.jpeg" alt="Early Morning Warm Up Assembly Session" loading="lazy"/>
+        <div class="mosaic-overlay">
+          <div class="mosaic-text">
+            <p class="font-barlow text-rust font-bold text-xs uppercase tracking-widest mb-1">Preparation</p>
+            <h4 class="text-white font-semibold text-base">Warm-Up Focus</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="mosaic-card h-48 md:h-auto" onclick="openLightbox(this)">
+        <img src="./images/image11.jpeg" alt="Hydration Station Volunteers Assisting Runners" loading="lazy"/>
+        <div class="mosaic-overlay">
+          <div class="mosaic-text">
+            <p class="font-barlow text-rust font-bold text-xs uppercase tracking-widest mb-1">Hydration</p>
+            <h4 class="text-white font-semibold text-base">Support Along the Route</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="mosaic-card col-span-2 row-span-2 h-72 md:h-auto" onclick="openLightbox(this)">
+        <img src="./images/image12.jpeg" alt="Veteran Elite Marathon Runners Pack" loading="lazy"/>
+        <div class="mosaic-overlay">
+          <div class="mosaic-text">
+            <p class="font-barlow text-rust font-bold text-xs uppercase tracking-widest mb-1">Elite Pack</p>
+            <h4 class="text-white font-semibold text-lg">Pacing to Greatness</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="mosaic-card h-48 md:h-auto" onclick="openLightbox(this)">
+        <img src="./images/image13.jpeg" alt="Medical Team Providing Active Track Assistance" loading="lazy"/>
+        <div class="mosaic-overlay">
+          <div class="mosaic-text">
+            <p class="font-barlow text-rust font-bold text-xs uppercase tracking-widest mb-1">Safety</p>
+            <h4 class="text-white font-semibold text-base">First-Aid Security Coverage</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="mosaic-card h-48 md:h-auto" onclick="openLightbox(this)">
+        <img src="./images/image14.jpeg" alt="Post Run Healthy Breakfast Refreshment Counters" loading="lazy"/>
+        <div class="mosaic-overlay">
+          <div class="mosaic-text">
+            <p class="font-barlow text-rust font-bold text-xs uppercase tracking-widest mb-1">Recovery</p>
+            <h4 class="text-white font-semibold text-base">Post-Run Refreshment Zone</h4>
           </div>
         </div>
       </div>
@@ -1077,9 +1116,20 @@
     </div>
   </div>
 </section>
-<!-- ═══════════════════════════════════════════════
-     FAQ
-═══════════════════════════════════════════════ -->
+
+<div id="lightbox-overlay" class="fixed inset-0 bg-black/95 z-[10000] hidden flex flex-col items-center justify-center p-4 transition-opacity duration-300 opacity-0" onclick="closeLightbox()">
+  <button class="absolute top-6 right-6 text-white/70 hover:text-white transition-colors duration-200" onclick="closeLightbox()" aria-label="Close Lightbox">
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  
+  <div class="relative max-w-5xl max-h-[80vh] flex items-center justify-center" onclick="event.stopPropagation()">
+    <img id="lightbox-img" src="" alt="" class="max-w-full max-h-[80vh] object-contain rounded-lg shadow-2xl transform scale-95 transition-transform duration-300 ease-out"/>
+  </div>
+  
+  <p id="lightbox-caption" class="mt-4 text-white/80 font-inter text-sm font-medium tracking-wide text-center max-w-xl bg-white/5 backdrop-blur-md border border-white/10 px-5 py-2.5 rounded-full"></p>
+</div>
+
+
 <section id="faq" class="py-24 bg-white">
   <div class="max-w-7xl mx-auto px-5 sm:px-6">
 
@@ -1105,7 +1155,7 @@
 
       <div class="faq-item reveal d1">
         <button class="faq-btn" onclick="toggleFAQ(this)">
-          <span>Bag Drop &amp; Valuables</span>
+          <span>Bag Drop & Valuables</span>
           <svg class="faq-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
         <div class="faq-content">
@@ -1134,7 +1184,7 @@
 
       <div class="faq-item reveal d3">
         <button class="faq-btn" onclick="toggleFAQ(this)">
-          <span>Cancellations &amp; Transfers</span>
+          <span>Cancellations & Transfers</span>
           <svg class="faq-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
         <div class="faq-content">
@@ -1151,9 +1201,6 @@
 </section>
 
 
-<!-- ═══════════════════════════════════════════════
-     FOOTER
-═══════════════════════════════════════════════ -->
 <footer class="footer-bg">
   <div class="footer-top-bar"></div>
   <div class="max-w-7xl mx-auto px-5 sm:px-6 py-14">
@@ -1204,27 +1251,14 @@
 </footer>
 
 
-<!-- ═══════════════════════════════════════════════
-     REGISTRATION MODAL — MOBILE-FIRST MULTI-STEP
-     CHANGE 5: Complete mobile responsiveness overhaul
-     • Bottom-sheet on mobile (slides up from bottom)
-     • Single-column form grids on mobile
-     • iOS input zoom prevention (font-size:16px)
-     • Stacked button rows on mobile (primary on top)
-     • Summary card word-break fix
-     • Drag handle indicator
-═══════════════════════════════════════════════ -->
 <div id="modal-overlay" role="dialog" aria-modal="true" aria-label="Registration Form" onclick="closeModalOnOverlay(event)">
   <div id="modal-box">
 
-    <!-- Drag handle (visible on mobile only) -->
     <div class="modal-drag-handle"></div>
 
-    <!-- Modal Header -->
     <div class="modal-hdr">
       <div class="flex-1 min-w-0">
         <p class="font-barlow text-white/45 text-xs uppercase tracking-wider mb-3" style="letter-spacing:0.12em;">Yendada Marathon 2026 — Registration</p>
-        <!-- Step indicators -->
         <div class="flex items-center gap-1">
           <div class="flex flex-col items-center">
             <div class="step-bubble active" id="sb1">1</div>
@@ -1247,7 +1281,6 @@
       </button>
     </div>
 
-    <!-- ── STEP 1: Runner Info ── -->
     <div id="step1" class="p-7">
       <h3 class="font-barlow text-2xl font-800 uppercase mb-1" style="color:#0F2044;font-size:1.5rem;font-weight:800;letter-spacing:0.04em;">Runner Information</h3>
       <p class="text-gray-400 text-sm mb-5">Tell us about yourself. All fields are required.</p>
@@ -1258,7 +1291,6 @@
         <p class="f-err" id="err-name">Please enter your full name.</p>
       </div>
 
-      <!-- ── Mobile fix: single column by default, 2-col on sm+ ── -->
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div class="f-group">
           <label class="f-label">Email Address</label>
@@ -1272,7 +1304,6 @@
         </div>
       </div>
 
-      <!-- ── Mobile fix: single column by default, 2-col on sm+ ── -->
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div class="f-group">
           <label class="f-label">Age</label>
@@ -1304,9 +1335,8 @@
       </button>
     </div>
 
-    <!-- ── STEP 2: Category & T-Shirt ── -->
     <div id="step2" class="p-7 hidden">
-      <h3 class="font-barlow text-2xl font-800 uppercase mb-1" style="color:#0F2044;font-size:1.5rem;font-weight:800;letter-spacing:0.04em;">Category &amp; Kit Details</h3>
+      <h3 class="font-barlow text-2xl font-800 uppercase mb-1" style="color:#0F2044;font-size:1.5rem;font-weight:800;letter-spacing:0.04em;">Category & Kit Details</h3>
       <p class="text-gray-400 text-sm mb-5">Select your race category and preferred T-shirt size.</p>
 
       <div class="f-group">
@@ -1316,21 +1346,21 @@
             <div class="cat-choice-radio"></div>
             <div>
               <p class="font-semibold text-sm" style="color:#0F2044;">2K — Fun Run</p>
-              <p class="text-xs text-gray-400">Flag-off 07:30 AM &nbsp;·&nbsp; ₹199</p>
+              <p class="text-xs text-gray-400">Flag-off 07:30 AM  ·  ₹199</p>
             </div>
           </div>
           <div class="cat-choice" id="cc-5k" onclick="selectCat(this,'5K – Fit India Run', '₹299')">
             <div class="cat-choice-radio"></div>
             <div>
               <p class="font-semibold text-sm" style="color:#0F2044;">5K — Fit India Run</p>
-              <p class="text-xs text-gray-400">Flag-off 06:30 AM &nbsp;·&nbsp; ₹299</p>
+              <p class="text-xs text-gray-400">Flag-off 06:30 AM  ·  ₹299</p>
             </div>
           </div>
           <div class="cat-choice" id="cc-10k" onclick="selectCat(this,'10K – Endurance Run', '₹399')">
             <div class="cat-choice-radio"></div>
             <div>
               <p class="font-semibold text-sm" style="color:#0F2044;">10K — Endurance Run</p>
-              <p class="text-xs text-gray-400">Flag-off 05:45 AM &nbsp;·&nbsp; ₹399</p>
+              <p class="text-xs text-gray-400">Flag-off 05:45 AM  ·  ₹399</p>
             </div>
           </div>
         </div>
@@ -1351,7 +1381,7 @@
       </div>
 
       <div class="f-group mt-2">
-        <label class="f-label">Emergency Contact Name &amp; Number</label>
+        <label class="f-label">Emergency Contact Name & Number</label>
         <input type="text" id="f-emg" class="f-input" placeholder="e.g. Priya Reddy — +91 90000 12345"/>
         <p class="f-err" id="err-emg">Please provide an emergency contact.</p>
       </div>
@@ -1361,22 +1391,19 @@
         <textarea id="f-med" class="f-input" rows="2" placeholder="Any conditions race organisers should be aware of…" style="resize:none;"></textarea>
       </div>
 
-      <!-- ── Mobile fix: buttons stack vertically, primary on top ── -->
       <div class="modal-btn-row flex gap-3 mt-4">
         <button onclick="backToStep1()" class="btn-modal-ghost" style="width:auto;padding:12px 20px;white-space:nowrap;">← Back</button>
         <button onclick="goToStep3()" class="btn-modal-primary flex-1">
-          Review &amp; Pay
+          Review & Pay
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </button>
       </div>
     </div>
 
-    <!-- ── STEP 3: Payment / Order Review ── -->
     <div id="step3" class="p-7 hidden">
       <h3 class="font-barlow text-2xl font-800 uppercase mb-1" style="color:#0F2044;font-size:1.5rem;font-weight:800;letter-spacing:0.04em;">Order Summary</h3>
       <p class="text-gray-400 text-sm mb-5">Review your registration details before payment.</p>
 
-      <!-- Summary card -->
       <div class="rounded-md overflow-hidden border border-gray-100 mb-5" id="summary-card">
         <div style="background:#0F2044;padding:14px 18px;">
           <p class="font-barlow text-white text-lg font-700 uppercase" style="letter-spacing:0.06em;">Yendada Marathon 2026</p>
@@ -1394,14 +1421,12 @@
         </div>
       </div>
 
-      <!-- T&C -->
       <label class="flex items-start gap-3 mb-4 cursor-pointer">
         <input type="checkbox" id="f-tc" style="margin-top:3px;accent-color:#E05C1A;width:16px;height:16px;flex-shrink:0;"/>
-        <span class="text-xs text-gray-500 leading-relaxed">I agree to the <a href="#" style="color:#E05C1A;">Terms &amp; Conditions</a> and confirm that the information provided is accurate. I understand that registration fees are non-refundable.</span>
+        <span class="text-xs text-gray-500 leading-relaxed">I agree to the <a href="#" style="color:#E05C1A;">Terms & Conditions</a> and confirm that the information provided is accurate. I understand that registration fees are non-refundable.</span>
       </label>
-      <p class="f-err" id="err-tc">Please accept the Terms &amp; Conditions to proceed.</p>
+      <p class="f-err" id="err-tc">Please accept the Terms & Conditions to proceed.</p>
 
-      <!-- ── Mobile fix: buttons stack vertically, primary on top ── -->
       <div class="modal-btn-row flex gap-3 mt-3">
         <button onclick="backToStep2()" class="btn-modal-ghost" style="width:auto;padding:12px 20px;white-space:nowrap;">← Back</button>
         <button onclick="submitPayment()" class="btn-modal-primary flex-1">
@@ -1411,7 +1436,6 @@
       </div>
     </div>
 
-    <!-- ── STEP 4: SUCCESS ── -->
     <div id="step4" class="p-7 hidden text-center">
       <div class="relative inline-block mb-5">
         <div id="confetti-wrap" class="absolute inset-0 pointer-events-none overflow-visible" style="width:100%;height:100%;"></div>
@@ -1438,14 +1462,7 @@
       </button>
     </div>
 
-  </div><!-- /modal-box -->
-</div><!-- /modal-overlay -->
-
-
-<!-- ═══════════════════════════════════════════════
-     JAVASCRIPT
-═══════════════════════════════════════════════ -->
-<script>
+  </div></div><script>
 /* ══════════════════════════════════
    STATE
 ══════════════════════════════════ */
@@ -1713,7 +1730,7 @@ async function submitPayment() {
   const payBtn = document.querySelector('#step3 .btn-modal-primary');
   const origBtnHTML = payBtn.innerHTML;
   payBtn.disabled = true;
-  payBtn.innerHTML = `<span class="spin"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M21 12a9 9 0 11-6.22-8.56"/></svg></span>&nbsp;Processing…`;
+  payBtn.innerHTML = `<span class="spin"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M21 12a9 9 0 11-6.22-8.56"/></svg></span> Processing…`;
 
   const userData = {
     name:             document.getElementById('f-name').value.trim(),
@@ -1860,6 +1877,53 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     const errEl = document.getElementById('err-' + id.replace('f-',''));
     if (errEl) errEl.classList.remove('show');
   });
+});
+
+/* ══════════════════════════════════
+   LIGHTBOX INTERACTIVE CONTROLLER
+══════════════════════════════════ */
+function openLightbox(cardElement) {
+  const overlay = document.getElementById('lightbox-overlay');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxCaption = document.getElementById('lightbox-caption');
+  
+  const targetImg = cardElement.querySelector('img');
+  
+  lightboxImg.src = targetImg.src;
+  lightboxImg.alt = targetImg.alt;
+  lightboxCaption.textContent = targetImg.alt || "Yendada Marathon Event Image";
+  
+  overlay.classList.remove('hidden');
+  document.body.style.overflow = 'hidden'; 
+  
+  setTimeout(() => {
+    overlay.classList.add('opacity-100');
+    lightboxImg.classList.remove('scale-95');
+    lightboxImg.classList.add('scale-100');
+  }, 20);
+}
+
+function closeLightbox() {
+  const overlay = document.getElementById('lightbox-overlay');
+  const lightboxImg = document.getElementById('lightbox-img');
+  
+  overlay.classList.remove('opacity-100');
+  lightboxImg.classList.remove('scale-100');
+  lightboxImg.classList.add('scale-95');
+  
+  setTimeout(() => {
+    overlay.classList.add('hidden');
+    
+    if (!document.getElementById('modal-overlay').classList.contains('open')) {
+      document.body.style.overflow = '';
+    }
+  }, 300);
+}
+
+document.addEventListener('keydown', e => { 
+  if (e.key === 'Escape') {
+    closeLightbox(); 
+  }
 });
 </script>
 
