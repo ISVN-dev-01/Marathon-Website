@@ -61,7 +61,7 @@ module.exports = async function handler(req, res) {
   } catch (err) {
     console.error('[create-order] Razorpay error:', err);
     return res.status(500).json({
-      error: 'Failed to create payment order. Please try again.',
+      error: 'Registrations are closed. Please contact the organizers for assistance.',
     });
   }
 };
