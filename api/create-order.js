@@ -43,7 +43,7 @@ module.exports = async function handler(req, res) {
 
     // Create the order. Razorpay expects amount in PAISE (₹1 = 100 paise)
     const order = await razorpay.orders.create({
-        amount:   Math.round(amount) * 100000000,   // ⚠️ TEMPORARY: Hardcoded to 100 paise (₹1) for live testing
+        amount:   Math.round(amount) * 100,   // ⚠️ TEMPORARY: Hardcoded to 100 paise (₹1) for live testing
         currency,
         receipt:  receipt || `ym_${Date.now()}`,
         notes,
