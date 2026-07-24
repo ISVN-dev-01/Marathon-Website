@@ -79,6 +79,10 @@
     .btn-reg-nav { background: #E05C1A; color: #fff; padding: 10px 22px; font-family: 'Barlow Condensed', sans-serif; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; border: 2px solid #E05C1A; transition: all 0.3s ease; }
     .btn-reg-nav:hover { background: #C04810; border-color: #C04810; transform: translateY(-1px); box-shadow: 0 6px 22px rgba(224,92,26,0.4); }
 
+    /* Registration-closed state */
+    .reg-closed { opacity: 0.55; }
+    .reg-closed:hover { transform: none !important; box-shadow: none !important; }
+
     #mob-menu { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
     #mob-menu.open { max-height: 320px; }
     #mob-menu { background: rgba(15,32,68,0.98); backdrop-filter: blur(12px); }
@@ -547,7 +551,7 @@
     </div>
 
     <div class="flex items-center gap-4">
-      <button onclick="openModal(null)" class="btn-reg-nav hidden md:block">Register Now</button>
+      <button onclick="openModal(null)" class="btn-reg-nav hidden md:block reg-trigger"><span class="reg-btn-text">Register Now</span></button>
       <button id="mob-toggle" class="md:hidden text-white p-2" aria-label="Toggle menu" onclick="toggleMobMenu()">
         <svg id="ham-open"  width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
           <line x1="2" y1="6" x2="20" y2="6"/><line x1="2" y1="11" x2="20" y2="11"/><line x1="2" y1="16" x2="20" y2="16"/>
@@ -565,7 +569,7 @@
       <a href="#races"    onclick="closeMobMenu()" class="nav-link py-3 border-b border-white/10">Races</a>
       <a href="#route"    onclick="closeMobMenu()" class="nav-link py-3 border-b border-white/10">Route</a>
       <a href="#timeline" onclick="closeMobMenu()" class="nav-link py-3 border-b border-white/10">Timeline</a>
-      <button onclick="openModal(null); closeMobMenu();" class="btn-reg-nav mt-4 w-full">Register Now</button>
+      <button onclick="openModal(null); closeMobMenu();" class="btn-reg-nav mt-4 w-full reg-trigger"><span class="reg-btn-text">Register Now</span></button>
     </div>
   </div>
 </nav>
@@ -613,9 +617,9 @@
       </div>
 
       <div class="flex flex-wrap gap-4 reveal d3">
-        <button onclick="openModal(null)" class="btn-primary">
+        <button onclick="openModal(null)" class="btn-primary reg-trigger">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 5l7 7-7 7M5 5l7 7-7 7"/></svg>
-          Join the Race
+          <span class="reg-btn-text">Join the Race</span>
         </button>
         <a href="#races" class="btn-ghost-white">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
@@ -682,7 +686,7 @@
             <span>Open to all ages — great for beginners</span>
           </div>
         </div>
-        <button onclick="openModal('2K – Fun Run')" class="mt-6 w-full py-3 font-barlow font-700 text-sm uppercase tracking-wider" style="background:#0F2044;color:#fff;letter-spacing:0.12em;transition:background 0.3s;" onmouseover="this.style.background='#162d5c'" onmouseout="this.style.background='#0F2044'">Register Now</button>
+        <button onclick="openModal('2K – Fun Run')" class="mt-6 w-full py-3 font-barlow font-700 text-sm uppercase tracking-wider reg-trigger" style="background:#0F2044;color:#fff;letter-spacing:0.12em;transition:background 0.3s;" onmouseover="this.style.background='#162d5c'" onmouseout="this.style.background='#0F2044'"><span class="reg-btn-text">Register Now</span></button>
       </div>
 
       <div class="cat-card reveal d2">
@@ -705,7 +709,7 @@
             <span>Open to all ages</span>
           </div>
         </div>
-        <button onclick="openModal('5K – Fit India Run')" class="mt-6 w-full py-3 font-barlow font-700 text-sm uppercase tracking-wider" style="background:#0F2044;color:#fff;letter-spacing:0.12em;transition:background 0.3s;" onmouseover="this.style.background='#162d5c'" onmouseout="this.style.background='#0F2044'">Register Now</button>
+        <button onclick="openModal('5K – Fit India Run')" class="mt-6 w-full py-3 font-barlow font-700 text-sm uppercase tracking-wider reg-trigger" style="background:#0F2044;color:#fff;letter-spacing:0.12em;transition:background 0.3s;" onmouseover="this.style.background='#162d5c'" onmouseout="this.style.background='#0F2044'"><span class="reg-btn-text">Register Now</span></button>
       </div>
 
       <div class="cat-card reveal d3" style="border-top:3px solid #E05C1A;">
@@ -728,7 +732,7 @@
             <span>Open to all ages</span>
           </div>
         </div>
-        <button onclick="openModal('10K – Endurance Run')" class="mt-6 w-full py-3 font-barlow font-700 text-sm uppercase tracking-wider" style="background:#E05C1A;color:#fff;letter-spacing:0.12em;transition:background 0.3s;" onmouseover="this.style.background='#C04810'" onmouseout="this.style.background='#E05C1A'">Register Now</button>
+        <button onclick="openModal('10K – Endurance Run')" class="mt-6 w-full py-3 font-barlow font-700 text-sm uppercase tracking-wider reg-trigger" style="background:#E05C1A;color:#fff;letter-spacing:0.12em;transition:background 0.3s;" onmouseover="this.style.background='#C04810'" onmouseout="this.style.background='#E05C1A'"><span class="reg-btn-text">Register Now</span></button>
       </div>
 
     </div>
@@ -1048,7 +1052,7 @@
         <div class="mosaic-overlay">
           <div class="mosaic-text">
             <p class="font-barlow text-rust font-bold text-xs uppercase tracking-widest mb-1">Podium</p>
-            <h4 class="text-white font-semibold text-base">Celebrating Excellence</h4>
+            <h4 class="text-white font-semibold text-lg">Celebrating Excellence</h4>
           </div>
         </div>
       </div>
@@ -1259,7 +1263,7 @@
     <div class="modal-hdr">
       <div class="flex-1 min-w-0">
         <p class="font-barlow text-white/45 text-xs uppercase tracking-wider mb-3" style="letter-spacing:0.12em;">Yendada Marathon 2026 — Registration</p>
-        <div class="flex items-center gap-1">
+        <div class="flex items-center gap-1" id="modal-steps-row">
           <div class="flex flex-col items-center">
             <div class="step-bubble active" id="sb1">1</div>
             <span class="step-lbl" id="sl1">Info</span>
@@ -1462,6 +1466,18 @@
       </button>
     </div>
 
+    <div id="step-closed" class="p-7 hidden text-center">
+      <div style="width:72px;height:72px;border-radius:50%;background:rgba(224,92,26,0.1);display:flex;align-items:center;justify-content:center;margin:0 auto 22px;">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#E05C1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+      </div>
+      <h3 class="font-barlow font-900 uppercase mb-2" style="color:#0F2044;font-size:1.6rem;font-weight:900;letter-spacing:0.04em;">Registration Closed</h3>
+      <p class="text-gray-400 text-sm mb-6 leading-relaxed">Registrations for Yendada Marathon 2026 are now closed. Thank you to everyone who signed up — we can't wait to see you at Yendada Junction!</p>
+      <button onclick="closeModal()" class="btn-modal-primary">
+        Close
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+
   </div></div><script>
 /* ══════════════════════════════════
    STATE
@@ -1471,6 +1487,9 @@ let selectedCategoryFee = null;
 let selectedSize        = null;
 let currentStep         = 1;
 const RACE_DATE = new Date('2026-07-26T04:00:00');
+
+/* Set to true to reopen registrations for a future edition */
+const REGISTRATION_OPEN = false;
 
 /* ══════════════════════════════════
    NAVBAR SCROLL EFFECT
@@ -1582,6 +1601,10 @@ const modalOverlay = document.getElementById('modal-overlay');
 const modalBox     = document.getElementById('modal-box');
 
 function openModal(preselected) {
+  if (!REGISTRATION_OPEN) {
+    openClosedModal();
+    return;
+  }
   resetModal();
   if (preselected) {
     const map = {
