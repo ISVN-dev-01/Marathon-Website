@@ -1,493 +1,1931 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Apex Groups | Innovating Across Industries. Impacting Everyday Lives.</title>
-<meta name="description" content="Apex Groups is a multidisciplinary organization dedicated to solving complex systemic challenges through a federated ecosystem of specialized divisions — Apex Sports, Apex IT, Apex Drones, Apex Green Energy and Insight Matrix.">
-<meta name="theme-color" content="#030509">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23030509'/%3E%3Ccircle cx='12' cy='12' r='5' fill='%232F6FEE'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css">
-</head>
-<body style="overflow: hidden;">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yendada Marathon 2026 – Run with the Ocean Breeze | Visakhapatnam</title>
+  <meta name="description" content="The premier marathon of Visakhapatnam starting at Yendada Junction. Race categories: 2K Fun Run, 5K Fit India Run, 10K Endurance Run. Managed and Supported by Apex Group. Register now!" />
 
-<div class="preloader" id="preloader">
-  <div class="loader-wrapper">
-    <div class="loader-brand">Apex Groups</div>
-    <div class="loader-track"><div class="loader-bar" id="loaderBar"></div></div>
-  </div>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700;1,800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy:      '#0F2044',
+            navydark:  '#081629',
+            navymid:   '#162d5c',
+            rust:      '#E05C1A',
+            rustlight: '#F07030',
+            rustdark:  '#C04810',
+            rusttint:  '#FFF3EC',
+          },
+          fontFamily: {
+            barlow: ['"Barlow Condensed"', 'sans-serif'],
+            inter:  ['Inter', 'sans-serif'],
+          },
+        }
+      }
+    };
+  </script>
+
+  <style>
+    /* ═══════════════════════════════════════════════
+       GLOBALS
+    ═══════════════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; }
+    html  { scroll-behavior: smooth; }
+    body  { font-family: 'Inter', sans-serif; background: #fff; color: #1a2340; overflow-x: hidden; }
+    img   { display: block; }
+    button { cursor: pointer; border: none; background: transparent; }
+    a      { text-decoration: none; color: inherit; }
+
+    .font-barlow  { font-family: 'Barlow Condensed', sans-serif; }
+    .tracking-marathon { letter-spacing: 0.14em; }
+
+    /* ═══════════════════════════════════════════════
+       NAVBAR
+    ═══════════════════════════════════════════════ */
+    #navbar {
+      position: fixed; top: 36px; left: 0; right: 0; z-index: 900;
+      padding: 20px 0;
+      transition: background 0.4s ease, padding 0.4s ease, box-shadow 0.4s ease, top 0.4s ease;
+    }
+    #navbar.scrolled {
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      padding: 13px 0;
+      top: 0;
+      box-shadow: 0 1px 0 rgba(0,0,0,0.08), 0 4px 24px rgba(0,0,0,0.06);
+    }
+
+    .nav-logo-text { color: #fff; transition: color 0.4s ease; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1.15rem; letter-spacing: 0.12em; text-transform: uppercase; }
+    #navbar.scrolled .nav-logo-text { color: #0F2044; }
+
+    .nav-link { color: rgba(255,255,255,0.82); font-size: 0.875rem; font-weight: 500; letter-spacing: 0.06em; position: relative; padding: 5px 0; transition: color 0.3s; }
+    #navbar.scrolled .nav-link { color: #374151; }
+    .nav-link::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background: #E05C1A; transition: width 0.32s ease; }
+    .nav-link:hover { color: #fff; }
+    #navbar.scrolled .nav-link:hover { color: #E05C1A; }
+    .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+    .nav-link.active { color: #E05C1A !important; }
+
+    .btn-reg-nav { background: #E05C1A; color: #fff; padding: 10px 22px; font-family: 'Barlow Condensed', sans-serif; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; border: 2px solid #E05C1A; transition: all 0.3s ease; }
+    .btn-reg-nav:hover { background: #C04810; border-color: #C04810; transform: translateY(-1px); box-shadow: 0 6px 22px rgba(224,92,26,0.4); }
+
+    #mob-menu { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+    #mob-menu.open { max-height: 320px; }
+    #mob-menu { background: rgba(15,32,68,0.98); backdrop-filter: blur(12px); }
+
+    /* ═══════════════════════════════════════════════
+       HERO
+    ═══════════════════════════════════════════════ */
+    .hero-section {
+      min-height: 100vh;
+      background:
+        linear-gradient(135deg, rgba(8,22,41,0.82) 0%, rgba(8,22,41,0.62) 45%, rgba(8,22,41,0.30) 100%),
+        url('https://images.unsplash.com/photo-1571008887538-b36bb32f4571?w=1800&q=80') center / cover no-repeat;
+      display: flex; align-items: center;
+      position: relative; overflow: hidden;
+    }
+    .hero-section::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 80px;
+      background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.06));
+      pointer-events: none;
+    }
+    .wave-bottom { position: absolute; bottom: -2px; left: 0; right: 0; line-height: 0; }
+
+    .race-date-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(224,92,26,0.18);
+      border: 1px solid rgba(224,92,26,0.45);
+      padding: 7px 16px;
+      border-radius: 100px;
+      color: #fff;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    /* Countdown */
+    .cd-wrap { display: inline-flex; background: rgba(10,23,52,0.88); border: 1px solid rgba(255,255,255,0.12); backdrop-filter: blur(8px); overflow: hidden; }
+    .cd-cell { padding: 14px 22px; min-width: 82px; text-align: center; position: relative; }
+    .cd-cell+.cd-cell::before { content: ':'; position: absolute; left: -5px; top: 48%; transform: translateY(-50%); color: #E05C1A; font-size: 1.6rem; font-weight: 800; font-family: 'Barlow Condensed', sans-serif; }
+    .cd-num { display: block; font-family: 'Barlow Condensed', sans-serif; font-size: 2.6rem; font-weight: 900; color: #fff; line-height: 1; }
+    .cd-lbl { display: block; font-size: 0.58rem; font-weight: 700; color: rgba(255,255,255,0.45); letter-spacing: 0.2em; text-transform: uppercase; margin-top: 5px; }
+
+    /* ═══════════════════════════════════════════════
+       BUTTONS (global)
+    ═══════════════════════════════════════════════ */
+    .btn-primary { display: inline-flex; align-items: center; gap: 9px; background: #E05C1A; color: #fff; padding: 15px 36px; font-family: 'Barlow Condensed', sans-serif; font-size: 0.9rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; border: 2px solid #E05C1A; transition: all 0.3s; }
+    .btn-primary:hover { background: #C04810; border-color: #C04810; transform: translateY(-2px); box-shadow: 0 10px 30px rgba(224,92,26,0.45); }
+    .btn-ghost-white { display: inline-flex; align-items: center; gap: 9px; background: transparent; color: #fff; padding: 13px 34px; font-family: 'Barlow Condensed', sans-serif; font-size: 0.9rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; border: 2px solid rgba(255,255,255,0.72); transition: all 0.3s; }
+    .btn-ghost-white:hover { background: rgba(255,255,255,0.1); border-color: #fff; transform: translateY(-2px); }
+
+    /* ═══════════════════════════════════════════════
+       SECTION HEADINGS
+    ═══════════════════════════════════════════════ */
+    .sec-title { font-family: 'Barlow Condensed', sans-serif; font-size: 2.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: #0F2044; line-height: 1.1; }
+    .sec-title-white { font-family: 'Barlow Condensed', sans-serif; font-size: 2.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: #fff; line-height: 1.1; }
+    .sec-rule { width: 52px; height: 3px; background: #E05C1A; border-radius: 2px; margin: 12px auto 38px; }
+    .sec-rule-left { margin: 12px 0 38px; }
+
+    /* ═══════════════════════════════════════════════
+       CATEGORY CARDS
+    ═══════════════════════════════════════════════ */
+    .cat-card { background: #fff; border: 1.5px solid #E8ECF4; padding: 28px 24px 24px; position: relative; overflow: hidden; transition: all 0.38s cubic-bezier(0.34,1.56,0.64,1); }
+    .cat-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: #E05C1A; transform: scaleX(0); transform-origin: left; transition: transform 0.34s ease; }
+    .cat-card:hover { transform: translateY(-8px); box-shadow: 0 28px 60px rgba(15,32,68,0.13); border-color: rgba(224,92,26,0.2); }
+    .cat-card:hover::before { transform: scaleX(1); }
+    .cat-dist { font-family: 'Barlow Condensed', sans-serif; font-size: 2.5rem; font-weight: 900; color: #0F2044; line-height: 1; margin-top: 12px; }
+    .cat-sub  { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #E05C1A; margin-bottom: 18px; }
+    .cat-meta-row { display: flex; align-items: center; gap: 7px; font-size: 0.82rem; color: #5B6472; margin-bottom: 6px; }
+    .cat-meta-row svg { color: #E05C1A; flex-shrink: 0; }
+    .cat-note { font-size: 0.78rem; color: #9CA3AF; margin-top: 6px; display: flex; align-items: center; gap: 7px; }
+
+    /* ═══════════════════════════════════════════════
+       ROUTE MAP SECTION
+    ═══════════════════════════════════════════════ */
+    .route-bg { background: #0E1F42; }
+    .map-tab { padding: 10px 18px; font-family: 'Barlow Condensed', sans-serif; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.38); border-bottom: 2px solid transparent; cursor: pointer; transition: all 0.3s; white-space: nowrap; }
+    .map-tab:hover { color: rgba(255,255,255,0.72); }
+    .map-tab.active { color: #E05C1A; border-bottom-color: #E05C1A; }
+    .map-panel { display: none; }
+    .map-panel.active { display: block; animation: mapFade 0.4s ease; }
+    @keyframes mapFade { from { opacity:0; transform: translateY(6px); } to { opacity:1; transform: translateY(0); } }
+
+    .box-item { background: rgba(255,255,255,0.045); border: 1px solid rgba(255,255,255,0.075); padding: 14px 18px; display: flex; align-items: center; gap: 14px; border-radius: 3px; transition: all 0.3s; }
+    .box-item:hover { background: rgba(255,255,255,0.09); border-color: rgba(224,92,26,0.32); }
+    .box-icon { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; background: rgba(224,92,26,0.14); border-radius: 3px; }
+
+    /* ═══════════════════════════════════════════════
+       TIMELINE / SCHEDULE
+    ═══════════════════════════════════════════════ */
+    .sched-bg { background: #F4F6FB; }
+    .tl-wrap { position: relative; padding-left: 52px; }
+    .tl-line { position: absolute; left: 16px; top: 6px; bottom: 6px; width: 2px; background: linear-gradient(to bottom, #E05C1A 0%, rgba(224,92,26,0.12) 100%); }
+    .tl-item { position: relative; padding-bottom: 38px; }
+    .tl-item:last-child { padding-bottom: 0; }
+    .tl-dot { position: absolute; left: -42px; top: 3px; width: 18px; height: 18px; background: #E05C1A; border: 3px solid #F4F6FB; box-shadow: 0 0 0 2px #E05C1A; transform: rotate(45deg); }
+    .tl-time { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #E05C1A; margin-bottom: 3px; }
+    .tl-title { font-family: 'Barlow Condensed', sans-serif; font-size: 1.45rem; font-weight: 800; color: #0F2044; letter-spacing: 0.03em; margin-bottom: 3px; }
+    .tl-desc { font-size: 0.85rem; color: #6B7280; }
+
+    /* ═══════════════════════════════════════════════
+       PREMIUM MOSAIC GALLERY & LIGHTBOX
+    ═══════════════════════════════════════════════ */
+    .gallery-bg { background: #0F2044; } 
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+    @media (min-width: 768px) {
+      .gallery-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-auto-rows: 220px;
+        gap: 20px;
+      }
+    }
+
+    .mosaic-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    .mosaic-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    .mosaic-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      border-color: rgba(224, 92, 26, 0.4);
+    }
+    .mosaic-card:hover img {
+      transform: scale(1.04);
+    }
+    .mosaic-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(8, 22, 41, 0.95) 0%, rgba(8, 22, 41, 0.4) 60%, rgba(8, 22, 41, 0.1) 100%);
+      opacity: 0;
+      transition: opacity 0.35s ease;
+      display: flex;
+      align-items: flex-end;
+      padding: 20px;
+    }
+    .mosaic-card:hover .mosaic-overlay {
+      opacity: 1;
+    }
+    .mosaic-text {
+      transform: translateY(10px);
+      transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    .mosaic-card:hover .mosaic-text {
+      transform: translateY(0);
+    }
+
+    /* ═══════════════════════════════════════════════
+       FAQ ACCORDION
+    ═══════════════════════════════════════════════ */
+    .faq-item { border: 1.5px solid #E8ECF4; border-radius: 6px; overflow: hidden; transition: box-shadow 0.3s, border-color 0.3s; }
+    .faq-item.open { box-shadow: 0 8px 32px rgba(15,32,68,0.09); border-color: rgba(224,92,26,0.22); }
+    .faq-btn { width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; font-size: 1rem; font-weight: 600; color: #0F2044; background: #fff; cursor: pointer; text-align: left; font-family: 'Inter', sans-serif; transition: background 0.3s; gap: 12px; }
+    .faq-btn:hover { background: #FAFBFE; }
+    .faq-content { max-height: 0; overflow: hidden; transition: max-height 0.45s cubic-bezier(0,1,0,1); }
+    .faq-content.open { max-height: 600px; transition: max-height 0.5s ease; }
+    .faq-inner { padding: 4px 24px 22px; font-size: 0.9rem; color: #4B5563; line-height: 1.8; }
+    .faq-arrow { color: #9CA3AF; transition: transform 0.35s ease, color 0.3s; flex-shrink: 0; }
+    .faq-arrow.rot { transform: rotate(180deg); color: #E05C1A; }
+
+    /* ═══════════════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════════════ */
+    .footer-bg { background: #081629; }
+    .footer-top-bar { height: 3px; background: linear-gradient(90deg, #E05C1A 0%, #F07030 50%, #E05C1A 100%); }
+    .footer-link { color: rgba(255,255,255,0.48); font-size: 0.85rem; transition: color 0.3s; }
+    .footer-link:hover { color: #E05C1A; }
+    .soc-btn { width: 40px; height: 40px; border: 1.5px solid rgba(255,255,255,0.15); border-radius: 4px; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.5); transition: all 0.3s; cursor: pointer; }
+    .soc-btn:hover { border-color: #E05C1A; color: #E05C1A; background: rgba(224,92,26,0.1); }
+
+    /* ═══════════════════════════════════════════════
+       REGISTRATION MODAL
+    ═══════════════════════════════════════════════ */
+    #modal-overlay {
+      position: fixed; inset: 0; z-index: 9999;
+      background: rgba(5,15,34,0.88);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0; visibility: hidden;
+      transition: opacity 0.35s, visibility 0.35s;
+    }
+    #modal-overlay.open { opacity: 1; visibility: visible; }
+
+    #modal-box {
+      background: #fff;
+      border-radius: 8px;
+      width: 100%;
+      max-width: 530px;
+      max-height: 92vh;
+      overflow-y: auto;
+      transform: translateY(44px) scale(0.96);
+      transition: transform 0.42s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    #modal-overlay.open #modal-box { transform: translateY(0) scale(1); }
+    #modal-box::-webkit-scrollbar { width: 4px; }
+    #modal-box::-webkit-scrollbar-thumb { background: #E05C1A; }
+
+    /* Mobile drag handle indicator */
+    .modal-drag-handle {
+      display: none;
+      width: 40px; height: 4px;
+      background: rgba(255,255,255,0.25);
+      border-radius: 99px;
+      margin: 10px auto 0;
+    }
+
+    .modal-hdr { background: #0F2044; padding: 22px 26px 20px; display: flex; align-items: flex-start; justify-content: space-between; }
+    .modal-close { color: rgba(255,255,255,0.5); transition: color 0.3s; padding: 2px; flex-shrink: 0; }
+    .modal-close:hover { color: #fff; }
+
+    .step-bubble { width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 700; transition: all 0.35s; }
+    .step-bubble.inactive { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.35); }
+    .step-bubble.active   { background: #fff; color: #0F2044; }
+    .step-bubble.done     { background: #E05C1A; color: #fff; }
+    .step-line { flex: 1; height: 1px; background: rgba(255,255,255,0.12); transition: background 0.4s; }
+    .step-line.done { background: #E05C1A; }
+    .step-lbl { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.1em; margin-top: 5px; text-align: center; color: rgba(255,255,255,0.4); }
+
+    /* Form */
+    .f-group { margin-bottom: 16px; }
+    .f-label { display: block; font-size: 0.74rem; font-weight: 700; color: #374151; text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 6px; }
+    .f-input { width: 100%; padding: 11px 14px; border: 1.5px solid #DDE2EC; border-radius: 4px; font-size: 0.88rem; color: #1a2340; background: #FAFBFC; transition: border 0.3s, box-shadow 0.3s; font-family: 'Inter', sans-serif; outline: none; }
+    .f-input:focus { border-color: #E05C1A; background: #fff; box-shadow: 0 0 0 3px rgba(224,92,26,0.1); }
+
+    .size-pill { padding: 8px 18px; border: 1.5px solid #DDE2EC; border-radius: 4px; font-size: 0.82rem; font-weight: 600; cursor: pointer; color: #374151; transition: all 0.22s; }
+    .size-pill:hover { border-color: #E05C1A; color: #E05C1A; }
+    .size-pill.sel { background: #E05C1A; border-color: #E05C1A; color: #fff; }
+
+    .cat-choice { border: 1.5px solid #DDE2EC; border-radius: 4px; padding: 12px 16px; cursor: pointer; transition: all 0.22s; display: flex; align-items: center; gap: 12px; }
+    .cat-choice:hover { border-color: #E05C1A; background: rgba(224,92,26,0.02); }
+    .cat-choice.sel { border-color: #E05C1A; background: rgba(224,92,26,0.05); }
+    .cat-choice-radio { width: 18px; height: 18px; border-radius: 50%; border: 2px solid #DDE2EC; flex-shrink: 0; position: relative; transition: border 0.3s; }
+    .cat-choice.sel .cat-choice-radio { border-color: #E05C1A; }
+    .cat-choice.sel .cat-choice-radio::after { content: ''; position: absolute; inset: 3px; background: #E05C1A; border-radius: 50%; }
+
+    .btn-modal-primary { display: flex; align-items: center; justify-content: center; gap: 8px; background: #E05C1A; color: #fff; padding: 13px 28px; font-family: 'Barlow Condensed', sans-serif; font-size: 0.88rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; border: none; width: 100%; transition: all 0.3s; cursor: pointer; border-radius: 4px; }
+    .btn-modal-primary:hover { background: #C04810; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(224,92,26,0.4); }
+    .btn-modal-ghost { display: flex; align-items: center; justify-content: center; gap: 8px; background: transparent; color: #6B7280; padding: 12px 24px; font-family: 'Inter', sans-serif; font-size: 0.875rem; font-weight: 500; border: 1.5px solid #DDE2EC; width: 100%; transition: all 0.3s; cursor: pointer; border-radius: 4px; }
+    .btn-modal-ghost:hover { border-color: #9CA3AF; color: #374151; }
+
+    /* Success screen */
+    @keyframes popCheck { 0%{transform:scale(0) rotate(-45deg);opacity:0} 60%{transform:scale(1.2);opacity:1} 100%{transform:scale(1);opacity:1} }
+    .check-anim { animation: popCheck 0.65s cubic-bezier(0.34,1.56,0.64,1) forwards; }
+    @keyframes confDrop { from { transform: translateY(-20px) rotate(0deg); opacity: 1; } to { transform: translateY(80px) rotate(720deg); opacity: 0; } }
+    .conf-piece { position: absolute; width: 7px; height: 7px; animation: confDrop var(--dur, 1.4s) ease var(--del, 0s) forwards; }
+
+    /* Scroll Reveal */
+    .reveal { opacity: 0; transform: translateY(36px); transition: opacity 0.72s ease, transform 0.72s ease; }
+    .reveal.d1 { transition-delay: 0.10s; }
+    .reveal.d2 { transition-delay: 0.20s; }
+    .reveal.d3 { transition-delay: 0.30s; }
+    .reveal.d4 { transition-delay: 0.40s; }
+    .reveal.vis { opacity: 1; transform: translateY(0); }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: #f1f1f1; }
+    ::-webkit-scrollbar-thumb { background: #E05C1A; border-radius: 3px; }
+
+    /* Misc */
+    .badge-orange { display: inline-block; background: rgba(224,92,26,0.12); color: #E05C1A; padding: 4px 12px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 2px; }
+    .orange-text { color: #E05C1A; }
+    .navy-text { color: #0F2044; }
+
+    /* Summary card */
+    .summary-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; padding: 9px 0; border-bottom: 1px solid #F0F2F8; font-size: 0.88rem; }
+    .summary-row:last-child { border-bottom: none; }
+    .summary-row span:first-child { color: #6B7280; flex-shrink: 0; }
+    .summary-row span:last-child  { font-weight: 600; color: #1a2340; text-align: right; word-break: break-word; }
+
+    /* Form error */
+    .f-err { font-size: 0.75rem; color: #EF4444; margin-top: 4px; display: none; }
+    .f-err.show { display: block; }
+    .f-input.err { border-color: #EF4444; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .spin { animation: spin 0.8s linear infinite; display: inline-block; }
+
+    /* ═══════════════════════════════════════════════
+       ★  MOBILE RESPONSIVE FIXES  ★
+       Covers all layout and UX issues on phones
+    ═══════════════════════════════════════════════ */
+    @media (max-width: 639px) {
+
+      /* ── Announcement bar ── */
+      #apex-bar { padding: 7px 14px; }
+      #apex-bar p { font-size: 0.68rem; line-height: 1.4; }
+
+      /* ── Navbar ── */
+      #navbar { top: 32px; padding: 14px 0; }
+      #navbar.scrolled { top: 0; }
+      .nav-logo-text { font-size: 1rem; }
+
+      /* ── Hero section ── */
+      .hero-section { min-height: 100svh; }
+
+      /* ── Countdown timer — tighter on mobile ── */
+      .cd-wrap { display: flex; width: 100%; }
+      .cd-cell { padding: 10px 8px; min-width: 0; flex: 1; text-align: center; }
+      .cd-num { font-size: 1.8rem; }
+      .cd-lbl { font-size: 0.46rem; letter-spacing: 0.14em; margin-top: 4px; }
+      .cd-cell+.cd-cell::before { font-size: 1.2rem; left: -4px; }
+
+      /* ── Hero stats strip ── */
+      .hero-stats-strip { gap: 14px !important; margin-top: 28px !important; }
+      .hero-stats-strip .stat-num { font-size: 1.45rem !important; }
+
+      /* ── Section titles ── */
+      .sec-title, .sec-title-white { font-size: 2rem; }
+      .sec-rule { margin-bottom: 24px; }
+
+      /* ── Category cards ── */
+      .cat-card { padding: 20px 18px 18px; }
+      .cat-dist { font-size: 2.1rem; }
+
+      /* ── Box items (kit section) ── */
+      .box-item { padding: 11px 12px; gap: 10px; }
+      .box-icon { width: 36px; height: 36px; }
+
+      /* ── Timeline ── */
+      .tl-wrap { padding-left: 38px; }
+      .tl-dot { left: -34px; width: 15px; height: 15px; }
+      .tl-line { left: 12px; }
+      .tl-title { font-size: 1.2rem; }
+      .tl-desc { font-size: 0.82rem; }
+      .tl-item { padding-bottom: 28px; }
+
+      /* ── FAQ ── */
+      .faq-btn { padding: 16px 18px; font-size: 0.92rem; }
+      .faq-inner { padding: 4px 18px 18px; font-size: 0.85rem; }
+
+      /* ═══════════════════════════════════════
+          MODAL — bottom sheet on mobile
+      ═══════════════════════════════════════ */
+      #modal-overlay {
+        padding: 0;
+        align-items: flex-end;
+        justify-content: center;
+      }
+      #modal-box {
+        border-radius: 22px 22px 0 0;
+        max-height: 92dvh;
+        max-width: 100%;
+        width: 100%;
+        transform: translateY(100%) !important;
+        transition: transform 0.44s cubic-bezier(0.32, 0.72, 0, 1) !important;
+      }
+      #modal-overlay.open #modal-box {
+        transform: translateY(0) !important;
+      }
+
+      /* Show drag handle on mobile */
+      .modal-drag-handle { display: block; }
+
+      /* Modal header tighter */
+      .modal-hdr { padding: 14px 16px 14px; }
+
+      /* Step bubbles smaller */
+      .step-bubble { width: 28px; height: 28px; font-size: 0.8rem; }
+      .step-lbl { font-size: 0.48rem; letter-spacing: 0.05em; }
+
+      /* Step panels padding */
+      #step1, #step2, #step3, #step4 { padding: 20px 16px 32px; }
+
+      /* Inputs: 16px prevents iOS auto-zoom on focus */
+      .f-input { font-size: 16px; padding: 10px 12px; }
+      .f-label { font-size: 0.69rem; }
+      .f-group { margin-bottom: 14px; }
+      .f-err { font-size: 0.72rem; }
+
+      /* Size pills — tighter on mobile */
+      .size-pill { padding: 8px 12px; font-size: 0.79rem; }
+
+      /* Category choice in modal */
+      .cat-choice { padding: 10px 12px; gap: 10px; }
+      .cat-choice-radio { width: 16px; height: 16px; }
+
+      /* Modal primary & ghost buttons */
+      .btn-modal-primary { font-size: 0.84rem; padding: 13px 16px; letter-spacing: 0.08em; border-radius: 6px; }
+      .btn-modal-ghost { font-size: 0.84rem; padding: 12px 14px; border-radius: 6px; }
+
+      /* Summary card */
+      .summary-row { font-size: 0.79rem; }
+      #sum-email { font-size: 0.73rem; }
+
+      /* Success screen */
+      #step4 { padding: 28px 16px 36px; }
+      #step4 .check-anim-wrap { width: 68px !important; height: 68px !important; }
+
+      /* Modal button rows — stack vertically on mobile, primary first */
+      .modal-btn-row {
+        flex-direction: column-reverse !important;
+        gap: 10px !important;
+      }
+      .modal-btn-row .btn-modal-ghost {
+        width: 100% !important;
+        padding: 12px 14px !important;
+      }
+      .modal-btn-row .btn-modal-primary {
+        flex: none !important;
+        width: 100% !important;
+      }
+    }
+
+    @media (max-width: 390px) {
+      /* Extra-small phones */
+      .cd-num { font-size: 1.55rem; }
+      .cd-cell { padding: 8px 5px; }
+      .cd-cell+.cd-cell::before { font-size: 1rem; left: -3px; }
+      .race-date-badge { font-size: 0.88rem; padding: 6px 12px; }
+      #step1, #step2, #step3, #step4 { padding: 18px 14px 30px; }
+    }
+  </style>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+
+<body>
+
+<div id="apex-bar" style="background:#0F2044;border-bottom:1px solid rgba(224,92,26,0.3);padding:8px 20px;text-align:center;position:relative;z-index:901;">
+  <p style="font-family:'Barlow Condensed',sans-serif;font-size:0.78rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.6);">
+    <span style="color:#E05C1A;margin-right:8px;">★</span>
+    Managed and Supported by
+    <strong style="color:#fff;margin-left:4px;letter-spacing:0.12em;">Apex Group</strong>
+    <span style="color:#E05C1A;margin-left:8px;">★</span>
+  </p>
 </div>
 
-<div class="scroll-progress" id="scrollProgress"></div>
 
-<svg style="display:none" aria-hidden="true">
-  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></symbol>
-  <symbol id="i-arrow" viewBox="0 0 24 24"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="13 5 20 12 13 19"/></symbol>
-  <symbol id="i-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></symbol>
-  <symbol id="i-close" viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></symbol>
-  <symbol id="i-sports" viewBox="0 0 24 24"><circle cx="12" cy="5" r="2"/><path d="M12 7c-2 0-3 1.5-3 3.5v2.5h1.5v4.5l3 3.5h2l-2-4v-4l2-1.5L14 7h-2z"/></symbol>
-  <symbol id="i-it" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="7" ry="2.4"/><path d="M5 5v6c0 1.3 3.1 2.4 7 2.4s7-1.1 7-2.4V5"/><path d="M5 11v6c0 1.3 3.1 2.4 7 2.4s7-1.1 7-2.4v-6"/></symbol>
-  <symbol id="i-drone" viewBox="0 0 24 24"><circle cx="12" cy="12" r="2"/><path d="M12 4v4m0 8v4M4 12h4m8 0h4m-12-6a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm12 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-12 12a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm12 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></symbol>
-  <symbol id="i-energy" viewBox="0 0 24 24"><path d="M12 21c-4-2-7-6-7-11a8 8 0 0 1 8-8c5 0 9 3 9 9 0 5-5 9-10 10z"/><path d="M9 16l4-6h-3l3-6"/></symbol>
-  <symbol id="i-matrix" viewBox="0 0 24 24"><circle cx="6" cy="6" r="1.5"/><circle cx="18" cy="6" r="1.5"/><circle cx="6" cy="18" r="1.5"/><circle cx="18" cy="18" r="1.5"/><circle cx="12" cy="12" r="1.5"/><line x1="7" y1="7" x2="11" y2="11"/><line x1="17" y1="7" x2="13" y2="11"/><line x1="7" y1="17" x2="11" y2="13"/><line x1="17" y1="17" x2="13" y2="13"/></symbol>
-  <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.5"/><circle cx="12" cy="12" r="2" fill="currentColor"/></symbol>
-  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s4-7.5 10-7.5S22 12 22 12s-4 7.5-10 7.5S2 12 2 12z"/><circle cx="12" cy="12" r="3.5"/></symbol>
-  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2l8 3.5v6c0 5.5-3.5 10-8 11.5-4.5-1.5-8-6-8-11.5v-6L12 2z"/><polyline points="9 11 11 13 15 9"/></symbol>
-  <symbol id="i-rocket" viewBox="0 0 24 24"><path d="M12 2s4 4 4 10c0 2-1.5 4.5-4 6-2.5-1.5-4-4-4-10 0-6 4-10 4-10z"/><path d="M9 17l-3 3M15 17l3 3M12 18v4"/></symbol>
-  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><line x1="3" y1="12" x2="21" y2="12"/><path d="M12 3a15.3 15.3 0 0 1 4 9 15.3 15.3 0 0 1-4 9 15.3 15.3 0 0 1-4-9 15.3 15.3 0 0 1 4-9z"/></symbol>
-  <symbol id="i-users" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
-  <symbol id="i-grad" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2.7 3.5 6 3.5s6-1.5 6-3.5v-5"/></symbol>
-  <symbol id="i-flask" viewBox="0 0 24 24"><path d="M9 3h6M10 3v6l-4 8a2 2 0 0 0 1.8 3h12.4a2 2 0 0 0 1.8-3l-4-8V3"/></symbol>
-  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></symbol>
-  <symbol id="i-linkedin" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37zM17.5 6.5h.01"/></symbol>
-  <symbol id="i-x" viewBox="0 0 24 24"><path d="M4 4l16 16M20 4L4 20"/></symbol>
-  <symbol id="i-youtube" viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-2-2C18.88 4 12 4 12 4s-6.88 0-8.54.46a2.78 2.78 0 0 0-2 2A29 29 0 0 0 1 11.75a29 29 0 0 0.46 5.33A2.78 2.78 0 0 0 3.46 19c1.66.46 8.54.46 8.54.46s6.88 0 8.54-.46a2.78 2.78 0 0 0 2-2 29 29 0 0 0.46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></symbol>
-  <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37zM17.5 6.5h.01"/></symbol>
-</svg>
+<nav id="navbar">
+  <div class="max-w-7xl mx-auto px-5 sm:px-6 flex items-center justify-between">
 
-<header class="site-header" id="siteHeader">
-  <div class="container header-inner">
-    <a href="#home" class="brand-logo" aria-label="Apex Groups Homepage">
-      Apex Groups
+    <a href="#home" class="flex items-center gap-3" aria-label="Yendada Marathon Home">
+      <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="18" cy="18" r="18" fill="rgba(224,92,26,0.18)"/>
+        <path d="M7 22 Q10 16 14 18 Q18 20 22 14 Q26 8 30 12" stroke="#E05C1A" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+        <path d="M7 26 Q11 22 15 24 Q19 26 23 21 Q27 16 30 19" stroke="rgba(224,92,26,0.55)" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        <circle cx="22" cy="14" r="2" fill="#E05C1A"/>
+      </svg>
+      <span class="nav-logo-text">Yendada Marathon</span>
     </a>
 
-    <nav class="nav-desktop" id="navDesktop" aria-label="Desktop Primary Navigation">
-      <a href="#home" class="nav-link active">Home</a>
-      <a href="#about" class="nav-link">About Us</a>
-      
-      <div class="nav-item-dropdown">
-        <button class="nav-link dropdown-trigger" aria-expanded="false">
-          Division <svg class="icon"><use href="#i-chevron"/></svg>
+    <div class="hidden md:flex items-center gap-8">
+      <a href="#home"     class="nav-link active">Home</a>
+      <a href="#races"    class="nav-link">Races</a>
+      <a href="#route"    class="nav-link">Route</a>
+      <a href="#timeline" class="nav-link">Timeline</a>
+    </div>
+
+    <div class="flex items-center gap-4">
+      <button onclick="openModal(null)" class="btn-reg-nav hidden md:block">Register Now</button>
+      <button id="mob-toggle" class="md:hidden text-white p-2" aria-label="Toggle menu" onclick="toggleMobMenu()">
+        <svg id="ham-open"  width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="2" y1="6" x2="20" y2="6"/><line x1="2" y1="11" x2="20" y2="11"/><line x1="2" y1="16" x2="20" y2="16"/>
+        </svg>
+        <svg id="ham-close" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="hidden">
+          <line x1="4" y1="4" x2="18" y2="18"/><line x1="18" y1="4" x2="4" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div id="mob-menu">
+    <div class="max-w-7xl mx-auto px-5 py-4 flex flex-col gap-1">
+      <a href="#home"     onclick="closeMobMenu()" class="nav-link py-3 border-b border-white/10">Home</a>
+      <a href="#races"    onclick="closeMobMenu()" class="nav-link py-3 border-b border-white/10">Races</a>
+      <a href="#route"    onclick="closeMobMenu()" class="nav-link py-3 border-b border-white/10">Route</a>
+      <a href="#timeline" onclick="closeMobMenu()" class="nav-link py-3 border-b border-white/10">Timeline</a>
+      <button onclick="openModal(null); closeMobMenu();" class="btn-reg-nav mt-4 w-full">Register Now</button>
+    </div>
+  </div>
+</nav>
+
+
+<section id="home" class="hero-section">
+  <div class="max-w-7xl mx-auto px-5 sm:px-6 w-full">
+    <div class="max-w-2xl pt-20 pb-8">
+
+      <div class="badge-orange mb-5 reveal">📍 Yendada Junction, Visakhapatnam  ·  2026</div>
+
+      <h1 class="font-barlow font-900 text-white uppercase leading-none mb-6 reveal d1" style="font-size:clamp(2.8rem,6vw,5rem);letter-spacing:0.03em;">
+        Yendada Marathon –<br>
+        <span style="color:#E05C1A;">Run with the Ocean Breeze</span>
+      </h1>
+
+      <div class="mb-8 reveal d2">
+        <p class="text-white/50 text-sm mb-3 font-barlow uppercase tracking-widest" style="letter-spacing:0.16em;">Race starts in</p>
+
+        <div class="race-date-badge mb-3">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#E05C1A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+          </svg>
+          26th July 2026
+        </div>
+
+        <div class="cd-wrap">
+          <div class="cd-cell">
+            <span class="cd-num" id="cd-days">34</span>
+            <span class="cd-lbl">Days</span>
+          </div>
+          <div class="cd-cell">
+            <span class="cd-num" id="cd-hrs">00</span>
+            <span class="cd-lbl">Hrs</span>
+          </div>
+          <div class="cd-cell">
+            <span class="cd-num" id="cd-min">00</span>
+            <span class="cd-lbl">Min</span>
+          </div>
+          <div class="cd-cell">
+            <span class="cd-num" id="cd-sec">00</span>
+            <span class="cd-lbl">Sec</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap gap-4 reveal d3">
+        <button onclick="openModal(null)" class="btn-primary">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 5l7 7-7 7M5 5l7 7-7 7"/></svg>
+          Join the Race
         </button>
-        <div class="dropdown-menu" role="menu">
-          <a class="dropdown-item" href="#division-sports"><span class="dot" style="background:var(--blue)"></span>Apex Sports</a>
-          <a class="dropdown-item" href="#division-it"><span class="dot" style="background:var(--violet)"></span>Apex IT</a>
-          <a class="dropdown-item" href="#division-drones"><span class="dot" style="background:var(--amber)"></span>Apex Drones</a>
-          <a class="dropdown-item" href="#division-energy"><span class="dot" style="background:var(--emerald)"></span>Apex Green Energy</a>
-          <a class="dropdown-item" href="#division-matrix"><span class="dot" style="background:var(--teal)"></span>Insight Matrix</a>
+        <a href="#races" class="btn-ghost-white">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+          Explore Categories
+        </a>
+      </div>
+
+      <div class="flex flex-wrap gap-8 mt-12 hero-stats-strip reveal d4">
+        <div>
+          <p class="font-barlow text-white stat-num" style="font-size:1.9rem;font-weight:800;line-height:1;">3,200+</p>
+          <p class="text-white/50 text-xs uppercase tracking-widest mt-1">Registered Runners</p>
+        </div>
+        <div class="h-10 w-px bg-white/15 self-center"></div>
+        <div>
+          <p class="font-barlow text-white stat-num" style="font-size:1.9rem;font-weight:800;line-height:1;">3 Races</p>
+          <p class="text-white/50 text-xs uppercase tracking-widest mt-1">Categories</p>
+        </div>
+        <div class="h-10 w-px bg-white/15 self-center"></div>
+        <div>
+          <p class="font-barlow text-white stat-num" style="font-size:1.9rem;font-weight:800;line-height:1;">4th Edition</p>
+          <p class="text-white/50 text-xs uppercase tracking-widest mt-1">Annual Event</p>
         </div>
       </div>
 
-      <a href="#impact" class="nav-link">Impact</a>
-      <a href="#investors" class="nav-link">Investors</a>
-      <a href="#careers" class="nav-link">Careers</a>
-      <a href="#contact" class="nav-link">Contact Us</a>
-    </nav>
-
-    <div class="header-actions">
-      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to light mode" aria-pressed="false">
-        <span class="theme-toggle-track">
-          <span class="theme-toggle-thumb">
-            <span class="theme-toggle-icon">☀</span>
-          </span>
-        </span>
-      </button>
-      <button class="search-btn" id="searchOpen" aria-label="Launch Site Search">
-        <svg class="icon"><use href="#i-search"/></svg>
-      </button>
-      <a href="#contact" class="btn btn-primary">
-        Partner With Us <svg class="icon"><use href="#i-arrow"/></svg>
-      </a>
-      <button class="menu-toggle" id="menuToggle" aria-label="Toggle Mobile Menu">
-        <span></span><span></span><span></span>
-      </button>
     </div>
   </div>
-</header>
 
-<section class="hero section-shell" id="home">
-  <div class="section-ambient ambient-a"></div>
-  <div class="section-ambient ambient-b"></div>
-  <div class="container hero-inner">
-    <div class="hero-content reveal-on-scroll">
-      <span class="eyebrow">Building Tomorrow. Together.</span>
-      <h1 class="hero-title">Innovating Across<br>Industries. Impacting<br>Everyday Lives.</h1>
-      <p class="hero-desc">Apex Groups is a multidisciplinary organization dedicated to solving complex systemic challenges through a federated ecosystem of specialized divisions. We engineer institutional trust across every vertical we operate.</p>
-      <div class="hero-actions">
-        <a href="#divisions" class="btn btn-primary">Explore Our Divisions <svg class="icon"><use href="#i-arrow"/></svg></a>
-        <a href="#about" class="btn btn-outline">About Apex Groups <svg class="icon"><use href="#i-arrow"/></svg></a>
-      </div>
+  <div class="wave-bottom">
+    <svg viewBox="0 0 1440 54" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">
+      <path d="M0,32 C240,58 480,10 720,32 C960,54 1200,10 1440,32 L1440,54 L0,54 Z" fill="#ffffff"/>
+    </svg>
+  </div>
+</section>
+
+
+<section id="races" class="py-24" style="background:#F5F7FB;">
+  <div class="max-w-7xl mx-auto px-5 sm:px-6">
+
+    <div class="text-center mb-14 reveal">
+      <h2 class="sec-title">Choose Your Challenge</h2>
+      <div class="sec-rule mx-auto"></div>
+      <p class="text-gray-500 max-w-xl mx-auto" style="font-size:0.95rem;">Whether you're a seasoned runner or taking your first steps, there's a category built for you. Pick your distance and sign up today.</p>
     </div>
-    
-    <div class="hero-visual reveal-on-scroll stagger-2">
-      <div class="skyscraper-panel">
-        <div class="building-windows" id="windowsGrid"></div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-5xl mx-auto">
+
+      <div class="cat-card reveal d1">
+        <div style="width:46px;height:46px;display:flex;align-items:center;justify-content:center;background:rgba(224,92,26,0.1);border-radius:4px;">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E05C1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <p class="cat-dist">2K</p>
+        <p class="cat-sub">Fun Run</p>
+        <div class="border-t border-gray-100 pt-4 space-y-2">
+          <div class="cat-meta-row">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span>Flag-off: 07:30 AM</span>
+          </div>
+          <div class="cat-meta-row">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+            <span>Fee: ₹199</span>
+          </div>
+          <div class="cat-note">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            <span>Open to all ages — great for beginners</span>
+          </div>
+        </div>
+        <button onclick="openModal('2K – Fun Run')" class="mt-6 w-full py-3 font-barlow font-700 text-sm uppercase tracking-wider" style="background:#0F2044;color:#fff;letter-spacing:0.12em;transition:background 0.3s;" onmouseover="this.style.background='#162d5c'" onmouseout="this.style.background='#0F2044'">Register Now</button>
       </div>
+
+      <div class="cat-card reveal d2">
+        <div style="width:46px;height:46px;display:flex;align-items:center;justify-content:center;background:rgba(224,92,26,0.1);border-radius:4px;">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E05C1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><path d="M8 14l-2 6"/><path d="M16 14l2 6"/><path d="M12 7v5l-3 3"/><path d="M12 12l3 3"/><path d="M9 17h6"/></svg>
+        </div>
+        <p class="cat-dist">5K</p>
+        <p class="cat-sub">Fit India Run</p>
+        <div class="border-t border-gray-100 pt-4 space-y-2">
+          <div class="cat-meta-row">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span>Flag-off: 06:30 AM</span>
+          </div>
+          <div class="cat-meta-row">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+            <span>Fee: ₹299</span>
+          </div>
+          <div class="cat-note">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            <span>Open to all ages</span>
+          </div>
+        </div>
+        <button onclick="openModal('5K – Fit India Run')" class="mt-6 w-full py-3 font-barlow font-700 text-sm uppercase tracking-wider" style="background:#0F2044;color:#fff;letter-spacing:0.12em;transition:background 0.3s;" onmouseover="this.style.background='#162d5c'" onmouseout="this.style.background='#0F2044'">Register Now</button>
+      </div>
+
+      <div class="cat-card reveal d3" style="border-top:3px solid #E05C1A;">
+        <div style="width:46px;height:46px;display:flex;align-items:center;justify-content:center;background:rgba(224,92,26,0.12);border-radius:4px;">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E05C1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M9 18l3-2 3 2"/><path d="M12 16v5"/><path d="M7 22l5-6 5 6"/></svg>
+        </div>
+        <p class="cat-dist">10K</p>
+        <p class="cat-sub">Endurance Run</p>
+        <div class="border-t border-gray-100 pt-4 space-y-2">
+          <div class="cat-meta-row">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span>Flag-off: 05:45 AM</span>
+          </div>
+          <div class="cat-meta-row">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+            <span>Fee: ₹399</span>
+          </div>
+          <div class="cat-note">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            <span>Open to all ages</span>
+          </div>
+        </div>
+        <button onclick="openModal('10K – Endurance Run')" class="mt-6 w-full py-3 font-barlow font-700 text-sm uppercase tracking-wider" style="background:#E05C1A;color:#fff;letter-spacing:0.12em;transition:background 0.3s;" onmouseover="this.style.background='#C04810'" onmouseout="this.style.background='#E05C1A'">Register Now</button>
+      </div>
+
     </div>
   </div>
 </section>
 
-<section class="pillars section-shell" id="divisions">
-  <div class="section-ambient ambient-c"></div>
-  <div class="container">
-    <div class="section-header reveal-on-scroll">
-      <div>
-        <span class="eyebrow">Our Ecosystem</span>
-        <h2 class="section-title">The Five Pillars of Excellence</h2>
-      </div>
-      <a href="#map" class="pillar-link" style="font-size:0.92rem; font-weight:600;">View Interactive Map <svg class="icon"><use href="#i-arrow"/></svg></a>
+
+<section id="route" class="route-bg py-20">
+  <div class="max-w-7xl mx-auto px-5 sm:px-6">
+
+    <div class="grid lg:grid-cols-2 gap-12 xl:gap-16 items-start">
+
+      <div class="reveal">
+        <h2 class="sec-title-white mb-1">Race Course</h2>
+        <div class="sec-rule sec-rule-left" style="margin-bottom:24px;"></div>
+
+        <div class="flex items-center gap-0 border-b border-white/10 mb-4 overflow-x-auto">
+          <button class="map-tab active" onclick="switchMap(this,'map-10k')">10K Map</button>
+          <button class="map-tab" onclick="switchMap(this,'map-5k')">5K Map</button>
+          <button class="map-tab" onclick="switchMap(this,'map-2k')">2K Map</button>
+        </div>
+
+        <div id="map-10k" class="map-panel active">
+          <div class="rounded overflow-hidden" style="background:#0a1628;border:1px solid rgba(255,255,255,0.08);">
+            <svg viewBox="0 0 580 360" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">
+              <rect width="580" height="360" fill="#0a1628"/>
+              <rect x="0" y="0" width="140" height="360" fill="url(#og2)"/>
+              <defs><linearGradient id="og2" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#102a4c"/><stop offset="100%" stop-color="#0a1628" stop-opacity="0"/></linearGradient></defs>
+              <g stroke="rgba(255,255,255,0.05)" stroke-width="1">
+                <line x1="180" y1="0" x2="180" y2="360"/><line x1="240" y1="0" x2="240" y2="360"/><line x1="300" y1="0" x2="300" y2="360"/><line x1="360" y1="0" x2="360" y2="360"/><line x1="420" y1="0" x2="420" y2="360"/>
+                <line x1="140" y1="72" x2="580" y2="72"/><line x1="140" y1="144" x2="580" y2="144"/><line x1="140" y1="216" x2="580" y2="216"/><line x1="140" y1="288" x2="580" y2="288"/>
+              </g>
+              <path d="M138 20 Q140 80 136 140 Q132 200 138 260 Q142 320 138 360" stroke="rgba(255,255,255,0.18)" stroke-width="1.5" fill="none"/>
+              <path d="M138 290 Q165 280 195 265 Q230 245 255 215 Q280 185 310 165 Q340 145 375 135 Q410 125 445 130 Q470 134 480 150 Q492 168 478 188 Q462 210 438 215 Q408 222 388 240 Q365 260 370 285 Q375 310 355 320 Q328 330 300 322 Q270 313 240 308 Q205 302 175 312 Q158 318 138 315Z" stroke="#E05C1A" stroke-width="2.5" fill="rgba(224,92,26,0.06)" stroke-dasharray="4 0"/>
+              <circle cx="138" cy="290" r="6" fill="#E05C1A"/>
+              <text x="148" y="295" fill="#E05C1A" font-size="9" font-family="sans-serif" font-weight="bold">START/FINISH</text>
+              <circle cx="310" cy="165" r="4" fill="#3B82F6"/><text x="318" y="162" fill="#60A5FA" font-size="7" font-family="sans-serif">W1</text>
+              <circle cx="438" cy="215" r="4" fill="#3B82F6"/><text x="446" y="212" fill="#60A5FA" font-size="7" font-family="sans-serif">W2</text>
+              <rect x="10" y="15" width="130" height="22" rx="2" fill="rgba(224,92,26,0.85)"/>
+              <text x="75" y="30" fill="white" font-size="9" font-family="sans-serif" font-weight="bold" text-anchor="middle">10K — ENDURANCE ROUTE</text>
+            </svg>
+          </div>
+          <p class="text-white/35 text-xs mt-3 flex items-center gap-2">
+            <span style="display:inline-block;width:8px;height:8px;background:#E05C1A;border-radius:50%;"></span> Route
+            <span style="display:inline-block;width:8px;height:8px;background:#3B82F6;border-radius:50%;margin-left:8px;"></span> Water Station
+            <span style="display:inline-block;width:8px;height:8px;background:#EF4444;border-radius:50%;margin-left:8px;"></span> First Aid
+          </p>
+        </div>
+
+        <div id="map-5k" class="map-panel">
+          <div class="rounded overflow-hidden" style="background:#0a1628;border:1px solid rgba(255,255,255,0.08);">
+            <svg viewBox="0 0 580 360" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">
+              <rect width="580" height="360" fill="#0a1628"/>
+              <rect x="0" y="0" width="140" height="360" fill="url(#og3)"/>
+              <defs><linearGradient id="og3" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#102a4c"/><stop offset="100%" stop-color="#0a1628" stop-opacity="0"/></linearGradient></defs>
+              <g stroke="rgba(255,255,255,0.05)" stroke-width="1">
+                <line x1="180" y1="0" x2="180" y2="360"/><line x1="240" y1="0" x2="240" y2="360"/><line x1="300" y1="0" x2="300" y2="360"/><line x1="360" y1="0" x2="360" y2="360"/>
+                <line x1="140" y1="90" x2="580" y2="90"/><line x1="140" y1="180" x2="580" y2="180"/><line x1="140" y1="270" x2="580" y2="270"/>
+              </g>
+              <path d="M138 20 Q140 80 136 140 Q132 200 138 260 Q142 320 138 360" stroke="rgba(255,255,255,0.18)" stroke-width="1.5" fill="none"/>
+              <path d="M138 280 Q165 268 195 252 Q228 233 255 210 Q282 185 315 175 Q348 165 378 172 Q405 179 415 200 Q425 224 408 244 Q390 265 365 272 Q338 280 308 276 Q278 270 250 268 Q210 264 175 275 Q158 281 138 278Z" stroke="#E05C1A" stroke-width="2.5" fill="rgba(224,92,26,0.06)" stroke-dasharray="4 0"/>
+              <circle cx="138" cy="280" r="6" fill="#E05C1A"/>
+              <text x="148" y="285" fill="#E05C1A" font-size="9" font-family="sans-serif" font-weight="bold">START/FINISH</text>
+              <circle cx="315" cy="175" r="4" fill="#3B82F6"/><text x="323" y="172" fill="#60A5FA" font-size="7" font-family="sans-serif">W1</text>
+              <rect x="10" y="15" width="120" height="22" rx="2" fill="rgba(224,92,26,0.85)"/>
+              <text x="70" y="30" fill="white" font-size="9" font-family="sans-serif" font-weight="bold" text-anchor="middle">5K — FIT INDIA RUN</text>
+            </svg>
+          </div>
+        </div>
+
+        <div id="map-2k" class="map-panel">
+          <div class="rounded overflow-hidden" style="background:#0a1628;border:1px solid rgba(255,255,255,0.08);">
+            <svg viewBox="0 0 580 360" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">
+              <rect width="580" height="360" fill="#0a1628"/>
+              <rect x="0" y="0" width="140" height="360" fill="url(#og4)"/>
+              <defs><linearGradient id="og4" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#102a4c"/><stop offset="100%" stop-color="#0a1628" stop-opacity="0"/></linearGradient></defs>
+              <g stroke="rgba(255,255,255,0.05)" stroke-width="1">
+                <line x1="180" y1="0" x2="180" y2="360"/><line x1="240" y1="0" x2="240" y2="360"/><line x1="300" y1="0" x2="300" y2="360"/>
+                <line x1="140" y1="120" x2="580" y2="120"/><line x1="140" y1="240" x2="580" y2="240"/>
+              </g>
+              <path d="M138 20 Q140 80 136 140 Q132 200 138 260 Q142 320 138 360" stroke="rgba(255,255,255,0.18)" stroke-width="1.5" fill="none"/>
+              <path d="M138 280 Q162 268 190 258 Q220 246 248 240 Q278 235 305 245 Q328 254 335 275 Q342 298 322 310 Q298 322 272 316 Q245 308 218 304 Q190 299 165 306 Q152 310 138 306Z" stroke="#E05C1A" stroke-width="2.5" fill="rgba(224,92,26,0.06)" stroke-dasharray="4 0"/>
+              <circle cx="138" cy="280" r="6" fill="#E05C1A"/>
+              <text x="148" y="285" fill="#E05C1A" font-size="9" font-family="sans-serif" font-weight="bold">START/FINISH</text>
+              <rect x="10" y="15" width="120" height="22" rx="2" fill="rgba(224,92,26,0.85)"/>
+              <text x="70" y="30" fill="white" font-size="9" font-family="sans-serif" font-weight="bold" text-anchor="middle">2K — FUN RUN LOOP</text>
+            </svg>
+          </div>
+        </div>
+
+        <div class="mt-5 rounded" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);overflow:hidden;">
+          <div style="position:relative;width:100%;height:200px;background:#0a1628;overflow:hidden;">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3800.438!2d83.30528!3d17.73925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a395bfcb4c9f9c5%3A0x0!2sYendada%2C+Visakhapatnam%2C+Andhra+Pradesh!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+              width="100%" height="200" style="border:0;display:block;filter:invert(0.9) hue-rotate(190deg) saturate(0.7);"
+              allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+              title="Race course location — Yendada Junction, Visakhapatnam">
+             Pop</iframe>
+          </div>
+          <div class="flex items-start gap-3 p-4">
+            <div style="width:34px;height:34px;background:rgba(224,92,26,0.15);border-radius:4px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E05C1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <p class="text-white font-semibold text-sm leading-tight">Yendada Junction, Visakhapatnam</p>
+              <p class="text-white/45 text-xs mt-1">Near Chennapatnam Filter Coffee  ·  Andhra Pradesh 530 045</p>
+              <a href="https://maps.google.com/?q=Yendada+Junction+Visakhapatnam" target="_blank" rel="noopener"
+                 style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#E05C1A;">
+                Open in Google Maps
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div><div class="reveal d2">
+        <h2 class="sec-title-white mb-1">What's in the Box?</h2>
+        <div class="sec-rule sec-rule-left" style="margin-bottom:24px;"></div>
+        <p class="text-white/50 text-sm mb-6 leading-relaxed">Every registered runner receives a premium race kit packed with race essentials and celebratory keepsakes.</p>
+
+        <div class="space-y-3">
+
+          <div class="box-item">
+            <div class="box-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E05C1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.38 3.46 16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.34 2.23l.58 3.57a1 1 0 00.99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 002-2V10h2.15a1 1 0 00.99-.84l.58-3.57a2 2 0 00-1.34-2.23z"/></svg>
+            </div>
+            <div>
+              <p class="text-white font-semibold text-sm leading-tight">Premium Dry-fit T-shirt</p>
+              <p class="text-white/45 text-xs mt-0.5">Official race day apparel</p>
+            </div>
+          </div>
+
+          <div class="box-item">
+            <div class="box-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E05C1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></svg>
+            </div>
+            <div>
+              <p class="text-white font-semibold text-sm leading-tight">Personalized BIB</p>
+              <p class="text-white/45 text-xs mt-0.5">Your race number & identity</p>
+            </div>
+          </div>
+
+          <div class="box-item">
+            <div class="box-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E05C1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+            </div>
+            <div>
+              <p class="text-white font-semibold text-sm leading-tight">Finisher Medal</p>
+              <p class="text-white/45 text-xs mt-0.5">Bespoke heavy-cast medal</p>
+            </div>
+          </div>
+
+          <div class="box-item">
+            <div class="box-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E05C1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="13" y2="17"/></svg>
+            </div>
+            <div>
+              <p class="text-white font-semibold text-sm leading-tight">Certificate</p>
+              <p class="text-white/45 text-xs mt-0.5">Awarded to every finisher</p>
+            </div>
+          </div>
+
+          <div class="box-item">
+            <div class="box-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E05C1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h1a4 4 0 010 8h-1"/><path d="M3 8h14v9a4 4 0 01-4 4H7a4 4 0 01-4-4V8z"/><line x1="6" y1="2" x2="6" y2="4"/><line x1="10" y1="2" x2="10" y2="4"/><line x1="14" y1="2" x2="14" y2="4"/></svg>
+            </div>
+            <div>
+              <p class="text-white font-semibold text-sm leading-tight">Refreshments</p>
+              <p class="text-white/45 text-xs mt-0.5">Post-run recovery drinks and snacks</p>
+            </div>
+          </div>
+
+        </div>
+      </div></div>
+  </div>
+</section>
+
+
+<section id="timeline" class="sched-bg py-24">
+  <div class="max-w-7xl mx-auto px-5 sm:px-6">
+
+    <div class="text-center mb-14 reveal">
+      <h2 class="sec-title">Race Day Schedule</h2>
+      <div class="sec-rule mx-auto"></div>
+      <p class="text-gray-500 max-w-xl mx-auto" style="font-size:0.95rem;">Plan your race morning perfectly. Here's everything happening on the big day, from assembly to the finish line celebrations.</p>
     </div>
 
-    <div class="pillars-grid">
-      <div class="pillar-card glass-panel spotlight-card reveal-on-scroll stagger-1" data-div="sports" id="division-sports">
-        <div class="pillar-top">
-          <div class="pillar-badge">
-            <svg class="icon"><use href="#i-sports"/></svg>
-          </div>
-          <span class="pillar-label">Active Athletics</span>
+    <div class="max-w-2xl mx-auto">
+      <div class="tl-wrap">
+        <div class="tl-line"></div>
+
+        <div class="tl-item reveal">
+          <div class="tl-dot"></div>
+          <p class="tl-time">04:00 AM</p>
+          <h3 class="tl-title">Assembly & Baggage Drop</h3>
+          <p class="tl-desc">Arrival at Yendada Junction start point. Warm-up sessions begin. Collect your BIB if not picked up before.</p>
         </div>
-        <h3 class="pillar-title">Apex Sports</h3>
-        <p class="pillar-desc">Developing athletes and communities through world-class sports programs and infrastructure.</p>
-        <div class="pillar-visual">
-          <img class="pillar-img" src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=400&q=80" alt="Apex Sports Stadium Asset">
-          <div class="pillar-visual-glow"></div>
+
+        <div class="tl-item reveal d1">
+          <div class="tl-dot"></div>
+          <p class="tl-time">05:45 AM</p>
+          <h3 class="tl-title">10K Flag-Off</h3>
+          <p class="tl-desc">The power runners depart. Witness the electrifying start of the toughest category.</p>
         </div>
-        <div class="pillar-stats">
-          <div class="stat-item-inner">
-            <span class="stat-num counter-val" data-target="3">0</span>
-            <span class="stat-lbl">Academies</span>
-          </div>
-          <div class="stat-item-inner">
-            <span class="stat-num counter-val" data-target="1000">0</span><span class="stat-num" style="display:inline;">+</span>
-            <span class="stat-lbl">Athletes</span>
+
+        <div class="tl-item reveal d2">
+          <div class="tl-dot"></div>
+          <p class="tl-time">06:30 AM</p>
+          <h3 class="tl-title">5K Fit India Run Flag-Off</h3>
+          <p class="tl-desc">Join the energetic morning crowd for the 5K Fit India Run — a scenic route from Yendada Junction.</p>
+        </div>
+
+        <div class="tl-item reveal d3">
+          <div class="tl-dot"></div>
+          <p class="tl-time">07:15 AM</p>
+          <h3 class="tl-title">2K Fun Run Flag-Off</h3>
+          <p class="tl-desc">Everyone's welcome — the 2K loop is the perfect community run for all ages and fitness levels.</p>
+        </div>
+
+        <div class="tl-item reveal">
+          <div class="tl-dot"></div>
+          <p class="tl-time">08:00 AM</p>
+          <h3 class="tl-title">Refreshment Zone Opens</h3>
+          <p class="tl-desc">Recovery drinks and snacks available for all finishers. Celebrate your achievement with the community.</p>
+        </div>
+
+        </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="gallery" class="gallery-bg py-24">
+  <div class="max-w-7xl mx-auto px-5 sm:px-6">
+
+    <div class="text-center mb-16 reveal">
+      <h2 class="sec-title-white">Gallery</h2>
+      <div class="sec-rule mx-auto"></div>
+      <p class="text-white/60 max-w-xl mx-auto text-sm sm:text-base leading-relaxed">
+        Relive the high-energy moments from our past races. From the sunrise start line to the triumphant finish, our community brings the spirit of Visakhapatnam to life.
+      </p>
+    </div>
+
+    <div class="gallery-grid reveal d1">
+
+      <div class="mosaic-card col-span-2 row-span-2 h-72 md:h-auto" onclick="openLightbox(this)">
+        <img src="./images/image6.jpeg" alt="Triumphant Finish Line Celebration" loading="lazy"/>
+        <div class="mosaic-overlay">
+          <div class="mosaic-text">
+            <p class="font-barlow text-rust font-bold text-xs uppercase tracking-widest mb-1">Victory Line</p>
+            <h4 class="text-white font-semibold text-lg">Triumphant Moments</h4>
           </div>
         </div>
-        <a href="#sports-details" class="pillar-link">Explore Sports <svg class="icon"><use href="#i-arrow"/></svg></a>
       </div>
 
-      <div class="pillar-card glass-panel spotlight-card reveal-on-scroll stagger-2" data-div="it" id="division-it">
-        <div class="pillar-top">
-          <div class="pillar-badge">
-            <svg class="icon"><use href="#i-it"/></svg>
-          </div>
-          <span class="pillar-label">Digital Infrastructure</span>
-        </div>
-        <h3 class="pillar-title">Apex IT</h3>
-        <p class="pillar-desc">Delivering secure, scalable IT solutions, enterprise applications, and digital transformation services.</p>
-        <div class="pillar-visual">
-          <img class="pillar-img" src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=400&q=80" alt="Apex IT Infrastructure Asset">
-          <div class="pillar-visual-glow"></div>
-        </div>
-        <div class="pillar-stats">
-          <div class="stat-item-inner">
-            <span class="stat-num counter-val" data-target="100">0</span><span class="stat-num" style="display:inline;">+</span>
-            <span class="stat-lbl">Projects</span>
-          </div>
-          <div class="stat-item-inner">
-            <span class="stat-num counter-val" data-target="80">0</span><span class="stat-num" style="display:inline;">+</span>
-            <span class="stat-lbl">Experts</span>
+      <div class="mosaic-card h-48 md:h-auto" onclick="openLightbox(this)">
+        <img src="./images/image2.jpeg" alt="Community Marathon Runners Group" loading="lazy"/>
+        <div class="mosaic-overlay">
+          <div class="mosaic-text">
+            <p class="font-barlow text-rust font-bold text-xs uppercase tracking-widest mb-1">Community</p>
+            <h4 class="text-white font-semibold text-base">Stronger Together</h4>
           </div>
         </div>
-        <a href="#it-details" class="pillar-link">Explore IT <svg class="icon"><use href="#i-arrow"/></svg></a>
       </div>
 
-      <div class="pillar-card glass-panel spotlight-card reveal-on-scroll stagger-3" data-div="drones" id="division-drones">
-        <div class="pillar-top">
-          <div class="pillar-badge">
-            <svg class="icon"><use href="#i-drone"/></svg>
-          </div>
-          <span class="pillar-label">Autonomous Systems</span>
-        </div>
-        <h3 class="pillar-title">Apex Drones</h3>
-        <p class="pillar-desc">Pioneering autonomous drone technology for industrial, defense and commercial applications.</p>
-        <div class="pillar-visual">
-          <img class="pillar-img" src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=400&q=80" alt="Apex Drones Hardware Asset">
-          <div class="pillar-visual-glow"></div>
-        </div>
-        <div class="pillar-stats">
-          <div class="stat-item-inner">
-            <span class="stat-num counter-val" data-target="50">0</span><span class="stat-num" style="display:inline;">+</span>
-            <span class="stat-lbl">Missions</span>
-          </div>
-          <div class="stat-item-inner">
-            <span class="stat-num counter-val" data-target="10">0</span><span class="stat-num" style="display:inline;">+</span>
-            <span class="stat-lbl">Industries</span>
+      <div class="mosaic-card row-span-2 h-72 md:h-auto" onclick="openLightbox(this)">
+        <img src="./images/image9.jpeg" alt="Kids 2K Fun Run Loop Leaders" loading="lazy"/>
+        <div class="mosaic-overlay">
+          <div class="mosaic-text">
+            <p class="font-barlow text-rust font-bold text-xs uppercase tracking-widest mb-1">2K Loop</p>
+            <h4 class="text-white font-semibold text-base">Future Champions</h4>
           </div>
         </div>
-        <a href="#drones-details" class="pillar-link">Explore Drones <svg class="icon"><use href="#i-arrow"/></svg></a>
       </div>
 
-      <div class="pillar-card glass-panel spotlight-card reveal-on-scroll stagger-4" data-div="energy" id="division-energy">
-        <div class="pillar-top">
-          <div class="pillar-badge">
-            <svg class="icon"><use href="#i-energy"/></svg>
-          </div>
-          <span class="pillar-label">Sustainable Energy</span>
-        </div>
-        <h3 class="pillar-title">Apex Green Energy</h3>
-        <p class="pillar-desc">Driving the transition to clean energy through solar, wind, and sustainable grid solutions.</p>
-        <div class="pillar-visual">
-          <img class="pillar-img" src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=400&q=80" alt="Apex Green Energy Arrays Asset">
-          <div class="pillar-visual-glow"></div>
-        </div>
-        <div class="pillar-stats">
-          <div class="stat-item-inner">
-            <span class="stat-num counter-val" data-target="20">0</span><span class="stat-num" style="display:inline;">+</span>
-            <span class="stat-lbl">Projects</span>
-          </div>
-          <div class="stat-item-inner">
-            <span class="stat-num counter-val" data-target="250">0</span><span class="stat-num" style="display:inline;">MW+</span>
-            <span class="stat-lbl">Capacity</span>
+      <div class="mosaic-card h-48 md:h-auto" onclick="openLightbox(this)">
+        <img src="./images/image4.jpeg" alt="The Scenic Coastal Ocean Breeze Track" loading="lazy"/>
+        <div class="mosaic-overlay">
+          <div class="mosaic-text">
+            <p class="font-barlow text-rust font-bold text-xs uppercase tracking-widest mb-1">Scenic Track</p>
+            <h4 class="text-white font-semibold text-base">Ocean Breeze Track</h4>
           </div>
         </div>
-        <a href="#energy-details" class="pillar-link">Explore Energy <svg class="icon"><use href="#i-arrow"/></svg></a>
       </div>
 
-      <div class="pillar-card glass-panel spotlight-card reveal-on-scroll stagger-5" data-div="matrix" id="division-matrix">
-        <div class="pillar-top">
-          <div class="pillar-badge">
-            <svg class="icon"><use href="#i-matrix"/></svg>
-          </div>
-          <span class="pillar-label">Data Intelligence</span>
-        </div>
-        <h3 class="pillar-title">Insight Matrix</h3>
-        <p class="pillar-desc">Turning data into intelligence with AI-driven analytics and real-time decision engineering.</p>
-        <div class="pillar-visual">
-          <img class="pillar-img" src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=400&q=80" alt="Insight Matrix Data Visual Asset">
-          <div class="pillar-visual-glow"></div>
-        </div>
-        <div class="pillar-stats">
-          <div class="stat-item-inner">
-            <span class="stat-num counter-val" data-target="1">0</span><span class="stat-num" style="display:inline;">M+</span>
-            <span class="stat-lbl">Datasets</span>
-          </div>
-          <div class="stat-item-inner">
-            <span class="stat-num counter-val" data-target="200">0</span><span class="stat-num" style="display:inline;">+</span>
-            <span class="stat-lbl">Clients</span>
+      <div class="mosaic-card col-span-2 h-48 md:h-auto" onclick="openLightbox(this)">
+        <img src="./images/image5.jpeg" alt="Endurance Finishers Proudly Displaying Medals" loading="lazy"/>
+        <div class="mosaic-overlay">
+          <div class="mosaic-text">
+            <p class="font-barlow text-rust font-bold text-xs uppercase tracking-widest mb-1">Endurance</p>
+            <h4 class="text-white font-semibold text-base">Finisher Medals & Pride</h4>
           </div>
         </div>
-        <a href="#matrix-details" class="pillar-link">Explore Matrix <svg class="icon"><use href="#i-arrow"/></svg></a>
       </div>
+
+      <div class="mosaic-card h-48 md:h-auto" onclick="openLightbox(this)">
+        <img src="./images/image1.jpeg" alt="Spectators and Unmatched Cheer Squads" loading="lazy"/>
+        <div class="mosaic-overlay">
+          <div class="mosaic-text">
+            <p class="font-barlow text-rust font-bold text-xs uppercase tracking-widest mb-1">Spectators</p>
+            <h4 class="text-white font-semibold text-base">Unmatched Cheer Squads</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="mosaic-card h-48 md:h-auto" onclick="openLightbox(this)">
+        <img src="./images/image7.jpeg" alt="The Dawn Takeoff Marathon Mass Flag Off" loading="lazy"/>
+        <div class="mosaic-overlay">
+          <div class="mosaic-text">
+            <p class="font-barlow text-rust font-bold text-xs uppercase tracking-widest mb-1">Flag Off</p>
+            <h4 class="text-white font-semibold text-base">The Dawn Takeoff</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="mosaic-card row-span-2 h-72 md:h-auto" onclick="openLightbox(this)">
+        <img src="./images/image8.jpeg" alt="Podium Ceremony Celebrating Excellence" loading="lazy"/>
+        <div class="mosaic-overlay">
+          <div class="mosaic-text">
+            <p class="font-barlow text-rust font-bold text-xs uppercase tracking-widest mb-1">Podium</p>
+            <h4 class="text-white font-semibold text-base">Celebrating Excellence</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="mosaic-card col-span-2 h-48 md:h-auto" onclick="openLightbox(this)">
+        <img src="./images/image3.png" alt="Athletes Running Along The Open Coast Highways" loading="lazy"/>
+        <div class="mosaic-overlay">
+          <div class="mosaic-text">
+            <p class="font-barlow text-rust font-bold text-xs uppercase tracking-widest mb-1">Athletes</p>
+            <h4 class="text-white font-semibold text-base">Every Single Step Counts</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="mosaic-card h-48 md:h-auto" onclick="openLightbox(this)">
+        <img src="./images/image10.jpeg" alt="Early Morning Warm Up Assembly Session" loading="lazy"/>
+        <div class="mosaic-overlay">
+          <div class="mosaic-text">
+            <p class="font-barlow text-rust font-bold text-xs uppercase tracking-widest mb-1">Preparation</p>
+            <h4 class="text-white font-semibold text-base">Warm-Up Focus</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="mosaic-card h-48 md:h-auto" onclick="openLightbox(this)">
+        <img src="./images/image11.jpeg" alt="Hydration Station Volunteers Assisting Runners" loading="lazy"/>
+        <div class="mosaic-overlay">
+          <div class="mosaic-text">
+            <p class="font-barlow text-rust font-bold text-xs uppercase tracking-widest mb-1">Hydration</p>
+            <h4 class="text-white font-semibold text-base">Support Along the Route</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="mosaic-card col-span-2 row-span-2 h-72 md:h-auto" onclick="openLightbox(this)">
+        <img src="./images/image12.jpeg" alt="Veteran Elite Marathon Runners Pack" loading="lazy"/>
+        <div class="mosaic-overlay">
+          <div class="mosaic-text">
+            <p class="font-barlow text-rust font-bold text-xs uppercase tracking-widest mb-1">Elite Pack</p>
+            <h4 class="text-white font-semibold text-lg">Pacing to Greatness</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="mosaic-card h-48 md:h-auto" onclick="openLightbox(this)">
+        <img src="./images/image13.jpeg" alt="Medical Team Providing Active Track Assistance" loading="lazy"/>
+        <div class="mosaic-overlay">
+          <div class="mosaic-text">
+            <p class="font-barlow text-rust font-bold text-xs uppercase tracking-widest mb-1">Safety</p>
+            <h4 class="text-white font-semibold text-base">First-Aid Security Coverage</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="mosaic-card h-48 md:h-auto" onclick="openLightbox(this)">
+        <img src="./images/image3.jpeg" alt="Post Run Healthy Breakfast Refreshment Counters" loading="lazy"/>
+        <div class="mosaic-overlay">
+          <div class="mosaic-text">
+            <p class="font-barlow text-rust font-bold text-xs uppercase tracking-widest mb-1">Recovery</p>
+            <h4 class="text-white font-semibold text-base">Post-Run Refreshment Zone</h4>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
-<section class="stats-bar section-shell" id="impact">
-  <div class="section-ambient ambient-c"></div>
-  <div class="container">
-    <div class="stats-bar-inner glass-panel reveal-on-scroll">
-      <div class="bar-item">
-        <div class="bar-icon-wrapper"><svg class="icon"><use href="#i-globe"/></svg></div>
-        <div class="bar-text">
-          <span class="bar-number counter-val" data-target="5">0</span><span class="bar-number" style="display:inline;">+</span>
-          <span class="bar-label">Global Verticals</span>
+<div id="lightbox-overlay" class="fixed inset-0 bg-black/95 z-[10000] hidden flex flex-col items-center justify-center p-4 transition-opacity duration-300 opacity-0" onclick="closeLightbox()">
+  <button class="absolute top-6 right-6 text-white/70 hover:text-white transition-colors duration-200" onclick="closeLightbox()" aria-label="Close Lightbox">
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  
+  <div class="relative max-w-5xl max-h-[80vh] flex items-center justify-center" onclick="event.stopPropagation()">
+    <img id="lightbox-img" src="" alt="" class="max-w-full max-h-[80vh] object-contain rounded-lg shadow-2xl transform scale-95 transition-transform duration-300 ease-out"/>
+  </div>
+  
+  <p id="lightbox-caption" class="mt-4 text-white/80 font-inter text-sm font-medium tracking-wide text-center max-w-xl bg-white/5 backdrop-blur-md border border-white/10 px-5 py-2.5 rounded-full"></p>
+</div>
+
+
+<section id="faq" class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-5 sm:px-6">
+
+    <div class="text-center mb-14 reveal">
+      <h2 class="sec-title">Race Essentials FAQ</h2>
+      <div class="sec-rule mx-auto"></div>
+    </div>
+
+    <div class="max-w-2xl mx-auto space-y-3">
+
+      <div class="faq-item reveal">
+        <button class="faq-btn" onclick="toggleFAQ(this)">
+          <span>BIB Collection Info</span>
+          <svg class="faq-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-content">
+          <div class="faq-inner">
+            <p>BIBs are available for collection at the Yendada Marathon Expo held the day before the event at Hotel Novotel, Visakhapatnam. Expo hours are <strong>10:00 AM – 8:00 PM</strong>. Bring a printed or digital copy of your registration confirmation email, along with a valid photo ID (Aadhaar / PAN / Passport).</p>
+            <p class="mt-3">For runners who miss the expo, a limited BIB collection window is available at the race venue on race day from <strong>04:00 AM – 05:30 AM</strong>. After 05:30 AM, uncollected BIBs may be forfeited.</p>
+          </div>
         </div>
       </div>
-      <div class="bar-item">
-        <div class="bar-icon-wrapper"><svg class="icon"><use href="#i-users"/></svg></div>
-        <div class="bar-text">
-          <span class="bar-number counter-val" data-target="1000">0</span><span class="bar-number" style="display:inline;">+</span>
-          <span class="bar-label">Athletes Managed</span>
+
+      <div class="faq-item reveal d1">
+        <button class="faq-btn" onclick="toggleFAQ(this)">
+          <span>Bag Drop & Valuables</span>
+          <svg class="faq-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-content">
+          <div class="faq-inner">
+            <p>A complimentary baggage drop facility is available at the start area from <strong>04:00 AM</strong>. Use only official Yendada Marathon bag-drop bags (provided in your race kit). Label your bag clearly with your BIB number.</p>
+            <p class="mt-3">We strongly advise against carrying valuables on race day. The organisers accept no responsibility for lost or damaged items. Bags are available for collection from <strong>08:00 AM</strong> after the finish. Please present your BIB tag to collect.</p>
+          </div>
         </div>
       </div>
-      <div class="bar-item">
-        <div class="bar-icon-wrapper"><svg class="icon"><use href="#i-grad"/></svg></div>
-        <div class="bar-text">
-          <span class="bar-number counter-val" data-target="5000">0</span><span class="bar-number" style="display:inline;">+</span>
-          <span class="bar-label">Students Enrolled</span>
+
+      <div class="faq-item reveal d2">
+        <button class="faq-btn" onclick="toggleFAQ(this)">
+          <span>Age Limits</span>
+          <svg class="faq-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-content">
+          <div class="faq-inner">
+            <ul class="space-y-2 list-none">
+              <li><span class="font-semibold" style="color:#E05C1A;">2KM Fun Run</span> — Open to all ages. A great entry point for anyone new to running.</li>
+              <li class="mt-2"><span class="font-semibold" style="color:#E05C1A;">5KM Fit India Run</span> — Minimum age: <strong>14 years</strong>.</li>
+              <li class="mt-2"><span class="font-semibold" style="color:#E05C1A;">10KM Endurance Run</span> — Minimum age: <strong>18 years</strong>. Runners aged 18–21 require a signed parental consent form.</li>
+            </ul>
+          </div>
         </div>
       </div>
-      <div class="bar-item">
-        <div class="bar-icon-wrapper"><svg class="icon"><use href="#i-flask"/></svg></div>
-        <div class="bar-text">
-          <span class="bar-number counter-val" data-target="12">0</span>
-          <span class="bar-label">Research Projects</span>
+
+      <div class="faq-item reveal d3">
+        <button class="faq-btn" onclick="toggleFAQ(this)">
+          <span>Cancellations & Transfers</span>
+          <svg class="faq-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-content">
+          <div class="faq-inner">
+            <p>All registrations are <strong>non-refundable</strong>. However, entry transfers to another person are permitted up to 7 days before race day. Submit a transfer request via the official website. A ₹100 transfer fee applies.</p>
+            <p class="mt-3">Category upgrades or downgrades are allowed (subject to availability) until 10 days before the event. Any difference in registration fee is either charged or credited as applicable.</p>
+            <p class="mt-3">In the event of race cancellation due to unforeseen circumstances (weather, government directive, etc.), registration credits will be offered for the next edition.</p>
+          </div>
         </div>
       </div>
-      <div class="bar-item">
-        <div class="bar-icon-wrapper"><svg class="icon"><use href="#i-matrix"/></svg></div>
-        <div class="bar-text">
-          <span class="bar-number counter-val" data-target="25">0</span><span class="bar-number" style="display:inline;">+</span>
-          <span class="bar-label">Countries Impacted</span>
-        </div>
-      </div>
+
     </div>
   </div>
 </section>
 
-<section class="about section-shell" id="about">
-  <div class="section-ambient ambient-d"></div>
-  <div class="container about-grid">
-    <div class="about-text reveal-on-scroll">
-      <span class="eyebrow">About Apex Groups</span>
-      <h2 class="about-title">Who We Are &<br>Why We Exist</h2>
-      <p class="about-desc">We are an orchestrator of progress — combining deep technical expertise, world-class talent, and a passion for solving real-world challenges. Our ecosystem is built on trust, innovation and measurable impact.</p>
-    </div>
 
-    <div class="about-cards-row">
-      <div class="about-card glass-panel spotlight-card reveal-on-scroll stagger-1">
-        <div class="about-card-icon"><svg class="icon"><use href="#i-target"/></svg></div>
-        <h3 class="about-card-title">Our Mission</h3>
-        <p class="about-card-desc">To engineer innovative solutions that create sustainable impact across industries.</p>
+<footer class="footer-bg">
+  <div class="footer-top-bar"></div>
+  <div class="max-w-7xl mx-auto px-5 sm:px-6 py-14">
+    <div class="text-center">
+      <div class="flex items-center justify-center gap-3 mb-4">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+          <circle cx="18" cy="18" r="18" fill="rgba(224,92,26,0.18)"/>
+          <path d="M7 22 Q10 16 14 18 Q18 20 22 14 Q26 8 30 12" stroke="#E05C1A" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+          <circle cx="22" cy="14" r="2" fill="#E05C1A"/>
+        </svg>
+        <h3 class="font-barlow font-800 text-2xl uppercase tracking-marathon" style="color:#E05C1A;letter-spacing:0.14em;">Yendada Marathon</h3>
       </div>
-      <div class="about-card glass-panel spotlight-card reveal-on-scroll stagger-2">
-        <div class="about-card-icon"><svg class="icon"><use href="#i-eye"/></svg></div>
-        <h3 class="about-card-title">Our Vision</h3>
-        <p class="about-card-desc">To be a globally trusted ecosystem driving technology, excellence and human potential.</p>
+      <p class="text-white/45 text-sm max-w-sm mx-auto leading-relaxed mb-8">The premier coastal marathon of Visakhapatnam, celebrating health, community, and the majestic Bay of Bengal.</p>
+      <div class="flex flex-wrap items-center justify-center gap-6 mb-8">
+        <a href="#" class="footer-link">Privacy Policy</a>
+        <span class="text-white/20">·</span>
+        <a href="#" class="footer-link">Terms of Service</a>
+        <span class="text-white/20">·</span>
+        <a href="#" class="footer-link">Volunteer</a>
+        <span class="text-white/20">·</span>
+        <a href="#" class="footer-link">Sponsorship</a>
       </div>
-      <div class="about-card glass-panel spotlight-card reveal-on-scroll stagger-3">
-        <div class="about-card-icon"><svg class="icon"><use href="#i-shield"/></svg></div>
-        <h3 class="about-card-title">Our Values</h3>
-        <p class="about-card-desc">Integrity, excellence, collaboration and responsibility guide every decision.</p>
+      <div class="flex items-center justify-center gap-3 mb-10">
+        <button class="soc-btn" aria-label="Share">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+        </button>
+        <button class="soc-btn" aria-label="Email">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </button>
+        <button class="soc-btn" aria-label="Phone">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.14 1.17 2 2 0 012.12 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.09a16 16 0 006 6l.6-.6a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.9z"/></svg>
+        </button>
+        <button class="soc-btn" aria-label="Instagram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </button>
       </div>
-      <div class="about-card glass-panel spotlight-card reveal-on-scroll stagger-4">
-        <div class="about-card-icon"><svg class="icon"><use href="#i-rocket"/></svg></div>
-        <h3 class="about-card-title">Our Approach</h3>
-        <p class="about-card-desc">Systems thinking, engineering mindset and relentless focus on outcomes.</p>
+      <hr style="border-color:rgba(255,255,255,0.07);margin-bottom:18px;"/>
+      <div style="display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:4px;padding:10px 20px;margin-bottom:16px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E05C1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <p style="color:rgba(255,255,255,0.55);font-size:0.8rem;letter-spacing:0.04em;">
+          Managed and Supported by
+          <strong style="color:#E05C1A;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-left:4px;">Apex Group</strong>
+        </p>
       </div>
-    </div>
-  </div>
-</section>
-
-<section class="roadmap section-shell">
-  <div class="section-ambient ambient-e"></div>
-  <div class="container">
-    <div class="roadmap-head reveal-on-scroll">
-      <span class="eyebrow">Growth Trajectory</span>
-      <h2 class="section-title">Corporate Roadmap</h2>
-    </div>
-
-    <div class="roadmap-row">
-      <div class="timeline-track-container">
-        <div class="timeline-line"></div>
-        <div class="timeline-grid">
-          <div class="timeline-item reveal-on-scroll stagger-1" data-phase="01">
-            <div class="timeline-indicator">01</div>
-            <h3 class="timeline-title">Foundation Phase</h3>
-            <p class="timeline-desc">Consolidation of core assets and establishment of the Apex Parent identity.</p>
-          </div>
-          <div class="timeline-item reveal-on-scroll stagger-2" data-phase="02">
-            <div class="timeline-indicator">02</div>
-            <h3 class="timeline-title">Sports Expansion</h3>
-            <p class="timeline-desc">Acquisition of three major athletic academies and digital performance integration.</p>
-          </div>
-          <div class="timeline-item reveal-on-scroll stagger-3" data-phase="03">
-            <div class="timeline-indicator">03</div>
-            <h3 class="timeline-title">LMS Rollout</h3>
-            <p class="timeline-desc">Deployment of the federated Learning Management System across all partner schools.</p>
-          </div>
-          <div class="timeline-item reveal-on-scroll stagger-4" data-phase="04">
-            <div class="timeline-indicator">04</div>
-            <h3 class="timeline-title">Drone Research Centre</h3>
-            <p class="timeline-desc">Opening of the Global Innovation Hub for autonomous logistics and grid monitoring.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="roadmap-visual reveal-on-scroll stagger-4">
-        <div class="globe-canvas-wrapper">
-          <div class="globe-radial-glow"></div>
-          <canvas id="globeCanvas"></canvas>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer class="site-footer section-shell" id="contact">
-  <div class="section-ambient ambient-f"></div>
-  <div class="container">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <div class="brand-logo" style="margin-bottom:20px;">
-          Apex Groups
-        </div>
-        <p class="footer-brand-desc">Engineering excellence across technology, sports, energy, data and human potential.</p>
-        <div class="footer-socials">
-          <a href="#" class="social-link" aria-label="LinkedIn profile"><svg class="icon"><use href="#i-linkedin"/></svg></a>
-          <a href="#" class="social-link" aria-label="X profile"><svg class="icon"><use href="#i-x"/></svg></a>
-          <a href="#" class="social-link" aria-label="YouTube channel"><svg class="icon"><use href="#i-youtube"/></svg></a>
-          <a href="#" class="social-link" aria-label="Instagram feed"><svg class="icon"><use href="#i-instagram"/></svg></a>
-        </div>
-      </div>
-
-      <div class="footer-nav-grid">
-        <div class="footer-col">
-          <h4 class="footer-col-title">Our Divisions</h4>
-          <ul class="footer-links-list">
-            <li class="footer-link-item"><a href="#division-sports">Apex Sports</a></li>
-            <li class="footer-link-item"><a href="#division-it">Apex IT</a></li>
-            <li class="footer-link-item"><a href="#division-drones">Apex Drones</a></li>
-            <li class="footer-link-item"><a href="#division-energy">Apex Green Energy</a></li>
-            <li class="footer-link-item"><a href="#division-matrix">Insight Matrix</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4 class="footer-col-title">Corporate</h4>
-          <ul class="footer-links-list">
-            <li class="footer-link-item"><a href="#about">About Us</a></li>
-            <li class="footer-link-item"><a href="#leadership">Leadership</a></li>
-            <li class="footer-link-item"><a href="#investors">Investors</a></li>
-            <li class="footer-link-item"><a href="#sustainability">Sustainability</a></li>
-            <li class="footer-link-item"><a href="#news">News & Media</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4 class="footer-col-title">Quick Links</h4>
-          <ul class="footer-links-list">
-            <li class="footer-link-item"><a href="#careers">Careers</a></li>
-            <li class="footer-link-item"><a href="#contact">Partner With Us</a></li>
-            <li class="footer-link-item"><a href="#contact">Contact Us</a></li>
-            <li class="footer-link-item"><a href="#compliance">Compliance</a></li>
-            <li class="footer-link-item"><a href="#privacy">Privacy Policy</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="footer-col">
-        <h4 class="footer-col-title">Global Offices</h4>
-        <ul class="footer-links-list" style="gap:16px;">
-          <li class="footer-office-item"><svg class="icon"><use href="#i-pin"/></svg> London HQ</li>
-          <li class="footer-office-item"><svg class="icon"><use href="#i-pin"/></svg> Singapore Hub</li>
-          <li class="footer-office-item"><svg class="icon"><use href="#i-pin"/></svg> Silicon Valley Labs</li>
-          <li class="footer-office-item"><svg class="icon"><use href="#i-pin"/></svg> Dubai Innovation Center</li>
-          <li class="footer-office-item"><svg class="icon"><use href="#i-pin"/></svg> New Delhi Office</li>
-        </ul>
-        <div style="margin-top: 30px;">
-          <h4 class="footer-col-title" style="margin-bottom:12px;">Stay Connected</h4>
-          <p class="newsletter-desc">Subscribe to our updates and latest insights.</p>
-          <div class="newsletter-form-container">
-            <form class="newsletter-form" onsubmit="event.preventDefault();">
-              <input type="email" placeholder="Enter your email" class="newsletter-input" required>
-              <button type="submit" class="newsletter-submit-btn" aria-label="Subscribe to email newsletters">
-                <svg class="icon"><use href="#i-arrow"/></svg>
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <span>&copy; 2024 Apex Groups International. All rights reserved.</span>
-      <div class="footer-bottom-links">
-        <a href="#privacy">Privacy Policy</a>
-        <a href="#terms">Terms of Service</a>
-      </div>
-      <div class="footer-bottom-badges">
-        <span class="footer-badge-item">ISO 9001:2015</span>
-        <span class="footer-badge-item">SOC 2 Compliant</span>
-      </div>
+      <p class="text-white/25 text-xs uppercase tracking-widest">© 2026 Yendada Marathon. Official Sanctioned Event. Visakhapatnam, Andhra Pradesh.</p>
     </div>
   </div>
 </footer>
 
-<div class="search-overlay" id="searchOverlay">
-  <button class="search-close-btn" id="searchClose" aria-label="Close search overlay">
-    <svg class="icon"><use href="#i-close"/></svg>
-  </button>
-  <div class="search-container">
-    <div class="search-field-row">
-      <svg class="icon"><use href="#i-search"/></svg>
-      <input type="text" placeholder="Search divisions, news, resources..." class="search-input-field" id="searchInput" autofocus>
-    </div>
-    <p class="search-hint">Press Esc to close • Try exploring "Apex Drones" or "Corporate Governance"</p>
-  </div>
-</div>
 
-<script src="js/main.js" defer></script>
+<div id="modal-overlay" role="dialog" aria-modal="true" aria-label="Registration Form" onclick="closeModalOnOverlay(event)">
+  <div id="modal-box">
+
+    <div class="modal-drag-handle"></div>
+
+    <div class="modal-hdr">
+      <div class="flex-1 min-w-0">
+        <p class="font-barlow text-white/45 text-xs uppercase tracking-wider mb-3" style="letter-spacing:0.12em;">Yendada Marathon 2026 — Registration</p>
+        <div class="flex items-center gap-1">
+          <div class="flex flex-col items-center">
+            <div class="step-bubble active" id="sb1">1</div>
+            <span class="step-lbl" id="sl1">Info</span>
+          </div>
+          <div class="step-line" id="line12"></div>
+          <div class="flex flex-col items-center">
+            <div class="step-bubble inactive" id="sb2">2</div>
+            <span class="step-lbl" id="sl2">Category</span>
+          </div>
+          <div class="step-line" id="line23"></div>
+          <div class="flex flex-col items-center">
+            <div class="step-bubble inactive" id="sb3">3</div>
+            <span class="step-lbl" id="sl3">Payment</span>
+          </div>
+        </div>
+      </div>
+      <button class="modal-close ml-3 mt-1" onclick="closeModal()" aria-label="Close modal">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+
+    <div id="step1" class="p-7">
+      <h3 class="font-barlow text-2xl font-800 uppercase mb-1" style="color:#0F2044;font-size:1.5rem;font-weight:800;letter-spacing:0.04em;">Runner Information</h3>
+      <p class="text-gray-400 text-sm mb-5">Tell us about yourself. All fields are required.</p>
+
+      <div class="f-group">
+        <label class="f-label">Full Name</label>
+        <input type="text" id="f-name" class="f-input" placeholder="e.g. Arjun Reddy" autocomplete="name"/>
+        <p class="f-err" id="err-name">Please enter your full name.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="f-group">
+          <label class="f-label">Email Address</label>
+          <input type="email" id="f-email" class="f-input" placeholder="you@email.com" autocomplete="email"/>
+          <p class="f-err" id="err-email">Enter a valid email.</p>
+        </div>
+        <div class="f-group">
+          <label class="f-label">Phone Number</label>
+          <input type="tel" id="f-phone" class="f-input" placeholder="+91 98765 43210" autocomplete="tel"/>
+          <p class="f-err" id="err-phone">Enter a valid phone number.</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="f-group">
+          <label class="f-label">Age</label>
+          <input type="number" id="f-age" class="f-input" placeholder="e.g. 28" min="4" max="80"/>
+          <p class="f-err" id="err-age">Enter your age (4–80).</p>
+        </div>
+        <div class="f-group">
+          <label class="f-label">Gender</label>
+          <select id="f-gender" class="f-input">
+            <option value="">Select…</option>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Non-binary</option>
+            <option>Prefer not to say</option>
+          </select>
+          <p class="f-err" id="err-gender">Please select a gender.</p>
+        </div>
+      </div>
+
+      <div class="f-group">
+        <label class="f-label">City / Town</label>
+        <input type="text" id="f-city" class="f-input" placeholder="e.g. Visakhapatnam" autocomplete="address-level2"/>
+        <p class="f-err" id="err-city">Please enter your city.</p>
+      </div>
+
+      <button onclick="goToStep2()" class="btn-modal-primary mt-2">
+        Continue to Category Selection
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </button>
+    </div>
+
+    <div id="step2" class="p-7 hidden">
+      <h3 class="font-barlow text-2xl font-800 uppercase mb-1" style="color:#0F2044;font-size:1.5rem;font-weight:800;letter-spacing:0.04em;">Category & Kit Details</h3>
+      <p class="text-gray-400 text-sm mb-5">Select your race category and preferred T-shirt size.</p>
+
+      <div class="f-group">
+        <label class="f-label">Race Category</label>
+        <div class="space-y-2">
+          <div class="cat-choice" id="cc-2k" onclick="selectCat(this,'2K – Fun Run', '₹999999')">
+            <div class="cat-choice-radio"></div>
+            <div>
+              <p class="font-semibold text-sm" style="color:#0F2044;">2K — Fun Run</p>
+              <p class="text-xs text-gray-400">Flag-off 07:30 AM  ·  ₹999999</p>
+            </div>
+          </div>
+          <div class="cat-choice" id="cc-5k" onclick="selectCat(this,'5K – Fit India Run', '₹999999')">
+            <div class="cat-choice-radio"></div>
+            <div>
+              <p class="font-semibold text-sm" style="color:#0F2044;">5K — Fit India Run</p>
+              <p class="text-xs text-gray-400">Flag-off 06:30 AM  ·  ₹999999</p>
+            </div>
+          </div>
+          <div class="cat-choice" id="cc-10k" onclick="selectCat(this,'10K – Endurance Run', '₹999999')">
+            <div class="cat-choice-radio"></div>
+            <div>
+              <p class="font-semibold text-sm" style="color:#0F2044;">10K — Endurance Run</p>
+              <p class="text-xs text-gray-400">Flag-off 05:45 AM  ·  ₹999999</p>
+            </div>
+          </div>
+        </div>
+        <p class="f-err" id="err-cat">Please select a category.</p>
+      </div>
+
+      <div class="f-group mt-4">
+        <label class="f-label">T-Shirt Size</label>
+        <div class="flex flex-wrap gap-2 mt-1">
+          <button class="size-pill" onclick="selectSize(this,'XS')">XS</button>
+          <button class="size-pill" onclick="selectSize(this,'S')">S</button>
+          <button class="size-pill" onclick="selectSize(this,'M')">M</button>
+          <button class="size-pill" onclick="selectSize(this,'L')">L</button>
+          <button class="size-pill" onclick="selectSize(this,'XL')">XL</button>
+          <button class="size-pill" onclick="selectSize(this,'XXL')">XXL</button>
+        </div>
+        <p class="f-err" id="err-size">Please select a T-shirt size.</p>
+      </div>
+
+      <div class="f-group mt-2">
+        <label class="f-label">Emergency Contact Name & Number</label>
+        <input type="text" id="f-emg" class="f-input" placeholder="e.g. Priya Reddy — +91 90000 12345"/>
+        <p class="f-err" id="err-emg">Please provide an emergency contact.</p>
+      </div>
+
+      <div class="f-group">
+        <label class="f-label">Medical Conditions (optional)</label>
+        <textarea id="f-med" class="f-input" rows="2" placeholder="Any conditions race organisers should be aware of…" style="resize:none;"></textarea>
+      </div>
+
+      <div class="modal-btn-row flex gap-3 mt-4">
+        <button onclick="backToStep1()" class="btn-modal-ghost" style="width:auto;padding:12px 20px;white-space:nowrap;">← Back</button>
+        <button onclick="goToStep3()" class="btn-modal-primary flex-1">
+          Review & Pay
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="step3" class="p-7 hidden">
+      <h3 class="font-barlow text-2xl font-800 uppercase mb-1" style="color:#0F2044;font-size:1.5rem;font-weight:800;letter-spacing:0.04em;">Order Summary</h3>
+      <p class="text-gray-400 text-sm mb-5">Review your registration details before payment.</p>
+
+      <div class="rounded-md overflow-hidden border border-gray-100 mb-5" id="summary-card">
+        <div style="background:#0F2044;padding:14px 18px;">
+          <p class="font-barlow text-white text-lg font-700 uppercase" style="letter-spacing:0.06em;">Yendada Marathon 2026</p>
+          <p class="text-white/45 text-xs">Yendada Junction, Visakhapatnam · 26 July 2026</p>
+        </div>
+        <div class="px-4 py-2">
+          <div class="summary-row"><span>Runner</span><span id="sum-name">—</span></div>
+          <div class="summary-row"><span>Category</span><span id="sum-cat">—</span></div>
+          <div class="summary-row"><span>T-Shirt</span><span id="sum-size">—</span></div>
+          <div class="summary-row"><span>Email</span><span id="sum-email" style="font-size:0.8rem;">—</span></div>
+          <div class="summary-row" style="background:#FFF9F5;margin:0 -16px;padding:10px 16px;border-top:1px solid rgba(224,92,26,0.15);">
+            <span style="font-weight:600;">Registration Fee</span>
+            <span id="sum-fee" style="color:#E05C1A;font-size:1.1rem;font-weight:700;">—</span>
+          </div>
+        </div>
+      </div>
+
+      <label class="flex items-start gap-3 mb-4 cursor-pointer">
+        <input type="checkbox" id="f-tc" style="margin-top:3px;accent-color:#E05C1A;width:16px;height:16px;flex-shrink:0;"/>
+        <span class="text-xs text-gray-500 leading-relaxed">I agree to the <a href="#" style="color:#E05C1A;">Terms & Conditions</a> and confirm that the information provided is accurate. I understand that registration fees are non-refundable.</span>
+      </label>
+      <p class="f-err" id="err-tc">Please accept the Terms & Conditions to proceed.</p>
+
+      <div class="modal-btn-row flex gap-3 mt-3">
+        <button onclick="backToStep2()" class="btn-modal-ghost" style="width:auto;padding:12px 20px;white-space:nowrap;">← Back</button>
+        <button onclick="submitPayment()" class="btn-modal-primary flex-1">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+          Pay Now — <span id="btn-pay-amount">₹0</span>
+        </button>
+      </div>
+    </div>
+
+    <div id="step4" class="p-7 hidden text-center">
+      <div class="relative inline-block mb-5">
+        <div id="confetti-wrap" class="absolute inset-0 pointer-events-none overflow-visible" style="width:100%;height:100%;"></div>
+        <div class="check-anim check-anim-wrap" style="width:80px;height:80px;border-radius:50%;background:#E05C1A;display:flex;align-items:center;justify-content:center;margin:0 auto;">
+          <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+      </div>
+
+      <h3 class="font-barlow font-900 uppercase mb-2" style="color:#0F2044;font-size:1.8rem;font-weight:900;letter-spacing:0.05em;">You're Registered! 🎉</h3>
+      <p class="text-gray-400 text-sm mb-5">Confirmation sent to <strong id="succ-email" style="color:#0F2044;word-break:break-all;"></strong>. Get ready to Run with the Ocean Breeze!</p>
+
+      <div style="background:#F4F6FB;border-radius:6px;padding:16px;text-align:left;margin-bottom:20px;">
+        <div class="summary-row"><span>Confirmation #</span><span id="succ-conf" style="color:#E05C1A;font-weight:700;"></span></div>
+        <div class="summary-row"><span>Runner</span><span id="succ-name"></span></div>
+        <div class="summary-row"><span>Category</span><span id="succ-cat"></span></div>
+        <div class="summary-row"><span>Date</span><span>26 July 2026 · Yendada Junction</span></div>
+      </div>
+
+      <p class="text-xs text-gray-400 mb-5 leading-relaxed">Your BIB and race kit will be available at the pre-race expo. We'll send detailed instructions closer to race day. <strong>See you on the track!</strong></p>
+
+      <button onclick="closeModal()" class="btn-modal-primary">
+        Done — Close
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+      </button>
+    </div>
+
+  </div></div><script>
+/* ══════════════════════════════════
+   STATE
+══════════════════════════════════ */
+let selectedCategory    = null;
+let selectedCategoryFee = null;
+let selectedSize        = null;
+let currentStep         = 1;
+const RACE_DATE = new Date('2026-07-26T04:00:00');
+
+/* ══════════════════════════════════
+   NAVBAR SCROLL EFFECT
+══════════════════════════════════ */
+const navbar = document.getElementById('navbar');
+function handleScroll() {
+  navbar.classList.toggle('scrolled', window.scrollY > 60);
+}
+window.addEventListener('scroll', handleScroll, { passive: true });
+handleScroll();
+
+/* ══════════════════════════════════
+   MOBILE MENU
+══════════════════════════════════ */
+const mobMenu  = document.getElementById('mob-menu');
+const hamOpen  = document.getElementById('ham-open');
+const hamClose = document.getElementById('ham-close');
+let menuOpen   = false;
+
+function toggleMobMenu() {
+  menuOpen = !menuOpen;
+  mobMenu.classList.toggle('open', menuOpen);
+  hamOpen.classList.toggle('hidden', menuOpen);
+  hamClose.classList.toggle('hidden', !menuOpen);
+}
+function closeMobMenu() {
+  menuOpen = false;
+  mobMenu.classList.remove('open');
+  hamOpen.classList.remove('hidden');
+  hamClose.classList.add('hidden');
+}
+
+/* ══════════════════════════════════
+   ACTIVE NAV LINK ON SCROLL
+══════════════════════════════════ */
+const sections = ['home','races','route','timeline','gallery','faq'];
+const navLinks = document.querySelectorAll('.nav-link');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#'+e.target.id));
+    }
+  });
+}, { threshold: 0.4 });
+sections.forEach(id => { const el = document.getElementById(id); if (el) observer.observe(el); });
+
+/* ══════════════════════════════════
+   COUNTDOWN TIMER
+══════════════════════════════════ */
+function pad(n) { return String(n).padStart(2,'0'); }
+function updateCountdown() {
+  const diff = RACE_DATE - new Date();
+  if (diff <= 0) {
+    ['days','hrs','min','sec'].forEach(id => document.getElementById('cd-'+id).textContent = '00');
+    return;
+  }
+  document.getElementById('cd-days').textContent = pad(Math.floor(diff / 86400000));
+  document.getElementById('cd-hrs').textContent  = pad(Math.floor((diff % 86400000) / 3600000));
+  document.getElementById('cd-min').textContent  = pad(Math.floor((diff % 3600000) / 60000));
+  document.getElementById('cd-sec').textContent  = pad(Math.floor((diff % 60000) / 1000));
+}
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+/* ══════════════════════════════════
+   ROUTE MAP TABS
+══════════════════════════════════ */
+function switchMap(tab, panelId) {
+  document.querySelectorAll('.map-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.map-panel').forEach(p => p.classList.remove('active'));
+  tab.classList.add('active');
+  document.getElementById(panelId).classList.add('active');
+}
+
+/* ══════════════════════════════════
+   FAQ ACCORDION
+══════════════════════════════════ */
+function toggleFAQ(btn) {
+  const item    = btn.closest('.faq-item');
+  const content = item.querySelector('.faq-content');
+  const arrow   = btn.querySelector('.faq-arrow');
+  const isOpen  = item.classList.contains('open');
+
+  document.querySelectorAll('.faq-item.open').forEach(openItem => {
+    openItem.classList.remove('open');
+    openItem.querySelector('.faq-content').classList.remove('open');
+    openItem.querySelector('.faq-arrow').classList.remove('rot');
+  });
+
+  if (!isOpen) {
+    item.classList.add('open');
+    content.classList.add('open');
+    arrow.classList.add('rot');
+  }
+}
+
+/* ══════════════════════════════════
+   SCROLL REVEAL
+══════════════════════════════════ */
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); revealObs.unobserve(e.target); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+/* ══════════════════════════════════
+   MODAL OPEN / CLOSE
+══════════════════════════════════ */
+const modalOverlay = document.getElementById('modal-overlay');
+const modalBox     = document.getElementById('modal-box');
+
+function openModal(preselected) {
+  resetModal();
+  if (preselected) {
+    const map = {
+      '2K – Fun Run':        { id:'cc-2k',  fee:'₹199' },
+      '5K – Fit India Run':  { id:'cc-5k',  fee:'₹299' },
+      '10K – Endurance Run': { id:'cc-10k', fee:'₹399' },
+    };
+    if (map[preselected]) {
+      const { id, fee } = map[preselected];
+      selectedCategory    = preselected;
+      selectedCategoryFee = fee;
+      document.getElementById(id).classList.add('sel');
+    }
+  }
+  modalOverlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  modalOverlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function closeModalOnOverlay(e) {
+  if (e.target === modalOverlay) closeModal();
+}
+
+function resetModal() {
+  currentStep = 1;
+  selectedCategory    = null;
+  selectedCategoryFee = null;
+  selectedSize        = null;
+  ['step1','step2','step3','step4'].forEach((id,i) => {
+    document.getElementById(id).classList.toggle('hidden', i !== 0);
+  });
+  updateStepIndicators(1);
+  ['f-name','f-email','f-phone','f-city','f-emg','f-med'].forEach(id => {
+    const el = document.getElementById(id); if (el) el.value = '';
+  });
+  ['f-age','f-gender'].forEach(id => { const el = document.getElementById(id); if (el) el.value = ''; });
+  document.getElementById('f-tc').checked = false;
+  document.querySelectorAll('.f-input.err').forEach(el => el.classList.remove('err'));
+  document.querySelectorAll('.f-err.show').forEach(el => el.classList.remove('show'));
+  document.querySelectorAll('.cat-choice.sel').forEach(c => c.classList.remove('sel'));
+  document.querySelectorAll('.size-pill.sel').forEach(s => s.classList.remove('sel'));
+}
+
+/* ══════════════════════════════════
+   STEP NAVIGATION
+══════════════════════════════════ */
+function updateStepIndicators(step) {
+  for (let i = 1; i <= 3; i++) {
+    const bubble = document.getElementById('sb'+i);
+    if (i < step) {
+      bubble.className = 'step-bubble done';
+      bubble.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>';
+    } else if (i === step) {
+      bubble.className = 'step-bubble active'; bubble.textContent = i;
+    } else {
+      bubble.className = 'step-bubble inactive'; bubble.textContent = i;
+    }
+  }
+  document.getElementById('line12').classList.toggle('done', step > 1);
+  document.getElementById('line23').classList.toggle('done', step > 2);
+}
+
+function showError(inputId, errId) {
+  const inp = document.getElementById(inputId);
+  const err = document.getElementById(errId);
+  if (inp) inp.classList.add('err');
+  if (err) err.classList.add('show');
+}
+function clearError(inputId, errId) {
+  const inp = document.getElementById(inputId);
+  const err = document.getElementById(errId);
+  if (inp) inp.classList.remove('err');
+  if (err) err.classList.remove('show');
+}
+
+function goToStep2() {
+  let valid = true;
+  const name   = document.getElementById('f-name').value.trim();
+  const email  = document.getElementById('f-email').value.trim();
+  const phone  = document.getElementById('f-phone').value.trim();
+  const age    = document.getElementById('f-age').value;
+  const gender = document.getElementById('f-gender').value;
+  const city   = document.getElementById('f-city').value.trim();
+
+  ['f-name','f-email','f-phone','f-age','f-gender','f-city'].forEach(id => clearError(id, 'err-'+id.replace('f-','')));
+
+  if (!name)                                            { showError('f-name','err-name');   valid=false; }
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showError('f-email','err-email'); valid=false; }
+  if (!phone || phone.length < 7)                       { showError('f-phone','err-phone'); valid=false; }
+  if (!age || age < 4 || age > 80)                      { showError('f-age','err-age');     valid=false; }
+  if (!gender)                                          { showError('f-gender','err-gender');valid=false; }
+  if (!city)                                            { showError('f-city','err-city');    valid=false; }
+
+  if (!valid) return;
+  document.getElementById('step1').classList.add('hidden');
+  document.getElementById('step2').classList.remove('hidden');
+  currentStep = 2; updateStepIndicators(2); modalBox.scrollTop = 0;
+}
+
+function backToStep1() {
+  document.getElementById('step2').classList.add('hidden');
+  document.getElementById('step1').classList.remove('hidden');
+  currentStep = 1; updateStepIndicators(1); modalBox.scrollTop = 0;
+}
+
+function goToStep3() {
+  let valid = true;
+  document.getElementById('err-cat').classList.remove('show');
+  document.getElementById('err-size').classList.remove('show');
+  clearError('f-emg','err-emg');
+
+  if (!selectedCategory) { document.getElementById('err-cat').classList.add('show');  valid=false; }
+  if (!selectedSize)      { document.getElementById('err-size').classList.add('show'); valid=false; }
+  const emg = document.getElementById('f-emg').value.trim();
+  if (!emg) { showError('f-emg','err-emg'); valid=false; }
+  if (!valid) return;
+
+  document.getElementById('sum-name').textContent  = document.getElementById('f-name').value.trim();
+  document.getElementById('sum-cat').textContent   = selectedCategory;
+  document.getElementById('sum-size').textContent  = selectedSize;
+  document.getElementById('sum-email').textContent = document.getElementById('f-email').value.trim();
+  document.getElementById('sum-fee').textContent   = selectedCategoryFee;
+  document.getElementById('btn-pay-amount').textContent = selectedCategoryFee;
+
+  document.getElementById('step2').classList.add('hidden');
+  document.getElementById('step3').classList.remove('hidden');
+  currentStep = 3; updateStepIndicators(3); modalBox.scrollTop = 0;
+}
+
+function backToStep2() {
+  document.getElementById('step3').classList.add('hidden');
+  document.getElementById('step2').classList.remove('hidden');
+  currentStep = 2; updateStepIndicators(2); modalBox.scrollTop = 0;
+}
+
+async function submitPayment() {
+  document.getElementById('err-tc').classList.remove('show');
+  if (!document.getElementById('f-tc').checked) {
+    document.getElementById('err-tc').classList.add('show'); return;
+  }
+
+  const payBtn = document.querySelector('#step3 .btn-modal-primary');
+  const origBtnHTML = payBtn.innerHTML;
+  payBtn.disabled = true;
+  payBtn.innerHTML = `<span class="spin"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M21 12a9 9 0 11-6.22-8.56"/></svg></span> Processing…`;
+
+  const userData = {
+    name:             document.getElementById('f-name').value.trim(),
+    email:            document.getElementById('f-email').value.trim(),
+    phone:            document.getElementById('f-phone').value.trim(),
+    age:              document.getElementById('f-age').value,
+    gender:           document.getElementById('f-gender').value,
+    city:             document.getElementById('f-city').value.trim(),
+    category:         selectedCategory,
+    tshirtSize:       selectedSize,
+    emergencyContact: document.getElementById('f-emg').value.trim(),
+    amount:           parseInt((selectedCategoryFee || '0').replace(/[^0-9]/g, ''), 10),
+  };
+
+  function resetBtn() { payBtn.disabled = false; payBtn.innerHTML = origBtnHTML; }
+
+  try {
+    const orderRes = await fetch('/api/create-order', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        amount: userData.amount, currency: 'INR', receipt: 'ym_' + Date.now(),
+        notes: { name: userData.name, email: userData.email, category: userData.category },
+      }),
+    });
+    if (!orderRes.ok) { const err = await orderRes.json().catch(()=>({})); throw new Error(err.error || 'Could not create order'); }
+    const order = await orderRes.json();
+
+    const rzpOptions = {
+      key:         order.key_id,
+      amount:      order.amount,
+      currency:    order.currency,
+      name:        'Yendada Marathon 2026',
+      description: userData.category,
+      order_id:    order.id,
+      prefill:     { name: userData.name, email: userData.email, contact: userData.phone },
+      notes:       { category: userData.category, tshirt_size: userData.tshirtSize, city: userData.city },
+      theme:       { color: '#E05C1A' },
+
+      handler: async function(response) {
+        try {
+          const verifyRes = await fetch('/api/verify-payment', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              razorpay_order_id:   response.razorpay_order_id,
+              razorpay_payment_id: response.razorpay_payment_id,
+              razorpay_signature:  response.razorpay_signature,
+              userData,
+            }),
+          });
+          const result = await verifyRes.json();
+          if (!verifyRes.ok || !result.success) throw new Error(result.error || 'Verification failed');
+
+          document.getElementById('step3').classList.add('hidden');
+          document.getElementById('step4').classList.remove('hidden');
+          updateStepIndicators(4);
+          modalBox.scrollTop = 0;
+
+          const confNum = 'YM2026-' + response.razorpay_payment_id.slice(-6).toUpperCase();
+          document.getElementById('succ-conf').textContent  = confNum;
+          document.getElementById('succ-name').textContent  = userData.name;
+          document.getElementById('succ-cat').textContent   = userData.category;
+          document.getElementById('succ-email').textContent = userData.email;
+          spawnConfetti();
+
+        } catch (verifyErr) {
+          console.error('Verification error:', verifyErr);
+          alert('Your payment was received but we could not confirm automatically.\n\nPayment ID: ' + response.razorpay_payment_id + '\n\nPlease email us at support@yendadamarathon.in');
+          resetBtn();
+        }
+      },
+
+      modal: { ondismiss: function() { resetBtn(); } },
+    };
+
+    const rzp = new Razorpay(rzpOptions);
+    rzp.on('payment.failed', function(response) {
+      console.error('Payment failed:', response.error);
+      alert('Payment failed: ' + (response.error.description || 'Please try again.'));
+      resetBtn();
+    });
+    rzp.open();
+
+  } catch (err) {
+    console.error('submitPayment error:', err);
+    alert('Something went wrong: ' + err.message + '\nPlease try again.');
+    resetBtn();
+  }
+}
+
+/* ══════════════════════════════════
+   CATEGORY & SIZE SELECTION
+══════════════════════════════════ */
+function selectCat(el, catName, fee) {
+  document.querySelectorAll('.cat-choice').forEach(c => c.classList.remove('sel'));
+  el.classList.add('sel');
+  selectedCategory    = catName;
+  selectedCategoryFee = fee;
+  document.getElementById('err-cat').classList.remove('show');
+}
+
+function selectSize(el, size) {
+  document.querySelectorAll('.size-pill').forEach(p => p.classList.remove('sel'));
+  el.classList.add('sel');
+  selectedSize = size;
+  document.getElementById('err-size').classList.remove('show');
+}
+
+/* ══════════════════════════════════
+   CONFETTI
+══════════════════════════════════ */
+function spawnConfetti() {
+  const wrap = document.getElementById('confetti-wrap');
+  wrap.innerHTML = '';
+  const colors = ['#E05C1A','#F07030','#0F2044','#3B82F6','#FBBF24','#10B981'];
+  for (let i = 0; i < 24; i++) {
+    const p = document.createElement('div');
+    p.className = 'conf-piece';
+    p.style.cssText = `left:${Math.random()*100}%;top:${Math.random()*30}%;background:${colors[Math.floor(Math.random()*colors.length)]};border-radius:${Math.random()>0.5?'50%':'2px'};--dur:${0.9+Math.random()*0.8}s;--del:${Math.random()*0.5}s;`;
+    wrap.appendChild(p);
+  }
+}
+
+/* ══════════════════════════════════
+   KEYBOARD + SMOOTH SCROLL
+══════════════════════════════════ */
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.getElementById(a.getAttribute('href').substring(1));
+    if (target) { e.preventDefault(); window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' }); }
+  });
+});
+
+/* ══════════════════════════════════
+   REAL-TIME ERROR CLEAR
+══════════════════════════════════ */
+['f-name','f-email','f-phone','f-age','f-city','f-emg'].forEach(id => {
+  const el = document.getElementById(id);
+  if (el) el.addEventListener('input', () => {
+    el.classList.remove('err');
+    const errEl = document.getElementById('err-' + id.replace('f-',''));
+    if (errEl) errEl.classList.remove('show');
+  });
+});
+
+/* ══════════════════════════════════
+   LIGHTBOX INTERACTIVE CONTROLLER
+══════════════════════════════════ */
+function openLightbox(cardElement) {
+  const overlay = document.getElementById('lightbox-overlay');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxCaption = document.getElementById('lightbox-caption');
+  
+  const targetImg = cardElement.querySelector('img');
+  
+  lightboxImg.src = targetImg.src;
+  lightboxImg.alt = targetImg.alt;
+  lightboxCaption.textContent = targetImg.alt || "Yendada Marathon Event Image";
+  
+  overlay.classList.remove('hidden');
+  document.body.style.overflow = 'hidden'; 
+  
+  setTimeout(() => {
+    overlay.classList.add('opacity-100');
+    lightboxImg.classList.remove('scale-95');
+    lightboxImg.classList.add('scale-100');
+  }, 20);
+}
+
+function closeLightbox() {
+  const overlay = document.getElementById('lightbox-overlay');
+  const lightboxImg = document.getElementById('lightbox-img');
+  
+  overlay.classList.remove('opacity-100');
+  lightboxImg.classList.remove('scale-100');
+  lightboxImg.classList.add('scale-95');
+  
+  setTimeout(() => {
+    overlay.classList.add('hidden');
+    
+    if (!document.getElementById('modal-overlay').classList.contains('open')) {
+      document.body.style.overflow = '';
+    }
+  }, 300);
+}
+
+document.addEventListener('keydown', e => { 
+  if (e.key === 'Escape') {
+    closeLightbox(); 
+  }
+});
+</script>
+
 </body>
 </html>
